@@ -317,7 +317,7 @@ namespace PhotoEditor
                     break;
             }
 
-            RedrawImageSet();
+            RedrawMainImage();
         }
 
         public void RedrawMainImage()
