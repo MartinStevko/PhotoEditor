@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ColorFilters.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="Processes.cs" />
     <Compile Include="Math.cs" />
     <Compile Include="Engine.cs" />

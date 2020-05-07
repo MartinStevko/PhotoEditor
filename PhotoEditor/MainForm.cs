@@ -390,5 +390,60 @@ namespace PhotoEditor
         #endregion
 
         #endregion
+
+        #region Image setting controls
+
+        #region Control values synchronization
+
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            int value = trackBar1.Value;
+            numericUpDown1.Value = value;
+            OnSyncValues(ImageModification.Saturation, value);
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            int value = (int)numericUpDown1.Value;
+            trackBar1.Value = value;
+            OnSyncValues(ImageModification.Saturation, value);
+        }
+
+        private void trackBar2_ValueChanged(object sender, EventArgs e)
+        {
+            int value = trackBar2.Value;
+            numericUpDown2.Value = value;
+            OnSyncValues(ImageModification.Brightness, value);
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            int value = (int)numericUpDown2.Value;
+            trackBar2.Value = value;
+            OnSyncValues(ImageModification.Brightness, value);
+        }
+
+        private void trackBar3_ValueChanged(object sender, EventArgs e)
+        {
+            int value = trackBar3.Value;
+            numericUpDown3.Value = value;
+            OnSyncValues(ImageModification.Clarity, value);
+        }
+
+        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        {
+            int value = (int)numericUpDown3.Value;
+            trackBar3.Value = value;
+            OnSyncValues(ImageModification.Clarity, value);
+        }
+
+        #endregion
+
+        private void OnSyncValues(ImageModification mod, int newValue)
+        {
+            
+        }
+
+        #endregion
     }
 }
