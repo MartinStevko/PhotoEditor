@@ -45,20 +45,6 @@ namespace PhotoEditor
             thumbRectangle = new Rectangle(0, 0, 0, 0);
         }
 
-        public static Tuple<int, int> PreserveAspectRation(int width, int height, int pWidth, int pHeight)
-        {
-            double xRatio = (double)width / (double)pWidth;
-            double yRatio = (double)height / (double)pHeight;
-            if (xRatio > yRatio)
-            {
-                return new Tuple<int, int>((int)(pWidth * yRatio), (int)(pHeight * yRatio));
-            }
-            else
-            {
-                return new Tuple<int, int>((int)(pWidth * xRatio), (int)(pHeight * xRatio));
-            }
-        }
-
         public void Load(string file, int width, int height, int thumbWidth, int thumbHeight)
         {
             Image source = Image.FromFile(file);
@@ -90,15 +76,16 @@ namespace PhotoEditor
 
             image = origin.Clone(rectangle, origin.PixelFormat);
 
-            thumb = ResizeToThumbnail();
+            thumb = Resize(true);
             thumbRed = CopyThumbnailWithFilter(ColorFilters.RedFilter);
             thumbGreen = CopyThumbnailWithFilter(ColorFilters.GreenFilter);
             thumbBlue = CopyThumbnailWithFilter(ColorFilters.BlueFilter);
         }
 
-        private Bitmap ResizeToThumbnail()
+        private Bitmap Resize(bool toThumbnail)
         {
-            Bitmap t = new Bitmap(thumbRectangle.Width, thumbRectangle.Height);
+            Rectangle r = toThumbnail ? thumbRectangle : rectangle;
+            Bitmap t = new Bitmap(r.Width, r.Height);
             t.SetResolution(image.HorizontalResolution, image.VerticalResolution);
 
             using (Graphics graphics = Graphics.FromImage(t))
@@ -112,8 +99,40 @@ namespace PhotoEditor
                 using (ImageAttributes wrapMode = new ImageAttributes())
                 {
                     wrapMode.SetWrapMode(WrapMode.TileFlipXY);
-                    graphics.DrawImage(image, thumbRectangle, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
+                    graphics.DrawImage(image, r, 0, 0, image.Width, image.Height, GraphicsUnit.Pixel, wrapMode);
                 }
+            }
+
+            return t;
+        }
+
+        public Bitmap ShowWithFilter(ColorMixer mixer)
+        {
+            Bitmap t = image.Clone(rectangle, image.PixelFormat);
+
+            unsafe
+            {
+                BitmapData tData = t.LockBits(rectangle, ImageLockMode.ReadWrite, t.PixelFormat);
+
+                int bytesPerPixel = Bitmap.GetPixelFormatSize(t.PixelFormat) / 8;
+                int heightInPixels = tData.Height;
+                int widthInBytes = tData.Width * bytesPerPixel;
+                byte* ptrFirstPixel = (byte*)tData.Scan0;
+
+                Parallel.For(0, heightInPixels, y =>
+                {
+                    byte* currentLine = ptrFirstPixel + (y * tData.Stride);
+                    for (int x = 0; x < widthInBytes; x = x + bytesPerPixel)
+                    {
+                        (byte red, byte green, byte blue) = mixer(currentLine[x + 2], currentLine[x + 1], currentLine[x]);
+
+                        currentLine[x] = blue;
+                        currentLine[x + 1] = green;
+                        currentLine[x + 2] = red;
+                    }
+                });
+
+                t.UnlockBits(tData);
             }
 
             return t;
@@ -151,36 +170,18 @@ namespace PhotoEditor
             return t;
         }
 
-        public Bitmap ShowWithFilter(ColorMixer mixer)
+        public static Tuple<int, int> PreserveAspectRation(int width, int height, int pWidth, int pHeight)
         {
-            Bitmap t = image.Clone(rectangle, image.PixelFormat);
-
-            unsafe
+            double xRatio = (double)width / (double)pWidth;
+            double yRatio = (double)height / (double)pHeight;
+            if (xRatio > yRatio)
             {
-                BitmapData tData = t.LockBits(rectangle, ImageLockMode.ReadWrite, t.PixelFormat);
-
-                int bytesPerPixel = Bitmap.GetPixelFormatSize(t.PixelFormat) / 8;
-                int heightInPixels = tData.Height;
-                int widthInBytes = tData.Width * bytesPerPixel;
-                byte* ptrFirstPixel = (byte*)tData.Scan0;
-
-                Parallel.For(0, heightInPixels, y =>
-                {
-                    byte* currentLine = ptrFirstPixel + (y * tData.Stride);
-                    for (int x = 0; x < widthInBytes; x = x + bytesPerPixel)
-                    {
-                        (byte red, byte green, byte blue) = mixer(currentLine[x + 2], currentLine[x + 1], currentLine[x]);
-
-                        currentLine[x] = blue;
-                        currentLine[x + 1] = green;
-                        currentLine[x + 2] = red;
-                    }
-                });
-
-                t.UnlockBits(tData);
+                return new Tuple<int, int>((int)(pWidth * yRatio), (int)(pHeight * yRatio));
             }
-
-            return t;
+            else
+            {
+                return new Tuple<int, int>((int)(pWidth * xRatio), (int)(pHeight * xRatio));
+            }
         }
 
         /// <summary>

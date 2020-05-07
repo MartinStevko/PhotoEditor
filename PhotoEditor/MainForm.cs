@@ -64,76 +64,6 @@ namespace PhotoEditor
 
         #endregion
 
-        #region Image view controls
-
-        /// <summary>
-        /// Changes main image for some other miniature
-        /// </summary>
-        /// <param name="button">Miniature which should be shown</param>
-        private void ChangePreview()
-        {
-            button3.BackColor = toolGrey;
-            button4.BackColor = toolGrey;
-            button5.BackColor = toolGrey;
-            button6.BackColor = toolGrey;
-
-            switch (imageSet.imageMode)
-            {
-                case ImageMode.Full:
-                    button3.BackColor = pictureGrey;
-                    break;
-                case ImageMode.Red:
-                    button4.BackColor = pictureGrey;
-                    break;
-                case ImageMode.Green:
-                    button5.BackColor = pictureGrey;
-                    break;
-                case ImageMode.Blue:
-                    button6.BackColor = pictureGrey;
-                    break;
-            }
-
-            RedrawImageSet();
-        }
-
-        /// <summary>
-        /// Maximize miniature with all colors
-        /// </summary>
-        private void button3_Click(object sender, EventArgs e)
-        {
-            imageSet.imageMode = ImageMode.Full;
-            ChangePreview();
-        }
-
-        /// <summary>
-        /// Maximize miniature with red color
-        /// </summary>
-        private void button4_Click(object sender, EventArgs e)
-        {
-            imageSet.imageMode = ImageMode.Red;
-            ChangePreview();
-        }
-
-        /// <summary>
-        /// Maximize miniature with green color
-        /// </summary>
-        private void button5_Click(object sender, EventArgs e)
-        {
-            imageSet.imageMode = ImageMode.Green;
-            ChangePreview();
-        }
-
-        /// <summary>
-        /// Maximize miniature with blue color
-        /// </summary>
-        private void button6_Click(object sender, EventArgs e)
-        {
-            imageSet.imageMode = ImageMode.Blue;
-            ChangePreview();
-        }
-
-        #endregion
-
         #region Window management
 
         /// <summary>
@@ -329,6 +259,8 @@ namespace PhotoEditor
 
         #endregion
 
+        #region Image load control
+
         private void OpenNewImage()
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -351,6 +283,40 @@ namespace PhotoEditor
                 button3.Width - 26,
                 button3.Height - 10
             );
+            RedrawImageSet();
+        }
+
+        #endregion
+
+        #region Image view controls
+
+        /// <summary>
+        /// Changes main image for some other miniature
+        /// </summary>
+        /// <param name="button">Miniature which should be shown</param>
+        private void ChangePreview()
+        {
+            button3.BackColor = toolGrey;
+            button4.BackColor = toolGrey;
+            button5.BackColor = toolGrey;
+            button6.BackColor = toolGrey;
+
+            switch (imageSet.imageMode)
+            {
+                case ImageMode.Full:
+                    button3.BackColor = pictureGrey;
+                    break;
+                case ImageMode.Red:
+                    button4.BackColor = pictureGrey;
+                    break;
+                case ImageMode.Green:
+                    button5.BackColor = pictureGrey;
+                    break;
+                case ImageMode.Blue:
+                    button6.BackColor = pictureGrey;
+                    break;
+            }
+
             RedrawImageSet();
         }
 
@@ -377,5 +343,47 @@ namespace PhotoEditor
             button5.BackgroundImage = imageSet.thumbGreen;
             button6.BackgroundImage = imageSet.thumbBlue;
         }
+
+        #region Preview selection
+
+        /// <summary>
+        /// Maximize miniature with all colors
+        /// </summary>
+        private void button3_Click(object sender, EventArgs e)
+        {
+            imageSet.imageMode = ImageMode.Full;
+            ChangePreview();
+        }
+
+        /// <summary>
+        /// Maximize miniature with red color
+        /// </summary>
+        private void button4_Click(object sender, EventArgs e)
+        {
+            imageSet.imageMode = ImageMode.Red;
+            ChangePreview();
+        }
+
+        /// <summary>
+        /// Maximize miniature with green color
+        /// </summary>
+        private void button5_Click(object sender, EventArgs e)
+        {
+            imageSet.imageMode = ImageMode.Green;
+            ChangePreview();
+        }
+
+        /// <summary>
+        /// Maximize miniature with blue color
+        /// </summary>
+        private void button6_Click(object sender, EventArgs e)
+        {
+            imageSet.imageMode = ImageMode.Blue;
+            ChangePreview();
+        }
+
+        #endregion
+
+        #endregion
     }
 }
