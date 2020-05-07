@@ -320,7 +320,7 @@ namespace PhotoEditor
             RedrawImageSet();
         }
 
-        private void RedrawImageSet()
+        public void RedrawMainImage()
         {
             switch (imageSet.imageMode)
             {
@@ -337,6 +337,11 @@ namespace PhotoEditor
                     pictureBox2.Image = imageSet.image;
                     break;
             }
+        }
+
+        public void RedrawImageSet()
+        {
+            RedrawMainImage();
 
             button3.BackgroundImage = imageSet.thumb;
             button4.BackgroundImage = imageSet.thumbRed;
