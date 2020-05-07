@@ -6,10 +6,5 @@ using System.Threading.Tasks;
 
 namespace PhotoEditor
 {
-    public enum ImageModification
-    {
-        Saturation,
-        Brightness,
-        Clarity
-    }
+    
 }
