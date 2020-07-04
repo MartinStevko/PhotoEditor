@@ -436,18 +436,42 @@ namespace PhotoEditor
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)numericUpDown1.Value;
+            trackBar1.Value = value;
+            OnSyncValues(ImageModification.Saturation, value);
+        }
+
+        private void trackBar1_MouseUp(object sender, MouseEventArgs e)
+        {
+            int value = trackBar1.Value;
+            SetNumericUpDownValue(numericUpDown1, value);
             OnSyncValues(ImageModification.Saturation, value);
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)numericUpDown2.Value;
+            trackBar2.Value = value;
+            OnSyncValues(ImageModification.Brightness, value);
+        }
+
+        private void trackBar2_MouseUp(object sender, MouseEventArgs e)
+        {
+            int value = trackBar2.Value;
+            SetNumericUpDownValue(numericUpDown2, value);
             OnSyncValues(ImageModification.Brightness, value);
         }
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)numericUpDown3.Value;
+            trackBar3.Value = value;
+            OnSyncValues(ImageModification.Clarity, value);
+        }
+
+        private void trackBar3_MouseUp(object sender, MouseEventArgs e)
+        {
+            int value = trackBar3.Value;
+            SetNumericUpDownValue(numericUpDown3, value);
             OnSyncValues(ImageModification.Clarity, value);
         }
 
@@ -488,6 +512,22 @@ namespace PhotoEditor
             ImageTask task = new ColorInvert();
             taskControl.Add(task);
             taskControl.CheckAndProcess();
+        }
+
+        /// <summary>
+        /// Change two colors
+        /// </summary>
+        private void button24_Click(object sender, EventArgs e)
+        {
+            if ((comboBox1.SelectedItem != null) && (comboBox2.SelectedItem != null)) 
+            {
+                ImageTask task = new ColorChange(
+                    comboBox1.SelectedItem.ToString(),
+                    comboBox2.SelectedItem.ToString()
+                );
+                taskControl.Add(task);
+                taskControl.CheckAndProcess();
+            }
         }
 
         #endregion

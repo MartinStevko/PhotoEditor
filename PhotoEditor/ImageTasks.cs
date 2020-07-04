@@ -146,6 +146,59 @@ namespace PhotoEditor
         }
     }
 
+    public class ColorChange : ImageTask
+    {
+        private sbyte first;
+
+        private sbyte second;
+
+        public ColorChange(string first, string second) : base()
+        {
+            this.first = -1;
+            this.second = -1;
+            switch (first)
+            {
+                case "red":
+                    this.first = 0;
+                    break;
+                case "green":
+                    this.first = 1;
+                    break;
+                case "blue":
+                    this.first = 2;
+                    break;
+            }
+            switch (second)
+            {
+                case "red":
+                    this.second = 0;
+                    break;
+                case "green":
+                    this.second = 1;
+                    break;
+                case "blue":
+                    this.second = 2;
+                    break;
+            }
+        }
+
+        public override void Process(ImageSet iSet)
+        {
+            Tuple<byte, byte, byte> Changer(byte red, byte green, byte blue)
+            {
+                byte[] colors = new byte[] { red, green, blue };
+                byte temp = colors[first];
+                colors[first] = colors[second];
+                colors[second] = temp;
+
+                return new Tuple<byte, byte, byte>(colors[0], colors[1], colors[2]);
+            }
+
+            iSet.ProcessColor(Changer);
+            iSet.ProcessThumbnailColor(Changer);
+        }
+    }
+
     #endregion
 
     #region Layout tasks
