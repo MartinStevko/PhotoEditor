@@ -89,6 +89,21 @@ namespace PhotoEditor
             SetNumericUpDownValue(numericUpDown2, 0);
             imageSet.clarity = 0;
             SetNumericUpDownValue(numericUpDown3, 0);
+
+            trackBar1.Enabled = true;
+            trackBar2.Enabled = true;
+            trackBar3.Enabled = true;
+            numericUpDown1.Enabled = true;
+            numericUpDown2.Enabled = true;
+            numericUpDown3.Enabled = true;
+            button23.Enabled = true;
+            button24.Enabled = true;
+            button25.Enabled = true;
+            button26.Enabled = true;
+            button27.Enabled = true;
+
+            button11.Enabled = true;
+            button12.Enabled = true;
         }
 
         #endregion

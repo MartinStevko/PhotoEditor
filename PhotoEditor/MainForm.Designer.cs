@@ -348,6 +348,7 @@
             // 
             this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button23.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button23.Enabled = false;
             this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button23.Location = new System.Drawing.Point(20, 250);
@@ -362,6 +363,7 @@
             // 
             this.numericUpDown3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.numericUpDown3.Enabled = false;
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.numericUpDown3.ForeColor = System.Drawing.Color.White;
             this.numericUpDown3.Location = new System.Drawing.Point(160, 200);
@@ -390,6 +392,7 @@
             // 
             this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.numericUpDown2.Enabled = false;
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.numericUpDown2.ForeColor = System.Drawing.Color.White;
             this.numericUpDown2.Location = new System.Drawing.Point(160, 120);
@@ -418,6 +421,7 @@
             // 
             this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.numericUpDown1.Enabled = false;
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.numericUpDown1.ForeColor = System.Drawing.Color.White;
             this.numericUpDown1.Location = new System.Drawing.Point(160, 40);
@@ -476,6 +480,7 @@
             // button12
             // 
             this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button12.Enabled = false;
             this.button12.FlatAppearance.BorderSize = 0;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Location = new System.Drawing.Point(0, 98);
@@ -492,6 +497,7 @@
             // button11
             // 
             this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button11.Enabled = false;
             this.button11.FlatAppearance.BorderSize = 0;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Location = new System.Drawing.Point(0, 49);
@@ -787,6 +793,7 @@
             // 
             this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button24.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button24.Enabled = false;
             this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button24.Location = new System.Drawing.Point(290, 337);
@@ -801,6 +808,7 @@
             // 
             this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBar1.Enabled = false;
             this.trackBar1.LargeChange = 3;
             this.trackBar1.Location = new System.Drawing.Point(15, 40);
             this.trackBar1.Maximum = 100;
@@ -815,6 +823,7 @@
             // 
             this.trackBar2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBar2.Enabled = false;
             this.trackBar2.LargeChange = 3;
             this.trackBar2.Location = new System.Drawing.Point(15, 120);
             this.trackBar2.Maximum = 100;
@@ -829,6 +838,7 @@
             // 
             this.trackBar3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.trackBar3.Enabled = false;
             this.trackBar3.LargeChange = 3;
             this.trackBar3.Location = new System.Drawing.Point(15, 200);
             this.trackBar3.Maximum = 100;
@@ -843,6 +853,7 @@
             // 
             this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button25.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button25.Enabled = false;
             this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button25.Location = new System.Drawing.Point(20, 390);
@@ -857,6 +868,7 @@
             // 
             this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button26.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button26.Enabled = false;
             this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button26.Location = new System.Drawing.Point(20, 450);
@@ -871,6 +883,7 @@
             // 
             this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button27.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button27.Enabled = false;
             this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button27.Location = new System.Drawing.Point(215, 450);
