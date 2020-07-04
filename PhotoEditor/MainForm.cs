@@ -453,6 +453,11 @@ namespace PhotoEditor
 
         #endregion
 
+        /// <summary>
+        /// Processes adjustment of saturation, brightness and clarity
+        /// </summary>
+        /// <param name="mod">adjustment type</param>
+        /// <param name="newValue">new value from numeric field</param>
         private void OnSyncValues(ImageModification mod, int newValue)
         {
             ColorEdit task;
@@ -471,6 +476,16 @@ namespace PhotoEditor
                     task = null;
                     break;
             }
+            taskControl.Add(task);
+            taskControl.CheckAndProcess();
+        }
+
+        /// <summary>
+        /// Invert color
+        /// </summary>
+        private void button23_Click(object sender, EventArgs e)
+        {
+            ImageTask task = new ColorInvert();
             taskControl.Add(task);
             taskControl.CheckAndProcess();
         }

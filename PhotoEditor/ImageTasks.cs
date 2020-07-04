@@ -126,7 +126,25 @@ namespace PhotoEditor
 
     #region Color swap tasks
 
+    public class ColorInvert : ImageTask
+    {
+        public ColorInvert() : base() { }
 
+        public override void Process(ImageSet iSet)
+        {
+            iSet.ProcessColor(Inverter);
+            iSet.ProcessThumbnailColor(Inverter);
+        }
+
+        private static Tuple<byte, byte, byte> Inverter(byte red, byte green, byte blue)
+        {
+            return new Tuple<byte, byte, byte>(
+                (byte)(255 - red),
+                (byte)(255 - green),
+                (byte)(255 - blue)
+            );
+        }
+    }
 
     #endregion
 

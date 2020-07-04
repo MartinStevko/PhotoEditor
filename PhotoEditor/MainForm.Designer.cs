@@ -69,6 +69,7 @@
             this.button18 = new System.Windows.Forms.Button();
             this.button22 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.button23 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -305,6 +306,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.panel2.Controls.Add(this.button23);
             this.panel2.Controls.Add(this.numericUpDown3);
             this.panel2.Controls.Add(this.label4);
             this.panel2.Controls.Add(this.numericUpDown2);
@@ -319,7 +321,6 @@
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.numericUpDown3.ForeColor = System.Drawing.Color.White;
@@ -347,7 +348,6 @@
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.numericUpDown2.ForeColor = System.Drawing.Color.White;
@@ -375,7 +375,6 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.numericUpDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.numericUpDown1.ForeColor = System.Drawing.Color.White;
@@ -690,6 +689,20 @@
             this.label1.Text = "Are you sure you want to open a new image? All unsaved changes will be lost!";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // button23
+            // 
+            this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button23.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button23.Location = new System.Drawing.Point(20, 250);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(120, 32);
+            this.button23.TabIndex = 9;
+            this.button23.Text = "Invert color";
+            this.button23.UseVisualStyleBackColor = true;
+            this.button23.Click += new System.EventHandler(this.button23_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -774,6 +787,7 @@
         private System.Windows.Forms.NumericUpDown numericUpDown2;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button23;
     }
 }
 
