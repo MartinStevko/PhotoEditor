@@ -198,29 +198,55 @@ namespace PhotoEditor
         /// <param name="mixer">Function which calculate new RGB values</param>
         public void ProcessColor(ColorMixer mixer)
         {
-            for (int x = 0; x < image.Width; ++x)
+            unsafe
             {
-                for (int y = 0; y < image.Height; ++y)
+                BitmapData bitmapData = image.LockBits(rectangle, ImageLockMode.ReadWrite, image.PixelFormat);
+
+                int bytesPerPixel = Bitmap.GetPixelFormatSize(image.PixelFormat) / 8;
+                int heightInPixels = bitmapData.Height;
+                int widthInBytes = bitmapData.Width * bytesPerPixel;
+                byte* ptrFirstPixel = (byte*)bitmapData.Scan0;
+
+                Parallel.For(0, heightInPixels, y =>
                 {
-                    Color pixel = image.GetPixel(x, y);
-                    (int red, int green, int blue) = mixer(pixel.R, pixel.G, pixel.B);
-                    Color p = Color.FromArgb(red, green, blue);
-                    image.SetPixel(x, y, p);
-                }
+                    byte* currentLine = ptrFirstPixel + (y * bitmapData.Stride);
+                    for (int x = 0; x < widthInBytes; x = x + bytesPerPixel)
+                    {
+                        (byte red, byte green, byte blue) = mixer(currentLine[x + 2], currentLine[x + 1], currentLine[x]);
+
+                        currentLine[x] = blue;
+                        currentLine[x + 1] = green;
+                        currentLine[x + 2] = red;
+                    }
+                });
+                image.UnlockBits(bitmapData);
             }
         }
 
         public void ProcessThumbnailColor(ColorMixer mixer)
         {
-            for (int x = 0; x < thumb.Width; ++x)
+            unsafe
             {
-                for (int y = 0; y < thumb.Height; ++y)
+                BitmapData bitmapData = thumb.LockBits(thumbRectangle, ImageLockMode.ReadWrite, thumb.PixelFormat);
+
+                int bytesPerPixel = Bitmap.GetPixelFormatSize(thumb.PixelFormat) / 8;
+                int heightInPixels = bitmapData.Height;
+                int widthInBytes = bitmapData.Width * bytesPerPixel;
+                byte* ptrFirstPixel = (byte*)bitmapData.Scan0;
+
+                Parallel.For(0, heightInPixels, y =>
                 {
-                    Color pixel = thumb.GetPixel(x, y);
-                    (int red, int green, int blue) = mixer(pixel.R, pixel.G, pixel.B);
-                    Color p = Color.FromArgb(red, green, blue);
-                    thumb.SetPixel(x, y, p);
-                }
+                    byte* currentLine = ptrFirstPixel + (y * bitmapData.Stride);
+                    for (int x = 0; x < widthInBytes; x = x + bytesPerPixel)
+                    {
+                        (byte red, byte green, byte blue) = mixer(currentLine[x + 2], currentLine[x + 1], currentLine[x]);
+
+                        currentLine[x] = blue;
+                        currentLine[x + 1] = green;
+                        currentLine[x + 2] = red;
+                    }
+                });
+                thumb.UnlockBits(bitmapData);
             }
 
             thumbRed = CopyThumbnailWithFilter(ColorFilters.RedFilter);
