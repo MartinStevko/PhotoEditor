@@ -488,13 +488,13 @@ namespace PhotoEditor
             switch (mod)
             {
                 case ImageModification.Saturation:
-                    task = new SaturationEdit(newValue);
+                    task = new SaturationEdit(ImageModification.Saturation, newValue);
                     break;
                 case ImageModification.Brightness:
-                    task = new BrightnessEdit(newValue);
+                    task = new BrightnessEdit(ImageModification.Brightness, newValue);
                     break;
                 case ImageModification.Clarity:
-                    task = new ClarityEdit(newValue);
+                    task = new ClarityEdit(ImageModification.Clarity, newValue);
                     break;
                 default:
                     task = null;
@@ -509,7 +509,7 @@ namespace PhotoEditor
         /// </summary>
         private void button23_Click(object sender, EventArgs e)
         {
-            ImageTask task = new ColorInvert();
+            ImageTask task = new ColorInvert(ImageModification.InvertColor);
             taskControl.Add(task);
             taskControl.CheckAndProcess();
         }
@@ -522,6 +522,7 @@ namespace PhotoEditor
             if ((comboBox1.SelectedItem != null) && (comboBox2.SelectedItem != null)) 
             {
                 ImageTask task = new ColorChange(
+                    ImageModification.ColorRotate,
                     comboBox1.SelectedItem.ToString(),
                     comboBox2.SelectedItem.ToString()
                 );
@@ -535,7 +536,7 @@ namespace PhotoEditor
         /// </summary>
         private void button25_Click(object sender, EventArgs e)
         {
-            ImageTask task = new ApplyGreyStyle();
+            ImageTask task = new ApplyGreyStyle(ImageModification.ApplyGreyStyle);
             taskControl.Add(task);
             taskControl.CheckAndProcess();
         }

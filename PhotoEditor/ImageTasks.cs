@@ -22,8 +22,10 @@ namespace PhotoEditor
         public ImageTask previous;
         public ImageTask next;
 
-        public ImageTask()
+        public ImageTask(ImageModification mod)
         {
+            taskType = mod;
+
             ongoing = false;
             previous = null;
             next = null;
@@ -38,7 +40,7 @@ namespace PhotoEditor
     {
         public int value;
 
-        public ColorEdit(int value) : base()
+        public ColorEdit(ImageModification mod, int value) : base(mod)
         {
             this.value = value;
         }
@@ -46,7 +48,7 @@ namespace PhotoEditor
 
     public class SaturationEdit : ColorEdit
     {
-        public SaturationEdit(int value) : base(value) { }
+        public SaturationEdit(ImageModification mod, int value) : base(mod, value) { }
 
         public override void Process(ImageSet iSet)
         {
@@ -72,7 +74,7 @@ namespace PhotoEditor
 
     public class BrightnessEdit : ColorEdit
     {
-        public BrightnessEdit(int value) : base(value) { }
+        public BrightnessEdit(ImageModification mod, int value) : base(mod, value) { }
 
         public override void Process(ImageSet iSet)
         {
@@ -98,7 +100,7 @@ namespace PhotoEditor
 
     public class ClarityEdit : ColorEdit
     {
-        public ClarityEdit(int value) : base(value) { }
+        public ClarityEdit(ImageModification mod, int value) : base(mod, value) { }
 
         public override void Process(ImageSet iSet)
         {
@@ -128,7 +130,7 @@ namespace PhotoEditor
 
     public class ColorInvert : ImageTask
     {
-        public ColorInvert() : base() { }
+        public ColorInvert(ImageModification mod) : base(mod) { }
 
         public override void Process(ImageSet iSet)
         {
@@ -152,7 +154,7 @@ namespace PhotoEditor
 
         private sbyte second;
 
-        public ColorChange(string first, string second) : base()
+        public ColorChange(ImageModification mod, string first, string second) : base(mod)
         {
             this.first = -1;
             this.second = -1;
@@ -211,7 +213,7 @@ namespace PhotoEditor
 
     public abstract class ApplyFilter : ImageTask
     {
-        public ApplyFilter() : base() { }
+        public ApplyFilter(ImageModification mod) : base(mod) { }
 
         public abstract Tuple<byte, byte, byte> Filter(byte red, byte green, byte blue);
 
@@ -228,7 +230,7 @@ namespace PhotoEditor
         private double greenBrightness = 0.5866;
         private double blueBrightness = 0.1145;
 
-        public ApplyGreyStyle() : base() { }
+        public ApplyGreyStyle(ImageModification mod) : base(mod) { }
 
         public override Tuple<byte, byte, byte> Filter(byte red, byte green, byte blue)
         {
