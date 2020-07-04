@@ -283,7 +283,7 @@ namespace PhotoEditor
                 {
                     (int newX, int newY) = mixer(x, y);
                     Color oldPixel = thumb.GetPixel(newX, newY);
-                    thumb.SetPixel(newX, newY, image.GetPixel(x, y));
+                    thumb.SetPixel(newX, newY, thumb.GetPixel(x, y));
                     thumb.SetPixel(x, y, oldPixel);
                 }
             }

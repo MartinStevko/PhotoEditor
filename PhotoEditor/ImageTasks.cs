@@ -205,7 +205,58 @@ namespace PhotoEditor
 
     #region Layout tasks
 
+    public abstract class FlipTask : ImageTask
+    {
+        protected int width;
 
+        protected int height;
+
+        public FlipTask(ImageModification mod) : base(mod) { }
+
+        public override void Process(ImageSet iSet)
+        {
+            iSet.ProcessLayout(MixLayout, MaxCoordinates);
+            iSet.ProcessThumbnailLayout(MixLayout, MaxCoordinates);
+        }
+
+        protected abstract Tuple<int, int> MaxCoordinates(int x, int y);
+
+        protected abstract Tuple<int, int> MixLayout(int x, int y);
+    }
+
+    public class FlipHorizontal : FlipTask
+    {
+        public FlipHorizontal(ImageModification mod) : base(mod) { }
+
+        protected override Tuple<int, int> MaxCoordinates(int x, int y)
+        {
+            width = x;
+            height = y;
+            return new Tuple<int, int>(x, y / 2);
+        }
+
+        protected override Tuple<int, int> MixLayout(int x, int y)
+        {
+            return new Tuple<int, int>(x, height - y - 1);
+        }
+    }
+
+    public class FlipVertical : FlipTask
+    {
+        public FlipVertical(ImageModification mod) : base(mod) { }
+
+        protected override Tuple<int, int> MaxCoordinates(int x, int y)
+        {
+            width = x;
+            height = y;
+            return new Tuple<int, int>(x / 2, y);
+        }
+
+        protected override Tuple<int, int> MixLayout(int x, int y)
+        {
+            return new Tuple<int, int>(width - x - 1, y);
+        }
+    }
 
     #endregion
 

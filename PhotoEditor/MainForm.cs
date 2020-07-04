@@ -541,6 +541,26 @@ namespace PhotoEditor
             taskControl.CheckAndProcess();
         }
 
+        /// <summary>
+        /// Flip image over axe X
+        /// </summary>
+        private void button26_Click(object sender, EventArgs e)
+        {
+            ImageTask task = new FlipHorizontal(ImageModification.FlipHorizontally);
+            taskControl.Add(task);
+            taskControl.CheckAndProcess();
+        }
+
+        /// <summary>
+        /// Flip image over axe Y
+        /// </summary>
+        private void button27_Click(object sender, EventArgs e)
+        {
+            ImageTask task = new FlipVertical(ImageModification.FlipVertically);
+            taskControl.Add(task);
+            taskControl.CheckAndProcess();
+        }
+
         #endregion
     }
 }

@@ -863,8 +863,9 @@
             this.button26.Name = "button26";
             this.button26.Size = new System.Drawing.Size(175, 36);
             this.button26.TabIndex = 19;
-            this.button26.Text = "Turn horizontal";
+            this.button26.Text = "Flip horizontal";
             this.button26.UseVisualStyleBackColor = true;
+            this.button26.Click += new System.EventHandler(this.button26_Click);
             // 
             // button27
             // 
@@ -876,8 +877,9 @@
             this.button27.Name = "button27";
             this.button27.Size = new System.Drawing.Size(175, 36);
             this.button27.TabIndex = 20;
-            this.button27.Text = "Turn vertical";
+            this.button27.Text = "Flip vertical";
             this.button27.UseVisualStyleBackColor = true;
+            this.button27.Click += new System.EventHandler(this.button27_Click);
             // 
             // MainForm
             // 
