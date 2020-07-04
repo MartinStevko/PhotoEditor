@@ -78,6 +78,9 @@
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.trackBar2 = new System.Windows.Forms.TrackBar();
             this.trackBar3 = new System.Windows.Forms.TrackBar();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -317,6 +320,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.panel2.Controls.Add(this.button27);
+            this.panel2.Controls.Add(this.button26);
+            this.panel2.Controls.Add(this.button25);
             this.panel2.Controls.Add(this.button24);
             this.panel2.Controls.Add(this.button23);
             this.panel2.Controls.Add(this.label3);
@@ -346,7 +352,7 @@
             this.button23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button23.Location = new System.Drawing.Point(20, 250);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(120, 36);
+            this.button23.Size = new System.Drawing.Size(175, 36);
             this.button23.TabIndex = 9;
             this.button23.Text = "Invert color";
             this.button23.UseVisualStyleBackColor = true;
@@ -785,7 +791,7 @@
             this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button24.Location = new System.Drawing.Point(290, 337);
             this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(120, 36);
+            this.button24.Size = new System.Drawing.Size(100, 36);
             this.button24.TabIndex = 14;
             this.button24.Text = "Change";
             this.button24.UseVisualStyleBackColor = true;
@@ -832,6 +838,46 @@
             this.trackBar3.TabIndex = 17;
             this.trackBar3.TickStyle = System.Windows.Forms.TickStyle.None;
             this.trackBar3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar3_MouseUp);
+            // 
+            // button25
+            // 
+            this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button25.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button25.Location = new System.Drawing.Point(20, 390);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(175, 36);
+            this.button25.TabIndex = 18;
+            this.button25.Text = "Graystyle filter";
+            this.button25.UseVisualStyleBackColor = true;
+            this.button25.Click += new System.EventHandler(this.button25_Click);
+            // 
+            // button26
+            // 
+            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button26.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button26.Location = new System.Drawing.Point(20, 450);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(175, 36);
+            this.button26.TabIndex = 19;
+            this.button26.Text = "Turn horizontal";
+            this.button26.UseVisualStyleBackColor = true;
+            // 
+            // button27
+            // 
+            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button27.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button27.Location = new System.Drawing.Point(215, 450);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(175, 36);
+            this.button27.TabIndex = 20;
+            this.button27.Text = "Turn vertical";
+            this.button27.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -929,6 +975,9 @@
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.TrackBar trackBar3;
         private System.Windows.Forms.TrackBar trackBar2;
+        private System.Windows.Forms.Button button27;
+        private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Button button25;
     }
 }
 

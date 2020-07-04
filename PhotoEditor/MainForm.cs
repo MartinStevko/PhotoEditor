@@ -530,6 +530,16 @@ namespace PhotoEditor
             }
         }
 
+        /// <summary>
+        /// Apply gray style
+        /// </summary>
+        private void button25_Click(object sender, EventArgs e)
+        {
+            ImageTask task = new ApplyGreyStyle();
+            taskControl.Add(task);
+            taskControl.CheckAndProcess();
+        }
+
         #endregion
     }
 }
