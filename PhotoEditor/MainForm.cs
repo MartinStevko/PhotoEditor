@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -27,7 +28,12 @@ namespace PhotoEditor
         /// <summary>
         /// Set of all displayed branches (RGB, R, G, B) of current image
         /// </summary>
-        private ImageSet imageSet;
+        public ImageSet imageSet;
+
+        /// <summary>
+        /// Control poin for all running and scheduled tasks
+        /// </summary>
+        private TaskControl taskControl;
 
         #endregion
 
@@ -60,6 +66,29 @@ namespace PhotoEditor
             }
             pictureBox2.Width = Width - panel2.Width - 20;
             pictureBox2.Height = Height - newPreviewHeight - 50;
+
+            taskControl = new TaskControl(this);
+        }
+
+        private void SetNumericUpDownValue(NumericUpDown control, decimal value)
+        {
+            if (control == null) throw new ArgumentNullException(nameof(control));
+            var currentValueField = control.GetType().GetField("currentValue", BindingFlags.Instance | BindingFlags.NonPublic);
+            if (currentValueField != null)
+            {
+                currentValueField.SetValue(control, value);
+                control.Text = value.ToString();
+            }
+        }
+
+        private void ResetSettings()
+        {
+            imageSet.saturation = 0;
+            SetNumericUpDownValue(numericUpDown1, 0);
+            imageSet.brightness = 0;
+            SetNumericUpDownValue(numericUpDown2, 0);
+            imageSet.clarity = 0;
+            SetNumericUpDownValue(numericUpDown3, 0);
         }
 
         #endregion
@@ -271,6 +300,7 @@ namespace PhotoEditor
                 Thread thr = new Thread(LoadNewImage);
                 thr.Start(filename);
             }
+            ResetSettings();
         }
 
         private void LoadNewImage(object data)
@@ -341,12 +371,20 @@ namespace PhotoEditor
 
         public void RedrawImageSet()
         {
-            RedrawMainImage();
+            try
+            {
+                RedrawMainImage();
 
-            button3.BackgroundImage = imageSet.thumb;
-            button4.BackgroundImage = imageSet.thumbRed;
-            button5.BackgroundImage = imageSet.thumbGreen;
-            button6.BackgroundImage = imageSet.thumbBlue;
+                button3.BackgroundImage = imageSet.thumb;
+                button4.BackgroundImage = imageSet.thumbRed;
+                button5.BackgroundImage = imageSet.thumbGreen;
+                button6.BackgroundImage = imageSet.thumbBlue;
+            }
+            catch (InvalidOperationException)
+            {
+                Thread.Sleep(100);
+                RedrawImageSet();
+            }
         }
 
         #region Preview selection
@@ -395,45 +433,21 @@ namespace PhotoEditor
 
         #region Control values synchronization
 
-        private void trackBar1_ValueChanged(object sender, EventArgs e)
-        {
-            int value = trackBar1.Value;
-            numericUpDown1.Value = value;
-            OnSyncValues(ImageModification.Saturation, value);
-        }
-
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)numericUpDown1.Value;
-            trackBar1.Value = value;
             OnSyncValues(ImageModification.Saturation, value);
-        }
-
-        private void trackBar2_ValueChanged(object sender, EventArgs e)
-        {
-            int value = trackBar2.Value;
-            numericUpDown2.Value = value;
-            OnSyncValues(ImageModification.Brightness, value);
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)numericUpDown2.Value;
-            trackBar2.Value = value;
             OnSyncValues(ImageModification.Brightness, value);
-        }
-
-        private void trackBar3_ValueChanged(object sender, EventArgs e)
-        {
-            int value = trackBar3.Value;
-            numericUpDown3.Value = value;
-            OnSyncValues(ImageModification.Clarity, value);
         }
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)numericUpDown3.Value;
-            trackBar3.Value = value;
             OnSyncValues(ImageModification.Clarity, value);
         }
 
@@ -441,7 +455,24 @@ namespace PhotoEditor
 
         private void OnSyncValues(ImageModification mod, int newValue)
         {
-            
+            ColorEdit task;
+            switch (mod)
+            {
+                case ImageModification.Saturation:
+                    task = new SaturationEdit(newValue);
+                    break;
+                case ImageModification.Brightness:
+                    task = new BrightnessEdit(newValue);
+                    break;
+                case ImageModification.Clarity:
+                    task = new ClarityEdit(newValue);
+                    break;
+                default:
+                    task = null;
+                    break;
+            }
+            taskControl.Add(task);
+            taskControl.CheckAndProcess();
         }
 
         #endregion

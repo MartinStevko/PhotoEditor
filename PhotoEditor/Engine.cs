@@ -29,6 +29,10 @@ namespace PhotoEditor
         public Bitmap thumbBlue;
         private Rectangle thumbRectangle;
 
+        public int saturation;
+        public int brightness;
+        public int clarity;
+
         public ImageSet()
         {
             filename = null;
@@ -43,6 +47,10 @@ namespace PhotoEditor
             thumbGreen = null;
             thumbBlue = null;
             thumbRectangle = new Rectangle(0, 0, 0, 0);
+
+            saturation = 0;
+            brightness = 0;
+            clarity = 0;
         }
 
         public void Load(string file, int width, int height, int thumbWidth, int thumbHeight)
@@ -190,29 +198,34 @@ namespace PhotoEditor
         /// <param name="mixer">Function which calculate new RGB values</param>
         public void ProcessColor(ColorMixer mixer)
         {
-            unsafe
+            for (int x = 0; x < image.Width; ++x)
             {
-                BitmapData bitmapData = image.LockBits(rectangle, ImageLockMode.ReadWrite, image.PixelFormat);
-
-                int bytesPerPixel = Bitmap.GetPixelFormatSize(image.PixelFormat) / 8;
-                int heightInPixels = bitmapData.Height;
-                int widthInBytes = bitmapData.Width * bytesPerPixel;
-                byte* ptrFirstPixel = (byte*)bitmapData.Scan0;
-
-                Parallel.For(0, heightInPixels, y =>
+                for (int y = 0; y < image.Height; ++y)
                 {
-                    byte* currentLine = ptrFirstPixel + (y * bitmapData.Stride);
-                    for (int x = 0; x < widthInBytes; x = x + bytesPerPixel)
-                    {
-                        (byte red, byte green, byte blue) = mixer(currentLine[x + 2], currentLine[x + 1], currentLine[x]);
-
-                        currentLine[x] = blue;
-                        currentLine[x + 1] = green;
-                        currentLine[x + 2] = red;
-                    }
-                });
-                image.UnlockBits(bitmapData);
+                    Color pixel = image.GetPixel(x, y);
+                    (int red, int green, int blue) = mixer(pixel.R, pixel.G, pixel.B);
+                    Color p = Color.FromArgb(red, green, blue);
+                    image.SetPixel(x, y, p);
+                }
             }
+        }
+
+        public void ProcessThumbnailColor(ColorMixer mixer)
+        {
+            for (int x = 0; x < thumb.Width; ++x)
+            {
+                for (int y = 0; y < thumb.Height; ++y)
+                {
+                    Color pixel = thumb.GetPixel(x, y);
+                    (int red, int green, int blue) = mixer(pixel.R, pixel.G, pixel.B);
+                    Color p = Color.FromArgb(red, green, blue);
+                    thumb.SetPixel(x, y, p);
+                }
+            }
+
+            thumbRed = CopyThumbnailWithFilter(ColorFilters.RedFilter);
+            thumbGreen = CopyThumbnailWithFilter(ColorFilters.GreenFilter);
+            thumbBlue = CopyThumbnailWithFilter(ColorFilters.BlueFilter);
         }
 
         /// <summary>
@@ -231,6 +244,21 @@ namespace PhotoEditor
                     Color oldPixel = image.GetPixel(newX, newY);
                     image.SetPixel(newX, newY, image.GetPixel(x, y));
                     image.SetPixel(x, y, oldPixel);
+                }
+            }
+        }
+
+        public void ProcessThumbnailLayout(LayoutMixer mixer, LayoutCoordinatesMaxValue changer)
+        {
+            (int xMax, int yMax) = changer(thumb.Width, thumb.Height);
+            for (int x = 0; x < xMax; ++x)
+            {
+                for (int y = 0; y < yMax; ++y)
+                {
+                    (int newX, int newY) = mixer(x, y);
+                    Color oldPixel = thumb.GetPixel(newX, newY);
+                    thumb.SetPixel(newX, newY, image.GetPixel(x, y));
+                    thumb.SetPixel(x, y, oldPixel);
                 }
             }
         }
