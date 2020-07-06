@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Changes.cs" />
     <Compile Include="ColorFilters.cs" />
     <Compile Include="ImageTasks.cs" />
     <Compile Include="Processes.cs" />

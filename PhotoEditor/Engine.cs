@@ -21,13 +21,13 @@ namespace PhotoEditor
 
         public Bitmap image;
         public ImageMode imageMode;
-        private Rectangle rectangle;
+        public Rectangle rectangle;
 
         public Bitmap thumb;
         public Bitmap thumbRed;
         public Bitmap thumbGreen;
         public Bitmap thumbBlue;
-        private Rectangle thumbRectangle;
+        public Rectangle thumbRectangle;
 
         public int saturation;
         public int brightness;
@@ -146,7 +146,7 @@ namespace PhotoEditor
             return t;
         }
 
-        private Bitmap CopyThumbnailWithFilter(ColorMixer mixer)
+        public Bitmap CopyThumbnailWithFilter(ColorMixer mixer)
         {
             Bitmap t = thumb.Clone(thumbRectangle, thumb.PixelFormat);
 

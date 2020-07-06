@@ -181,7 +181,6 @@ namespace PhotoEditor
         private void button11_Click(object sender, EventArgs e)
         {
             // TODO: Save
-            // TODO: Disable when nothing is opened
             panel3.Visible = false;
         }
 
@@ -191,7 +190,6 @@ namespace PhotoEditor
         private void button12_Click(object sender, EventArgs e)
         {
             // TODO: Save as...
-            // TODO: Disable when nothing is opened
             panel3.Visible = false;
         }
 
@@ -223,9 +221,21 @@ namespace PhotoEditor
         /// </summary>
         private void button17_Click(object sender, EventArgs e)
         {
-            // TODO: Undo
-            // TODO: Disable when no action precede
             panel4.Visible = false;
+
+            RestorePoint restorePoint = taskControl.undoQueue.RemoveLast();
+            RestorePoint old = new RestorePoint(
+                imageSet.imageMode,
+                restorePoint.taskType,
+                imageSet.image.Clone(imageSet.rectangle, imageSet.image.PixelFormat),
+                imageSet.thumb.Clone(imageSet.thumbRectangle, imageSet.thumb.PixelFormat),
+                imageSet.saturation,
+                imageSet.brightness,
+                imageSet.clarity
+            );
+            taskControl.redoQueue.Add(old);
+
+            ApplyRestorePoint(restorePoint);
         }
 
         /// <summary>
@@ -233,9 +243,21 @@ namespace PhotoEditor
         /// </summary>
         private void button16_Click(object sender, EventArgs e)
         {
-            // TODO: Redo
-            // TODO: Disable when no action follows
             panel4.Visible = false;
+
+            RestorePoint restorePoint = taskControl.redoQueue.RemoveLast();
+            RestorePoint old = new RestorePoint(
+                imageSet.imageMode,
+                restorePoint.taskType,
+                imageSet.image.Clone(imageSet.rectangle, imageSet.image.PixelFormat),
+                imageSet.thumb.Clone(imageSet.thumbRectangle, imageSet.thumb.PixelFormat),
+                imageSet.saturation,
+                imageSet.brightness,
+                imageSet.clarity
+            );
+            taskControl.undoQueue.Add(old);
+
+            ApplyRestorePoint(restorePoint);
         }
 
         /// <summary>
@@ -311,11 +333,11 @@ namespace PhotoEditor
             dialog.Filter = "All Images|*.jpg;*.bmp;*.png";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
+                ResetSettings();
                 string filename = dialog.FileName;
                 Thread thr = new Thread(LoadNewImage);
                 thr.Start(filename);
             }
-            ResetSettings();
         }
 
         private void LoadNewImage(object data)
@@ -382,6 +404,23 @@ namespace PhotoEditor
                     pictureBox2.Image = imageSet.image;
                     break;
             }
+
+            if (taskControl.undoQueue.IsEmpty())
+            {
+                button17.Enabled = false;
+            }
+            else
+            {
+                button17.Enabled = true;
+            }
+            if (taskControl.redoQueue.IsEmpty())
+            {
+                button16.Enabled = false;
+            }
+            else
+            {
+                button16.Enabled = true;
+            }
         }
 
         public void RedrawImageSet()
@@ -400,6 +439,25 @@ namespace PhotoEditor
                 Thread.Sleep(100);
                 RedrawImageSet();
             }
+        }
+
+        private void ApplyRestorePoint(RestorePoint restorePoint)
+        {
+            imageSet.image = restorePoint.image;
+            imageSet.thumb = restorePoint.thumb;
+
+            imageSet.thumbRed = imageSet.CopyThumbnailWithFilter(ColorFilters.RedFilter);
+            imageSet.thumbGreen = imageSet.CopyThumbnailWithFilter(ColorFilters.GreenFilter);
+            imageSet.thumbBlue = imageSet.CopyThumbnailWithFilter(ColorFilters.BlueFilter);
+
+            SetNumericUpDownValue(numericUpDown1, restorePoint.saturation);
+            trackBar1.Value = restorePoint.saturation;
+            SetNumericUpDownValue(numericUpDown2, restorePoint.brightness);
+            trackBar2.Value = restorePoint.brightness;
+            SetNumericUpDownValue(numericUpDown3, restorePoint.clarity);
+            trackBar3.Value = restorePoint.clarity;
+
+            RedrawImageSet();
         }
 
         #region Preview selection

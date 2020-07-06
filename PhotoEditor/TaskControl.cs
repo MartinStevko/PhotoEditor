@@ -15,6 +15,9 @@ namespace PhotoEditor
         private ImageTask headWaiting;
         private ImageTask tailWaiting;
 
+        public Queue undoQueue;
+        public Queue redoQueue;
+
         public TaskControl(MainForm form)
         {
             this.form = form;
@@ -24,6 +27,9 @@ namespace PhotoEditor
 
             headWaiting = null;
             tailWaiting = null;
+
+            undoQueue = new Queue();
+            redoQueue = new Queue();
 
             Thread t = new Thread(Process);
             t.IsBackground = true;
@@ -101,6 +107,19 @@ namespace PhotoEditor
             if (head != null)
             {
                 head.ongoing = true;
+
+                RestorePoint old = new RestorePoint(
+                    form.imageSet.imageMode,
+                    head.taskType,
+                    form.imageSet.image.Clone(form.imageSet.rectangle, form.imageSet.image.PixelFormat),
+                    form.imageSet.thumb.Clone(form.imageSet.thumbRectangle, form.imageSet.thumb.PixelFormat),
+                    form.imageSet.saturation,
+                    form.imageSet.brightness,
+                    form.imageSet.clarity
+                );
+                undoQueue.Add(old);
+                redoQueue.Flush();
+
                 head.Process(form.imageSet);
                 head = head.next;
                 if (head != null)
