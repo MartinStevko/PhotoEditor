@@ -63,7 +63,25 @@ namespace PhotoEditor
                     int g = Math.Min(Math.Max(0, green - c), 255);
                     int b = Math.Min(Math.Max(0, blue - c), 255);
 
-                    return new Tuple<byte, byte, byte>((byte)r, (byte)g, (byte)b);
+                    Tuple<byte, byte, byte> response;
+
+                    switch (iSet.imageMode)
+                    {
+                        case ImageMode.Red:
+                            response = new Tuple<byte, byte, byte>((byte)r, green, blue);
+                            break;
+                        case ImageMode.Green:
+                            response = new Tuple<byte, byte, byte>(red, (byte)g, blue);
+                            break;
+                        case ImageMode.Blue:
+                            response = new Tuple<byte, byte, byte>(red, green, (byte)b);
+                            break;
+                        default:
+                            response = new Tuple<byte, byte, byte>((byte)r, (byte)g, (byte)b);
+                            break;
+                    }
+
+                    return response;
                 }
 
                 iSet.ProcessColor(SaturationMixer);
@@ -89,7 +107,25 @@ namespace PhotoEditor
                     int g = Math.Min(Math.Max(0, green + (int)((green) * c)), 255);
                     int b = Math.Min(Math.Max(0, blue + (int)((blue) * c)), 255);
 
-                    return new Tuple<byte, byte, byte>((byte)r, (byte)g, (byte)b);
+                    Tuple<byte, byte, byte> response;
+
+                    switch (iSet.imageMode)
+                    {
+                        case ImageMode.Red:
+                            response = new Tuple<byte, byte, byte>((byte)r, green, blue);
+                            break;
+                        case ImageMode.Green:
+                            response = new Tuple<byte, byte, byte>(red, (byte)g, blue);
+                            break;
+                        case ImageMode.Blue:
+                            response = new Tuple<byte, byte, byte>(red, green, (byte)b);
+                            break;
+                        default:
+                            response = new Tuple<byte, byte, byte>((byte)r, (byte)g, (byte)b);
+                            break;
+                    }
+
+                    return response;
                 }
 
                 iSet.ProcessColor(BrightnessMixer);
@@ -115,7 +151,25 @@ namespace PhotoEditor
                     int g = 128 - Math.Min(Math.Max(-128, (int)((128 - green) * c)), 127);
                     int b = 128 - Math.Min(Math.Max(-128, (int)((128 - blue) * c)), 127);
 
-                    return new Tuple<byte, byte, byte>((byte)r, (byte)g, (byte)b);
+                    Tuple<byte, byte, byte> response;
+
+                    switch (iSet.imageMode)
+                    {
+                        case ImageMode.Red:
+                            response = new Tuple<byte, byte, byte>((byte)r, green, blue);
+                            break;
+                        case ImageMode.Green:
+                            response = new Tuple<byte, byte, byte>(red, (byte)g, blue);
+                            break;
+                        case ImageMode.Blue:
+                            response = new Tuple<byte, byte, byte>(red, green, (byte)b);
+                            break;
+                        default:
+                            response = new Tuple<byte, byte, byte>((byte)r, (byte)g, (byte)b);
+                            break;
+                    }
+
+                    return response;
                 }
 
                 iSet.ProcessColor(SaturationMixer);
@@ -134,17 +188,35 @@ namespace PhotoEditor
 
         public override void Process(ImageSet iSet)
         {
+            Tuple<byte, byte, byte> Inverter(byte red, byte green, byte blue)
+            {
+                int r = 255 - red;
+                int g = 255 - green;
+                int b = 255 - blue;
+
+                Tuple<byte, byte, byte> response;
+
+                switch (iSet.imageMode)
+                {
+                    case ImageMode.Red:
+                        response = new Tuple<byte, byte, byte>((byte)r, green, blue);
+                        break;
+                    case ImageMode.Green:
+                        response = new Tuple<byte, byte, byte>(red, (byte)g, blue);
+                        break;
+                    case ImageMode.Blue:
+                        response = new Tuple<byte, byte, byte>(red, green, (byte)b);
+                        break;
+                    default:
+                        response = new Tuple<byte, byte, byte>((byte)r, (byte)g, (byte)b);
+                        break;
+                }
+
+                return response;
+            }
+
             iSet.ProcessColor(Inverter);
             iSet.ProcessThumbnailColor(Inverter);
-        }
-
-        private static Tuple<byte, byte, byte> Inverter(byte red, byte green, byte blue)
-        {
-            return new Tuple<byte, byte, byte>(
-                (byte)(255 - red),
-                (byte)(255 - green),
-                (byte)(255 - blue)
-            );
         }
     }
 
