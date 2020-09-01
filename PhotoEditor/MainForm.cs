@@ -182,6 +182,8 @@ namespace PhotoEditor
         {
             // TODO: Save
             panel3.Visible = false;
+            string file = imageSet.filename;
+            pictureBox2.Image.Save(file);
         }
 
         /// <summary>
@@ -191,6 +193,11 @@ namespace PhotoEditor
         {
             // TODO: Save as...
             panel3.Visible = false;
+            SaveFileDialog dialog = new SaveFileDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                pictureBox2.Image.Save(dialog.FileName);
+            }
         }
 
         /// <summary>
