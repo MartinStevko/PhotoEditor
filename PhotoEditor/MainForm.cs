@@ -35,6 +35,11 @@ namespace PhotoEditor
         /// </summary>
         private TaskControl taskControl;
 
+        /// <summary>
+        /// PhotoEditor logger
+        /// </summary>
+        private Log log;
+
         #endregion
 
         #region Form initialization
@@ -43,6 +48,7 @@ namespace PhotoEditor
         {
             InitializeComponent();
             imageSet = new ImageSet();
+            log = new Log();
         }
 
         /// <summary>
@@ -68,6 +74,7 @@ namespace PhotoEditor
             pictureBox2.Height = Height - newPreviewHeight - 50;
 
             taskControl = new TaskControl(this);
+            log.Add("Form loaded");
         }
 
         private void SetNumericUpDownValue(NumericUpDown control, decimal value)
@@ -115,6 +122,7 @@ namespace PhotoEditor
         /// </summary>
         private void button1_Click(object sender, EventArgs e)
         {
+            log.Add("Leaving application");
             Application.Exit();
         }
 
@@ -180,10 +188,10 @@ namespace PhotoEditor
         /// </summary>
         private void button11_Click(object sender, EventArgs e)
         {
-            // TODO: Save
             panel3.Visible = false;
             string file = imageSet.filename;
             pictureBox2.Image.Save(file);
+            log.Add("File saved");
         }
 
         /// <summary>
@@ -191,13 +199,14 @@ namespace PhotoEditor
         /// </summary>
         private void button12_Click(object sender, EventArgs e)
         {
-            // TODO: Save as...
             panel3.Visible = false;
             SaveFileDialog dialog = new SaveFileDialog();
+            dialog.Filter = "All Images|*.jpg;*.bmp;*.png";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 pictureBox2.Image.Save(dialog.FileName);
             }
+            log.Add("File saved as " + dialog.FileName);
         }
 
         /// <summary>
@@ -243,6 +252,7 @@ namespace PhotoEditor
             taskControl.redoQueue.Add(old);
 
             ApplyRestorePoint(restorePoint);
+            log.Add("Last action was un-done");
         }
 
         /// <summary>
@@ -265,6 +275,7 @@ namespace PhotoEditor
             taskControl.undoQueue.Add(old);
 
             ApplyRestorePoint(restorePoint);
+            log.Add("Last un-done action was re-done");
         }
 
         /// <summary>
@@ -274,6 +285,7 @@ namespace PhotoEditor
         {
             // TODO: Export LUT
             panel4.Visible = false;
+            log.Add("LUT file exported");
         }
 
         /// <summary>
@@ -307,6 +319,7 @@ namespace PhotoEditor
             panel5.Visible = false;
             string targetURL = @"https://github.com/MartinStevko/PhotoEditor/wiki/User-manual";
             System.Diagnostics.Process.Start(targetURL);
+            log.Add("User manual opened");
         }
 
         /// <summary>
@@ -317,6 +330,7 @@ namespace PhotoEditor
             panel5.Visible = false;
             string targetURL = @"https://github.com/MartinStevko/PhotoEditor/wiki/Documentation";
             System.Diagnostics.Process.Start(targetURL);
+            log.Add("Program documentation opened");
         }
 
         /// <summary>
@@ -327,8 +341,8 @@ namespace PhotoEditor
             panel5.Visible = false;
             string targetURL = @"https://github.com/MartinStevko/PhotoEditor/issues/new/choose";
             System.Diagnostics.Process.Start(targetURL);
+            log.Add("Report issue form opened");
         }
-
 
         #endregion
 
@@ -345,6 +359,7 @@ namespace PhotoEditor
                 Thread thr = new Thread(LoadNewImage);
                 thr.Start(filename);
             }
+            log.Add("Image opened");
         }
 
         private void LoadNewImage(object data)
@@ -569,12 +584,15 @@ namespace PhotoEditor
             {
                 case ImageModification.Saturation:
                     task = new SaturationEdit(ImageModification.Saturation, newValue);
+                    log.Add("Image saturation modified");
                     break;
                 case ImageModification.Brightness:
                     task = new BrightnessEdit(ImageModification.Brightness, newValue);
+                    log.Add("Image brightness modified");
                     break;
                 case ImageModification.Clarity:
                     task = new ClarityEdit(ImageModification.Clarity, newValue);
+                    log.Add("Image clarity modified");
                     break;
                 default:
                     task = null;
@@ -592,6 +610,7 @@ namespace PhotoEditor
             ImageTask task = new ColorInvert(ImageModification.InvertColor);
             taskControl.Add(task);
             taskControl.CheckAndProcess();
+            log.Add("Image color inverted");
         }
 
         /// <summary>
@@ -608,6 +627,7 @@ namespace PhotoEditor
                 );
                 taskControl.Add(task);
                 taskControl.CheckAndProcess();
+                log.Add("Image colors swaped (" + comboBox1.SelectedItem.ToString() + ", " + comboBox2.SelectedItem.ToString() + ")");
             }
         }
 
@@ -619,6 +639,7 @@ namespace PhotoEditor
             ImageTask task = new ApplyGreyStyle(ImageModification.ApplyGreyStyle);
             taskControl.Add(task);
             taskControl.CheckAndProcess();
+            log.Add("Image converted to graystyle");
         }
 
         /// <summary>
@@ -629,6 +650,7 @@ namespace PhotoEditor
             ImageTask task = new FlipHorizontal(ImageModification.FlipHorizontally);
             taskControl.Add(task);
             taskControl.CheckAndProcess();
+            log.Add("Image flipped vertically");
         }
 
         /// <summary>
@@ -639,6 +661,7 @@ namespace PhotoEditor
             ImageTask task = new FlipVertical(ImageModification.FlipVertically);
             taskControl.Add(task);
             taskControl.CheckAndProcess();
+            log.Add("Image flipped horizontally");
         }
 
         #endregion
