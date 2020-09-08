@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 
@@ -40,6 +37,8 @@ namespace PhotoEditor
         /// </summary>
         private Log log;
 
+        private static Random random;
+
         #endregion
 
         #region Form initialization
@@ -49,7 +48,8 @@ namespace PhotoEditor
             InitializeComponent();
             imageSet = new ImageSet();
             log = new Log();
-        }
+            random = new Random();
+    }
 
         /// <summary>
         /// Loads form and calculate size and location of responsive objects
@@ -74,6 +74,8 @@ namespace PhotoEditor
             pictureBox2.Height = Height - newPreviewHeight - 50;
 
             taskControl = new TaskControl(this);
+
+            comboBox3.Items.AddRange(LookUpTable.List());
             log.Add("Form loaded");
         }
 
@@ -111,6 +113,10 @@ namespace PhotoEditor
 
             button11.Enabled = true;
             button12.Enabled = true;
+
+            button14.Enabled = true;
+            button15.Enabled = true;
+            button28.Enabled = true;
         }
 
         #endregion
@@ -210,11 +216,11 @@ namespace PhotoEditor
         }
 
         /// <summary>
-        /// File -> Multiple apply menu button - applies chages setted in settings to more files at once
+        /// File -> Import LUT menu button - imports .CUBE file as look-up table
         /// </summary>
         private void button13_Click(object sender, EventArgs e)
         {
-            // TODO: Multiple apply
+            // TODO: Import LUT
             panel3.Visible = false;
         }
 
@@ -239,20 +245,31 @@ namespace PhotoEditor
         {
             panel4.Visible = false;
 
+            if (taskControl.tasks.Any())
+            {
+                taskControl.removed.Push(taskControl.tasks.Pop());
+            }
             RestorePoint restorePoint = taskControl.undoQueue.RemoveLast();
-            RestorePoint old = new RestorePoint(
-                imageSet.imageMode,
-                restorePoint.taskType,
-                imageSet.image.Clone(imageSet.rectangle, imageSet.image.PixelFormat),
-                imageSet.thumb.Clone(imageSet.thumbRectangle, imageSet.thumb.PixelFormat),
-                imageSet.saturation,
-                imageSet.brightness,
-                imageSet.clarity
-            );
-            taskControl.redoQueue.Add(old);
+            if (restorePoint != null)
+            {
+                RestorePoint old = new RestorePoint(
+                    imageSet.imageMode,
+                    restorePoint.taskType,
+                    imageSet.image.Clone(imageSet.rectangle, imageSet.image.PixelFormat),
+                    imageSet.thumb.Clone(imageSet.thumbRectangle, imageSet.thumb.PixelFormat),
+                    imageSet.saturation,
+                    imageSet.brightness,
+                    imageSet.clarity
+                );
+                taskControl.redoQueue.Add(old);
 
-            ApplyRestorePoint(restorePoint);
-            log.Add("Last action was un-done");
+                ApplyRestorePoint(restorePoint);
+                log.Add("Last action was un-done");
+            }
+            else
+            {
+                log.Add("Action can not be un-done, there is no actions left in the queue");
+            }
         }
 
         /// <summary>
@@ -262,20 +279,55 @@ namespace PhotoEditor
         {
             panel4.Visible = false;
 
+            if (taskControl.removed.Any())
+            {
+                taskControl.tasks.Push(taskControl.removed.Pop());
+            }
             RestorePoint restorePoint = taskControl.redoQueue.RemoveLast();
-            RestorePoint old = new RestorePoint(
-                imageSet.imageMode,
-                restorePoint.taskType,
-                imageSet.image.Clone(imageSet.rectangle, imageSet.image.PixelFormat),
-                imageSet.thumb.Clone(imageSet.thumbRectangle, imageSet.thumb.PixelFormat),
-                imageSet.saturation,
-                imageSet.brightness,
-                imageSet.clarity
-            );
-            taskControl.undoQueue.Add(old);
+            if (restorePoint != null)
+            {
+                RestorePoint old = new RestorePoint(
+                    imageSet.imageMode,
+                    restorePoint.taskType,
+                    imageSet.image.Clone(imageSet.rectangle, imageSet.image.PixelFormat),
+                    imageSet.thumb.Clone(imageSet.thumbRectangle, imageSet.thumb.PixelFormat),
+                    imageSet.saturation,
+                    imageSet.brightness,
+                    imageSet.clarity
+                );
+                taskControl.undoQueue.Add(old);
 
-            ApplyRestorePoint(restorePoint);
-            log.Add("Last un-done action was re-done");
+                ApplyRestorePoint(restorePoint);
+                log.Add("Last un-done action was re-done");
+            }
+            else
+            {
+                log.Add("Action cannot be re-done, there is no other actions in the queue");
+            }
+        }
+
+        /// <summary>
+        /// Determines whether Undo and Redo buttons should be enabled
+        /// Use by adding to the end of "RedrawMainImage" method
+        /// </summary>
+        private void ActionHandlersActive()
+        {
+            if (taskControl.undoQueue.IsEmpty())
+            {
+                button17.Enabled = false;
+            }
+            else
+            {
+                button17.Enabled = true;
+            }
+            if (taskControl.redoQueue.IsEmpty())
+            {
+                button16.Enabled = false;
+            }
+            else
+            {
+                button16.Enabled = true;
+            }
         }
 
         /// <summary>
@@ -283,17 +335,47 @@ namespace PhotoEditor
         /// </summary>
         private void button15_Click(object sender, EventArgs e)
         {
-            // TODO: Export LUT
+            Thread thr = new Thread(ExportLUT);
+            thr.Start();
             panel4.Visible = false;
+        }
+
+        /// <summary>
+        /// Exports look-up table file
+        /// </summary>
+        private void ExportLUT()
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            string filename = new string(Enumerable.Repeat(chars, 5).Select(s => s[random.Next(s.Length)]).ToArray());
+            LookUpTable.Write(filename + ".CUBE", taskControl.tasks);
             log.Add("LUT file exported");
         }
 
         /// <summary>
-        /// Edit -> Settings menu button - opens app settings
+        /// Edit -> Apply LUT file menu button - prompts LUT file choice
         /// </summary>
         private void button14_Click(object sender, EventArgs e)
         {
-            // TODO: Settings
+            panel7.Visible = panel7.Visible == false;
+        }
+
+        /// <summary>
+        /// Edit -> Apply LUT file -> Apply menu button - applies choosen LUT file
+        /// </summary>
+        private void button28_Click(object sender, EventArgs e)
+        {
+            if (comboBox3.SelectedItem != null)
+            {
+                ImageTask task = new ApplyLUT(
+                    ImageModification.ApplyLUT,
+                    imageSet,
+                    comboBox3.SelectedItem.ToString()
+                );
+                taskControl.Add(task);
+                taskControl.CheckAndProcess();
+                log.Add("LUT file applied");
+            }
+            panel7.Visible = false;
             panel4.Visible = false;
         }
 
@@ -426,23 +508,6 @@ namespace PhotoEditor
                     pictureBox2.Image = imageSet.image;
                     break;
             }
-
-            if (taskControl.undoQueue.IsEmpty())
-            {
-                button17.Enabled = false;
-            }
-            else
-            {
-                button17.Enabled = true;
-            }
-            if (taskControl.redoQueue.IsEmpty())
-            {
-                button16.Enabled = false;
-            }
-            else
-            {
-                button16.Enabled = true;
-            }
         }
 
         public void RedrawImageSet()
@@ -467,6 +532,10 @@ namespace PhotoEditor
         {
             imageSet.image = restorePoint.image;
             imageSet.thumb = restorePoint.thumb;
+
+            imageSet.saturation = restorePoint.saturation;
+            imageSet.brightness = restorePoint.brightness;
+            imageSet.clarity = restorePoint.clarity;
 
             imageSet.thumbRed = imageSet.CopyThumbnailWithFilter(ColorFilters.RedFilter);
             imageSet.thumbGreen = imageSet.CopyThumbnailWithFilter(ColorFilters.GreenFilter);
@@ -583,15 +652,15 @@ namespace PhotoEditor
             switch (mod)
             {
                 case ImageModification.Saturation:
-                    task = new SaturationEdit(ImageModification.Saturation, newValue);
+                    task = new SaturationEdit(ImageModification.Saturation, imageSet, newValue);
                     log.Add("Image saturation modified");
                     break;
                 case ImageModification.Brightness:
-                    task = new BrightnessEdit(ImageModification.Brightness, newValue);
+                    task = new BrightnessEdit(ImageModification.Brightness, imageSet, newValue);
                     log.Add("Image brightness modified");
                     break;
                 case ImageModification.Clarity:
-                    task = new ClarityEdit(ImageModification.Clarity, newValue);
+                    task = new ClarityEdit(ImageModification.Clarity, imageSet, newValue);
                     log.Add("Image clarity modified");
                     break;
                 default:
@@ -607,7 +676,7 @@ namespace PhotoEditor
         /// </summary>
         private void button23_Click(object sender, EventArgs e)
         {
-            ImageTask task = new ColorInvert(ImageModification.InvertColor);
+            ImageTask task = new ColorInvert(ImageModification.InvertColor, imageSet);
             taskControl.Add(task);
             taskControl.CheckAndProcess();
             log.Add("Image color inverted");
@@ -622,6 +691,7 @@ namespace PhotoEditor
             {
                 ImageTask task = new ColorChange(
                     ImageModification.ColorRotate,
+                    imageSet,
                     comboBox1.SelectedItem.ToString(),
                     comboBox2.SelectedItem.ToString()
                 );
@@ -636,7 +706,7 @@ namespace PhotoEditor
         /// </summary>
         private void button25_Click(object sender, EventArgs e)
         {
-            ImageTask task = new ApplyGreyStyle(ImageModification.ApplyGreyStyle);
+            ImageTask task = new ApplyGreyStyle(ImageModification.ApplyGreyStyle, imageSet);
             taskControl.Add(task);
             taskControl.CheckAndProcess();
             log.Add("Image converted to graystyle");
@@ -647,7 +717,7 @@ namespace PhotoEditor
         /// </summary>
         private void button26_Click(object sender, EventArgs e)
         {
-            ImageTask task = new FlipHorizontal(ImageModification.FlipHorizontally);
+            ImageTask task = new FlipHorizontal(ImageModification.FlipHorizontally, imageSet);
             taskControl.Add(task);
             taskControl.CheckAndProcess();
             log.Add("Image flipped vertically");
@@ -658,7 +728,7 @@ namespace PhotoEditor
         /// </summary>
         private void button27_Click(object sender, EventArgs e)
         {
-            ImageTask task = new FlipVertical(ImageModification.FlipVertically);
+            ImageTask task = new FlipVertical(ImageModification.FlipVertically, imageSet);
             taskControl.Add(task);
             taskControl.CheckAndProcess();
             log.Add("Image flipped horizontally");

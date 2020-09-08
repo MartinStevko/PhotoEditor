@@ -18,6 +18,9 @@ namespace PhotoEditor
         public Queue undoQueue;
         public Queue redoQueue;
 
+        public Stack<ImageTask> tasks;
+        public Stack<ImageTask> removed;
+
         public TaskControl(MainForm form)
         {
             this.form = form;
@@ -31,6 +34,9 @@ namespace PhotoEditor
             undoQueue = new Queue();
             redoQueue = new Queue();
 
+            tasks = new Stack<ImageTask>();
+            removed = new Stack<ImageTask>();
+
             Thread t = new Thread(Process);
             t.IsBackground = true;
             t.Start();
@@ -38,6 +44,7 @@ namespace PhotoEditor
 
         public void Add(ImageTask task)
         {
+            tasks.Push(task);
             if ((head == null) || (!head.ongoing))
             {
                 if (head == null)
@@ -120,7 +127,7 @@ namespace PhotoEditor
                 undoQueue.Add(old);
                 redoQueue.Flush();
 
-                head.Process(form.imageSet);
+                head.Process();
                 head = head.next;
                 if (head != null)
                 {
