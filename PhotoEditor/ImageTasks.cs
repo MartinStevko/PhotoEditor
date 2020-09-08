@@ -11,7 +11,8 @@ namespace PhotoEditor
         FlipHorizontally,
         FlipVertically,
         ColorRotate,
-        ApplyGreyStyle
+        ApplyGreyStyle,
+        ApplyLUT
     }
 
     public abstract class ImageTask
@@ -22,25 +23,62 @@ namespace PhotoEditor
         public ImageTask previous;
         public ImageTask next;
 
-        public ImageTask(ImageModification mod)
+        internal ImageSet iSet;
+        internal ImageMode iMode;
+
+        public ImageTask(ImageModification mod, ImageSet imageSet)
         {
             taskType = mod;
 
             ongoing = false;
             previous = null;
             next = null;
+
+            iSet = imageSet;
+            iMode = iSet.imageMode;
         }
 
-        public abstract void Process(ImageSet iSet);
+        public abstract void Process();
+    }
+
+    public abstract class ColorTask : ImageTask
+    {
+        public ColorTask(ImageModification mod, ImageSet imageSet) : base(mod, imageSet) { }
+
+        public abstract Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue);
+
+        public override void Process()
+        {
+            if (iSet != null)
+            {
+                iSet.ProcessColor(ColorMixer);
+                iSet.ProcessThumbnailColor(ColorMixer);
+            }
+        }
+
+        public Tuple<byte, byte, byte> ReturnWithFilter(byte red, byte green, byte blue, int r, int g, int b)
+        {
+            switch (iMode)
+            {
+                case ImageMode.Red:
+                    return new Tuple<byte, byte, byte>((byte)r, green, blue);
+                case ImageMode.Green:
+                    return new Tuple<byte, byte, byte>(red, (byte)g, blue);
+                case ImageMode.Blue:
+                    return new Tuple<byte, byte, byte>(red, green, (byte)b);
+                default:
+                    return new Tuple<byte, byte, byte>((byte)r, (byte)g, (byte)b);
+            }
+        }
     }
 
     #region Color edit tasks
 
-    public abstract class ColorEdit : ImageTask
+    public abstract class ColorEdit : ColorTask
     {
         public int value;
 
-        public ColorEdit(ImageModification mod, int value) : base(mod)
+        public ColorEdit(ImageModification mod, ImageSet imageSet, int value) : base(mod, imageSet)
         {
             this.value = value;
         }
@@ -48,133 +86,88 @@ namespace PhotoEditor
 
     public class SaturationEdit : ColorEdit
     {
-        public SaturationEdit(ImageModification mod, int value) : base(mod, value) { }
+        private int c;
 
-        public override void Process(ImageSet iSet)
+        public SaturationEdit(ImageModification mod, ImageSet imageSet, int value) : base(mod, imageSet, value) { }
+
+        public override void Process()
         {
             if (iSet != null)
             {
-                int c = (value - iSet.saturation) / 3;
+                c = (value - iSet.saturation) / 3;
                 iSet.saturation = value;
 
-                Tuple<byte, byte, byte> SaturationMixer(byte red, byte green, byte blue)
-                {
-                    int r = Math.Min(Math.Max(0, red - c), 255);
-                    int g = Math.Min(Math.Max(0, green - c), 255);
-                    int b = Math.Min(Math.Max(0, blue - c), 255);
-
-                    Tuple<byte, byte, byte> response;
-
-                    switch (iSet.imageMode)
-                    {
-                        case ImageMode.Red:
-                            response = new Tuple<byte, byte, byte>((byte)r, green, blue);
-                            break;
-                        case ImageMode.Green:
-                            response = new Tuple<byte, byte, byte>(red, (byte)g, blue);
-                            break;
-                        case ImageMode.Blue:
-                            response = new Tuple<byte, byte, byte>(red, green, (byte)b);
-                            break;
-                        default:
-                            response = new Tuple<byte, byte, byte>((byte)r, (byte)g, (byte)b);
-                            break;
-                    }
-
-                    return response;
-                }
-
-                iSet.ProcessColor(SaturationMixer);
-                iSet.ProcessThumbnailColor(SaturationMixer);
+                iSet.ProcessColor(ColorMixer);
+                iSet.ProcessThumbnailColor(ColorMixer);
             }
+        }
+
+        public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
+        {
+            int r = Math.Min(Math.Max(0, red - c), 255);
+            int g = Math.Min(Math.Max(0, green - c), 255);
+            int b = Math.Min(Math.Max(0, blue - c), 255);
+
+            Tuple<byte, byte, byte> response = ReturnWithFilter(red, green, blue, r, g, b);
+            return response;
         }
     }
 
     public class BrightnessEdit : ColorEdit
     {
-        public BrightnessEdit(ImageModification mod, int value) : base(mod, value) { }
+        private double c;
 
-        public override void Process(ImageSet iSet)
+        public BrightnessEdit(ImageModification mod, ImageSet imageSet, int value) : base(mod, imageSet, value) { }
+
+        public override void Process()
         {
             if (iSet != null)
             {
-                double c = (value - iSet.brightness) / 600.0;
+                c = (value - iSet.brightness) / 600.0;
                 iSet.brightness = value;
 
-                Tuple<byte, byte, byte> BrightnessMixer(byte red, byte green, byte blue)
-                {
-                    int r = Math.Min(Math.Max(0, red + (int)((red) * c)), 255);
-                    int g = Math.Min(Math.Max(0, green + (int)((green) * c)), 255);
-                    int b = Math.Min(Math.Max(0, blue + (int)((blue) * c)), 255);
-
-                    Tuple<byte, byte, byte> response;
-
-                    switch (iSet.imageMode)
-                    {
-                        case ImageMode.Red:
-                            response = new Tuple<byte, byte, byte>((byte)r, green, blue);
-                            break;
-                        case ImageMode.Green:
-                            response = new Tuple<byte, byte, byte>(red, (byte)g, blue);
-                            break;
-                        case ImageMode.Blue:
-                            response = new Tuple<byte, byte, byte>(red, green, (byte)b);
-                            break;
-                        default:
-                            response = new Tuple<byte, byte, byte>((byte)r, (byte)g, (byte)b);
-                            break;
-                    }
-
-                    return response;
-                }
-
-                iSet.ProcessColor(BrightnessMixer);
-                iSet.ProcessThumbnailColor(BrightnessMixer);
+                iSet.ProcessColor(ColorMixer);
+                iSet.ProcessThumbnailColor(ColorMixer);
             }
+        }
+
+        public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
+        {
+            int r = Math.Min(Math.Max(0, red + (int)((red) * c)), 255);
+            int g = Math.Min(Math.Max(0, green + (int)((green) * c)), 255);
+            int b = Math.Min(Math.Max(0, blue + (int)((blue) * c)), 255);
+
+            Tuple<byte, byte, byte> response = ReturnWithFilter(red, green, blue, r, g, b);
+            return response;
         }
     }
 
     public class ClarityEdit : ColorEdit
     {
-        public ClarityEdit(ImageModification mod, int value) : base(mod, value) { }
+        private double c;
 
-        public override void Process(ImageSet iSet)
+        public ClarityEdit(ImageModification mod, ImageSet imageSet, int value) : base(mod, imageSet, value) { }
+
+        public override void Process()
         {
             if (iSet != null)
             {
-                double c = (value - iSet.clarity + 1000) / 1000.0;
+                c = (value - iSet.clarity + 300) / 300.0;
                 iSet.clarity = value;
 
-                Tuple<byte, byte, byte> SaturationMixer(byte red, byte green, byte blue)
-                {
-                    int r = 128 - Math.Min(Math.Max(-128, (int)((128 - red) * c)), 127);
-                    int g = 128 - Math.Min(Math.Max(-128, (int)((128 - green) * c)), 127);
-                    int b = 128 - Math.Min(Math.Max(-128, (int)((128 - blue) * c)), 127);
-
-                    Tuple<byte, byte, byte> response;
-
-                    switch (iSet.imageMode)
-                    {
-                        case ImageMode.Red:
-                            response = new Tuple<byte, byte, byte>((byte)r, green, blue);
-                            break;
-                        case ImageMode.Green:
-                            response = new Tuple<byte, byte, byte>(red, (byte)g, blue);
-                            break;
-                        case ImageMode.Blue:
-                            response = new Tuple<byte, byte, byte>(red, green, (byte)b);
-                            break;
-                        default:
-                            response = new Tuple<byte, byte, byte>((byte)r, (byte)g, (byte)b);
-                            break;
-                    }
-
-                    return response;
-                }
-
-                iSet.ProcessColor(SaturationMixer);
-                iSet.ProcessThumbnailColor(SaturationMixer);
+                iSet.ProcessColor(ColorMixer);
+                iSet.ProcessThumbnailColor(ColorMixer);
             }
+        }
+
+        public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
+        {
+            int r = 128 - Math.Min(Math.Max(-127, (int)((128 - red) * c)), 128);
+            int g = 128 - Math.Min(Math.Max(-127, (int)((128 - green) * c)), 128);
+            int b = 128 - Math.Min(Math.Max(-127, (int)((128 - blue) * c)), 128);
+
+            Tuple<byte, byte, byte> response = ReturnWithFilter(red, green, blue, r, g, b);
+            return response;
         }
     }
 
@@ -182,51 +175,28 @@ namespace PhotoEditor
 
     #region Color swap tasks
 
-    public class ColorInvert : ImageTask
+    public class ColorInvert : ColorTask
     {
-        public ColorInvert(ImageModification mod) : base(mod) { }
+        public ColorInvert(ImageModification mod, ImageSet imageSet) : base(mod, imageSet) { }
 
-        public override void Process(ImageSet iSet)
+        public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
         {
-            Tuple<byte, byte, byte> Inverter(byte red, byte green, byte blue)
-            {
-                int r = 255 - red;
-                int g = 255 - green;
-                int b = 255 - blue;
+            int r = 255 - red;
+            int g = 255 - green;
+            int b = 255 - blue;
 
-                Tuple<byte, byte, byte> response;
-
-                switch (iSet.imageMode)
-                {
-                    case ImageMode.Red:
-                        response = new Tuple<byte, byte, byte>((byte)r, green, blue);
-                        break;
-                    case ImageMode.Green:
-                        response = new Tuple<byte, byte, byte>(red, (byte)g, blue);
-                        break;
-                    case ImageMode.Blue:
-                        response = new Tuple<byte, byte, byte>(red, green, (byte)b);
-                        break;
-                    default:
-                        response = new Tuple<byte, byte, byte>((byte)r, (byte)g, (byte)b);
-                        break;
-                }
-
-                return response;
-            }
-
-            iSet.ProcessColor(Inverter);
-            iSet.ProcessThumbnailColor(Inverter);
+            Tuple<byte, byte, byte> response = ReturnWithFilter(red, green, blue, r, g, b);
+            return response;
         }
     }
 
-    public class ColorChange : ImageTask
+    public class ColorChange : ColorTask
     {
         private sbyte first;
 
         private sbyte second;
 
-        public ColorChange(ImageModification mod, string first, string second) : base(mod)
+        public ColorChange(ImageModification mod, ImageSet imageSet, string first, string second) : base(mod, imageSet)
         {
             this.first = -1;
             this.second = -1;
@@ -256,20 +226,44 @@ namespace PhotoEditor
             }
         }
 
-        public override void Process(ImageSet iSet)
+        public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
         {
-            Tuple<byte, byte, byte> Changer(byte red, byte green, byte blue)
-            {
-                byte[] colors = new byte[] { red, green, blue };
-                byte temp = colors[first];
-                colors[first] = colors[second];
-                colors[second] = temp;
+            byte[] colors = new byte[] { red, green, blue };
+            byte temp = colors[first];
+            colors[first] = colors[second];
+            colors[second] = temp;
 
-                return new Tuple<byte, byte, byte>(colors[0], colors[1], colors[2]);
-            }
+            return new Tuple<byte, byte, byte>(colors[0], colors[1], colors[2]);
+        }
+    }
 
-            iSet.ProcessColor(Changer);
-            iSet.ProcessThumbnailColor(Changer);
+    #endregion
+
+    #region Color map tasks
+
+    public class ApplyLUT : ColorTask
+    {
+        private int size;
+
+        private Tuple<byte, byte, byte>[,,] map;
+
+        public ApplyLUT(ImageModification mod, ImageSet imageSet, string name) : base(mod, imageSet)
+        {
+            Tuple<int, Tuple<byte, byte, byte>[,,]> lut = LookUpTable.Read(name);
+            size = lut.Item1;
+            map = lut.Item2;
+        }
+
+        public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
+        {
+            Tuple<byte, byte, byte> color = map[
+                (int)Math.Round((double)red * (size - 1) / 255),
+                (int)Math.Round((double)green * (size - 1) / 255),
+                (int)Math.Round((double)blue * (size - 1) / 255)
+            ];
+
+            Tuple<byte, byte, byte> response = ReturnWithFilter(red, green, blue, color.Item1, color.Item2, color.Item3);
+            return response;
         }
     }
 
@@ -283,9 +277,9 @@ namespace PhotoEditor
 
         protected int height;
 
-        public FlipTask(ImageModification mod) : base(mod) { }
+        public FlipTask(ImageModification mod, ImageSet imageSet) : base(mod, imageSet) { }
 
-        public override void Process(ImageSet iSet)
+        public override void Process()
         {
             iSet.ProcessLayout(MixLayout, MaxCoordinates);
             iSet.ProcessThumbnailLayout(MixLayout, MaxCoordinates);
@@ -298,7 +292,7 @@ namespace PhotoEditor
 
     public class FlipHorizontal : FlipTask
     {
-        public FlipHorizontal(ImageModification mod) : base(mod) { }
+        public FlipHorizontal(ImageModification mod, ImageSet imageSet) : base(mod, imageSet) { }
 
         protected override Tuple<int, int> MaxCoordinates(int x, int y)
         {
@@ -315,7 +309,7 @@ namespace PhotoEditor
 
     public class FlipVertical : FlipTask
     {
-        public FlipVertical(ImageModification mod) : base(mod) { }
+        public FlipVertical(ImageModification mod, ImageSet imageSet) : base(mod, imageSet) { }
 
         protected override Tuple<int, int> MaxCoordinates(int x, int y)
         {
@@ -334,28 +328,15 @@ namespace PhotoEditor
 
     #region Filter tasks
 
-    public abstract class ApplyFilter : ImageTask
-    {
-        public ApplyFilter(ImageModification mod) : base(mod) { }
-
-        public abstract Tuple<byte, byte, byte> Filter(byte red, byte green, byte blue);
-
-        public override void Process(ImageSet iSet)
-        {
-            iSet.ProcessColor(Filter);
-            iSet.ProcessThumbnailColor(Filter);
-        }
-    }
-
-    public class ApplyGreyStyle : ApplyFilter
+    public class ApplyGreyStyle : ColorTask
     {
         private double redBrightness = 0.2989;
         private double greenBrightness = 0.5866;
         private double blueBrightness = 0.1145;
 
-        public ApplyGreyStyle(ImageModification mod) : base(mod) { }
+        public ApplyGreyStyle(ImageModification mod, ImageSet imageSet) : base(mod, imageSet) { }
 
-        public override Tuple<byte, byte, byte> Filter(byte red, byte green, byte blue)
+        public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
         {
             byte grey = (byte)(red * redBrightness + green * greenBrightness + blue * blueBrightness);
             return new Tuple<byte, byte, byte>(grey, grey, grey);

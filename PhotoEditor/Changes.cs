@@ -49,7 +49,7 @@ namespace PhotoEditor
         public Queue()
         {
             free = 0;
-            length = 10;
+            length = 100;
             data = new RestorePoint[length];
         }
 

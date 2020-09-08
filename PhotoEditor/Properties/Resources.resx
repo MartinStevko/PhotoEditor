@@ -118,11 +118,116 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AlexaRec709" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\AlexaRec709.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="appIcon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\appIcon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Ava614" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ava614.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Azrael_93" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Azrael 93.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BlackAndWhite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlackAndWhite.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BlackMagic" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlackMagic.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BlackMagic2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BlackMagic2.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="BrownContrast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BrownContrast.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Chemical168" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Chemical168.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Cinelike" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cinelike.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CineStyle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CineStyle.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Clouseau54" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Clouseau54.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Cobi3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cobi3.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Contrail35" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Contrail35.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Cool" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Cool.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CoolBlue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CoolBlue.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CoolContrast" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CoolContrast.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CoolCubicle99" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CoolCubicle99.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CoolDark" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CoolDark.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="CoolGrey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CoolGrey.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Decade70s" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Decade70s.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Django25" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Django25.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Domingo145" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Domingo145.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Drive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Drive.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Fuji" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fuji.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Fuji2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Fuji2.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GamutCine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GamutCine.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GamutLC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GamutLC.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GamutLC2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GamutLC2.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GamutSLog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GamutSLog.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Grit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Grit.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GumutCine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GumutCine.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GumutLC" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GumutLC.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GumutLC2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GumutLC2.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="GumutSLog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GumutSLog.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Hyla68" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Hyla68.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,7 +235,121 @@
   <data name="iconOriginal" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\iconOriginal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Inspire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Inspire.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="KodakLOG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KodakLOG.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="KodakRec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\KodakRec.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Korben214" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Korben214.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Lenox340" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lenox340.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Log" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Log.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Log2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Log2.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LogCinGamut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogCinGamut.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="LogCinGamut2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogCinGamut2.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Lucky64" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Lucky64.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="luts" xml:space="preserve">
+    <value>Strip2,Strip3,Decade70s,AlexaRec709,Ava614,Azrael 93,BlackAndWhite,BlackMagic,BlackMagic2,BrownContrast,Chemical168,Cinelike,CineStyle,Clouseau54,Cobi3,Contrail35,Cool,CoolBlue,CoolContrast,CoolCubicle99,CoolDark,CoolGrey,Django25,Domingo145,Drive,Fuji,Fuji2,GamutCine,GamutLC,GamutLC2,GamutSLog,Grit,GumutCine,GumutLC,GumutLC2,GumutSLog,Hyla68,Inspire,KodakLOG,KodakRec,Korben214,Lenox340,Log,Log2,LogCinGamut,LogCinGamut2,Lucky64,M31LOG,M31Rec,MadMax,Milo5,Moonrise,OrangeTeal,Paladin1875,PanasonicVLog,Pitaya15,RedLog,Reeve38,Remy24,RSLUT,Sepia,SonyRec,Sprocket231,Summer,Thriller,Tweed71,Warm,WarmNeon770,WarmPink,WarnFaded47,Zed32,Zeke39</value>
+  </data>
+  <data name="M31LOG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M31LOG.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="M31Rec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\M31Rec.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MadMax" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MadMax.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Milo5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Milo5.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="minimize" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimize.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Moonrise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Moonrise.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OrangeTeal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\OrangeTeal.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Paladin1875" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Paladin1875.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="PanasonicVLog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PanasonicVLog.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Pitaya15" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Pitaya15.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RedLog" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RedLog.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Reeve38" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reeve38.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Remy24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Remy24.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RSLUT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RSLUT.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Sepia" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sepia.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SonyRec" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SonyRec.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Sprocket231" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Sprocket231.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Strip2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Strip2.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Strip3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Strip3.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Summer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Summer.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Thriller" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Thriller.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Tweed71" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Tweed71.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Warm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Warm.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="WarmNeon770" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WarmNeon770.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="WarmPink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WarmPink.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="WarnFaded47" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\WarnFaded47.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Zed32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Zed32.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Zeke39" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Zeke39.CUBE;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
