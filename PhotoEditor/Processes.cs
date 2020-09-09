@@ -2,6 +2,8 @@
 
 namespace PhotoEditor
 {
+    #region Delegates
+
     /// <summary>
     /// Calculate new RGB value from current value
     /// </summary>
@@ -26,4 +28,6 @@ namespace PhotoEditor
     /// <param name="y">Number of columns</param>
     /// <returns>Tuple (x, y) where x is length of raw traversal and y length of column traversal</returns>
     public delegate Tuple<int, int> LayoutCoordinatesMaxValue(int x, int y);
+
+    #endregion
 }

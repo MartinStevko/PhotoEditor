@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PhotoEditor
 {
+    /// <summary>
+    /// Available image modes
+    /// </summary>
     public enum ImageMode
     {
         Full,
@@ -14,25 +17,76 @@ namespace PhotoEditor
         Blue
     }
 
+    /// <summary>
+    /// Main engine for application
+    /// </summary>
     public class ImageSet
     {
+        #region Image set variables
+
+        /// <summary>
+        /// Image original filename
+        /// </summary>
         public string filename;
+        /// <summary>
+        /// Original image
+        /// </summary>
         private Bitmap origin;
 
+        /// <summary>
+        /// Main image - resized original
+        /// </summary>
         public Bitmap image;
+        /// <summary>
+        /// Image view mode
+        /// </summary>
         public ImageMode imageMode;
+        /// <summary>
+        /// Image area
+        /// </summary>
         public Rectangle rectangle;
 
+        /// <summary>
+        /// Image thumbnail
+        /// </summary>
         public Bitmap thumb;
+        /// <summary>
+        /// Image thumbnail with red color filtered
+        /// </summary>
         public Bitmap thumbRed;
+        /// <summary>
+        /// Image thumbnail with green color filtered
+        /// </summary>
         public Bitmap thumbGreen;
+        /// <summary>
+        /// Image thumbnail with blue color filtered
+        /// </summary>
         public Bitmap thumbBlue;
+        /// <summary>
+        /// Image thumbnail area
+        /// </summary>
         public Rectangle thumbRectangle;
 
+        /// <summary>
+        /// Image saturation level
+        /// </summary>
         public int saturation;
+        /// <summary>
+        /// Image brightness level
+        /// </summary>
         public int brightness;
+        /// <summary>
+        /// Image clarity level
+        /// </summary>
         public int clarity;
 
+        #endregion
+
+        #region Loading essentials
+
+        /// <summary>
+        /// Initialize image set variables to its defaults
+        /// </summary>
         public ImageSet()
         {
             filename = null;
@@ -53,6 +107,14 @@ namespace PhotoEditor
             clarity = 0;
         }
 
+        /// <summary>
+        /// Loads new image to application components
+        /// </summary>
+        /// <param name="file">Image name</param>
+        /// <param name="width">Width of canvas in pixels</param>
+        /// <param name="height">Height of canvas in pixels</param>
+        /// <param name="thumbWidth">Width of thumbnail canvas in pixels</param>
+        /// <param name="thumbHeight">Height of thumbnail canvas in pixels</param>
         public void Load(string file, int width, int height, int thumbWidth, int thumbHeight)
         {
             Image source = Image.FromFile(file);
@@ -90,6 +152,11 @@ namespace PhotoEditor
             thumbBlue = CopyThumbnailWithFilter(ColorFilters.BlueFilter);
         }
 
+        /// <summary>
+        /// Resizes source image (main or thumbnail) to required size
+        /// </summary>
+        /// <param name="toThumbnail">Boolean indicator whether resizing thumbnail or main image</param>
+        /// <returns>Resized bitmap</returns>
         private Bitmap Resize(bool toThumbnail)
         {
             Rectangle r = toThumbnail ? thumbRectangle : rectangle;
@@ -114,6 +181,11 @@ namespace PhotoEditor
             return t;
         }
 
+        /// <summary>
+        /// Shows main image with color filter
+        /// </summary>
+        /// <param name="mixer">Color filter</param>
+        /// <returns>Bitmap with color filtered by filter from main image</returns>
         public Bitmap ShowWithFilter(ColorMixer mixer)
         {
             Bitmap t = image.Clone(rectangle, image.PixelFormat);
@@ -146,6 +218,11 @@ namespace PhotoEditor
             return t;
         }
 
+        /// <summary>
+        /// Copies thumbnails for red, green and blue colors from main thumbnail
+        /// </summary>
+        /// <param name="mixer">Color filter</param>
+        /// <returns>Thumbnail with filtered color</returns>
         public Bitmap CopyThumbnailWithFilter(ColorMixer mixer)
         {
             Bitmap t = thumb.Clone(thumbRectangle, thumb.PixelFormat);
@@ -178,10 +255,18 @@ namespace PhotoEditor
             return t;
         }
 
+        /// <summary>
+        /// Resizes width and height preserving original aspect ration
+        /// </summary>
+        /// <param name="width">Canvas width in pixel</param>
+        /// <param name="height">Canvas height in pixels</param>
+        /// <param name="pWidth">Image width in pixels</param>
+        /// <param name="pHeight">Image height in pixels</param>
+        /// <returns>Tuple of new image width and height</returns>
         public static Tuple<int, int> PreserveAspectRation(int width, int height, int pWidth, int pHeight)
         {
-            double xRatio = (double)width / (double)pWidth;
-            double yRatio = (double)height / (double)pHeight;
+            double xRatio = width / (double)pWidth;
+            double yRatio = height / (double)pHeight;
             if (xRatio > yRatio)
             {
                 return new Tuple<int, int>((int)(pWidth * yRatio), (int)(pHeight * yRatio));
@@ -192,8 +277,12 @@ namespace PhotoEditor
             }
         }
 
+        #endregion
+
+        #region Color processors
+
         /// <summary>
-        /// Changes RGB value of pixel according to the defined rules
+        /// Changes RGB value of each pixel according to the defined rules
         /// </summary>
         /// <param name="mixer">Function which calculate new RGB values</param>
         public void ProcessColor(ColorMixer mixer)
@@ -223,6 +312,10 @@ namespace PhotoEditor
             }
         }
 
+        /// <summary>
+        /// Changes RGB value of each pixel according to the defined rules
+        /// </summary>
+        /// <param name="mixer">Function which calculate new RGB values</param>
         public void ProcessThumbnailColor(ColorMixer mixer)
         {
             unsafe
@@ -254,6 +347,10 @@ namespace PhotoEditor
             thumbBlue = CopyThumbnailWithFilter(ColorFilters.BlueFilter);
         }
 
+        #endregion
+
+        #region Layout processors
+
         /// <summary>
         /// Changes layout of pixels in image according to defined rules in 'mixer'
         /// </summary>
@@ -274,6 +371,11 @@ namespace PhotoEditor
             }
         }
 
+        /// <summary>
+        /// Changes layout of pixels in image according to defined rules in 'mixer'
+        /// </summary>
+        /// <param name="mixer">Method which returns new coordinates of pixel</param>
+        /// <param name="changer">Method which returns controls for image traverse</param>
         public void ProcessThumbnailLayout(LayoutMixer mixer, LayoutCoordinatesMaxValue changer)
         {
             (int xMax, int yMax) = changer(thumb.Width, thumb.Height);
@@ -288,5 +390,7 @@ namespace PhotoEditor
                 }
             }
         }
+
+        #endregion
     }
 }

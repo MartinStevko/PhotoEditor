@@ -7,8 +7,15 @@ namespace PhotoEditor
     /// </summary>
     public class Matrix
     {
+        /// <summary>
+        /// Width - Number of matrix columns
+        /// Height - Number of matrix rows
+        /// </summary>
         protected readonly int Width, Height;
 
+        /// <summary>
+        /// Matrix cells values
+        /// </summary>
         public readonly double[,] Data;
 
         /// <summary>
