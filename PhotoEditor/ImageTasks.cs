@@ -2,6 +2,11 @@
 
 namespace PhotoEditor
 {
+    #region General
+
+    /// <summary>
+    /// Provided image modifications
+    /// </summary>
     public enum ImageModification
     {
         Saturation,
@@ -15,17 +20,48 @@ namespace PhotoEditor
         ApplyLUT
     }
 
+    /// <summary>
+    /// Abstract class which provides common ancestor of all types of image tasks
+    /// </summary>
     public abstract class ImageTask
     {
+        /// <summary>
+        /// One of provided image modifications
+        /// Provides easy access to image task type
+        /// </summary>
         public ImageModification taskType;
+
+        /// <summary>
+        /// Boolean indicator whether task is in processing or in waiting list
+        /// </summary>
         public bool ongoing;
 
+        /// <summary>
+        /// Pointer to previous image task
+        /// Required as linked list implementation
+        /// </summary>
         public ImageTask previous;
+        /// <summary>
+        /// Pointer to next image task
+        /// Required as linked list implementation
+        /// </summary>
         public ImageTask next;
 
+        /// <summary>
+        /// Pointer to image set from engine
+        /// </summary>
         internal ImageSet iSet;
+        /// <summary>
+        /// Deep coppy of current mode in image set
+        /// </summary>
         internal ImageMode iMode;
 
+        /// <summary>
+        /// Initialize image task type, image color filter (as image view mode), image set and 
+        /// other variables with defaults
+        /// </summary>
+        /// <param name="mod">One of provided image modifications</param>
+        /// <param name="imageSet">Pointer to image set from engine</param>
         public ImageTask(ImageModification mod, ImageSet imageSet)
         {
             taskType = mod;
@@ -38,15 +74,39 @@ namespace PhotoEditor
             iMode = iSet.imageMode;
         }
 
+        /// <summary>
+        /// Task entry point for task control
+        /// Implements logic how to properly execute this type of image task
+        /// </summary>
         public abstract void Process();
     }
 
+    /// <summary>
+    /// Common ancestor for all types of image tasks which 
+    /// processes image color pixel by pixel
+    /// </summary>
     public abstract class ColorTask : ImageTask
     {
+        /// <summary>
+        /// Constructor caller of base constructor
+        /// </summary>
+        /// <param name="mod">One of provided image modifications</param>
+        /// <param name="imageSet">Pointer to image set from engine</param>
         public ColorTask(ImageModification mod, ImageSet imageSet) : base(mod, imageSet) { }
 
+        /// <summary>
+        /// Function which defines color mapping of particular change in image set
+        /// Must use the same interface as color mixer delegate, because it is used as delegate
+        /// </summary>
+        /// <param name="red">Red value in RGB format</param>
+        /// <param name="green">Green value in RGB format</param>
+        /// <param name="blue">Blue value in RGB format</param>
+        /// <returns>Tuple of (red, green, blue) values of new color in RGB format</returns>
         public abstract Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue);
 
+        /// <summary>
+        /// Common processing (can be overriden later)
+        /// </summary>
         public override void Process()
         {
             if (iSet != null)
@@ -56,6 +116,16 @@ namespace PhotoEditor
             }
         }
 
+        /// <summary>
+        /// Color filter based on image mode - returns only edits ofcurrently shown color spectre
+        /// </summary>
+        /// <param name="red">Input red value in RGB format</param>
+        /// <param name="green">Input green value in RGB format</param>
+        /// <param name="blue">Input blue value in RGB format</param>
+        /// <param name="r">Processed red value in RGB format</param>
+        /// <param name="g">Processed green value in RGB format</param>
+        /// <param name="b">Processed blue value in RGB format</param>
+        /// <returns>Tuple of (red, green, blue) values of new color in RGB format with filter applied</returns>
         public Tuple<byte, byte, byte> ReturnWithFilter(byte red, byte green, byte blue, int r, int g, int b)
         {
             switch (iMode)
@@ -72,24 +142,55 @@ namespace PhotoEditor
         }
     }
 
+    #endregion
+
     #region Color edit tasks
 
+    /// <summary>
+    /// Common ancestor for sauration/brightness/clarity changes
+    /// </summary>
     public abstract class ColorEdit : ColorTask
     {
+        /// <summary>
+        /// Level of saturation/brightness/clarity
+        /// </summary>
         public int value;
 
+        /// <summary>
+        /// Constructor caller of base constructor
+        /// Inicialize also edit value
+        /// </summary>
+        /// <param name="mod">One of provided image modifications</param>
+        /// <param name="imageSet">Pointer to image set from engine</param>
+        /// <param name="value">Particular edit level</param>
         public ColorEdit(ImageModification mod, ImageSet imageSet, int value) : base(mod, imageSet)
         {
             this.value = value;
         }
     }
 
+    /// <summary>
+    /// Color saturation edit task
+    /// </summary>
     public class SaturationEdit : ColorEdit
     {
+        /// <summary>
+        /// Edit coeficient based on current and desired saturation
+        /// </summary>
         private int c;
 
+        /// <summary>
+        /// Constructor caller of base constructor
+        /// </summary>
+        /// <param name="mod">One of provided image modifications</param>
+        /// <param name="imageSet">Pointer to image set from engine</param>
+        /// <param name="value">Particular edit level</param>
         public SaturationEdit(ImageModification mod, ImageSet imageSet, int value) : base(mod, imageSet, value) { }
 
+        /// <summary>
+        /// Override of ancestors Process() method
+        /// Implements determination of edit coeficient
+        /// </summary>
         public override void Process()
         {
             if (iSet != null)
@@ -102,6 +203,13 @@ namespace PhotoEditor
             }
         }
 
+        /// <summary>
+        /// Calculate new RGB saturation value from current value
+        /// </summary>
+        /// <param name="red">Red value in RGB format</param>
+        /// <param name="green">Green value in RGB format</param>
+        /// <param name="blue">Blue value in RGB format</param>
+        /// <returns>Tuple of (red, green, blue) values of new color in RGB format</returns>
         public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
         {
             int r = Math.Min(Math.Max(0, red - c), 255);
@@ -113,12 +221,28 @@ namespace PhotoEditor
         }
     }
 
+    /// <summary>
+    /// Color brigthness edit task
+    /// </summary>
     public class BrightnessEdit : ColorEdit
     {
+        /// <summary>
+        /// Edit coeficient based on current and desired brightness
+        /// </summary>
         private double c;
 
+        /// <summary>
+        /// Constructor caller of base constructor
+        /// </summary>
+        /// <param name="mod">One of provided image modifications</param>
+        /// <param name="imageSet">Pointer to image set from engine</param>
+        /// <param name="value">Particular edit level</param>
         public BrightnessEdit(ImageModification mod, ImageSet imageSet, int value) : base(mod, imageSet, value) { }
 
+        /// <summary>
+        /// Override of ancestors Process() method
+        /// Implements determination of edit coeficient
+        /// </summary>
         public override void Process()
         {
             if (iSet != null)
@@ -131,6 +255,13 @@ namespace PhotoEditor
             }
         }
 
+        /// <summary>
+        /// Calculate new RGB saturation value from current value
+        /// </summary>
+        /// <param name="red">Red value in RGB format</param>
+        /// <param name="green">Green value in RGB format</param>
+        /// <param name="blue">Blue value in RGB format</param>
+        /// <returns>Tuple of (red, green, blue) values of new color in RGB format</returns>
         public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
         {
             int r = Math.Min(Math.Max(0, red + (int)((red) * c)), 255);
@@ -142,12 +273,28 @@ namespace PhotoEditor
         }
     }
 
+    /// <summary>
+    /// Color clarity edit task
+    /// </summary>
     public class ClarityEdit : ColorEdit
     {
+        /// <summary>
+        /// Edit coeficient based on current and desired clarity
+        /// </summary>
         private double c;
 
+        /// <summary>
+        /// Constructor caller of base constructor
+        /// </summary>
+        /// <param name="mod">One of provided image modifications</param>
+        /// <param name="imageSet">Pointer to image set from engine</param>
+        /// <param name="value">Particular edit level</param>
         public ClarityEdit(ImageModification mod, ImageSet imageSet, int value) : base(mod, imageSet, value) { }
 
+        /// <summary>
+        /// Override of ancestors Process() method
+        /// Implements determination of edit coeficient
+        /// </summary>
         public override void Process()
         {
             if (iSet != null)
@@ -160,6 +307,13 @@ namespace PhotoEditor
             }
         }
 
+        /// <summary>
+        /// Calculate new RGB clarity value from current value
+        /// </summary>
+        /// <param name="red">Red value in RGB format</param>
+        /// <param name="green">Green value in RGB format</param>
+        /// <param name="blue">Blue value in RGB format</param>
+        /// <returns>Tuple of (red, green, blue) values of new color in RGB format</returns>
         public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
         {
             int r = 128 - Math.Min(Math.Max(-127, (int)((128 - red) * c)), 128);
@@ -175,10 +329,25 @@ namespace PhotoEditor
 
     #region Color swap tasks
 
+    /// <summary>
+    /// Task to invert image color
+    /// </summary>
     public class ColorInvert : ColorTask
     {
+        /// <summary>
+        /// Constructor caller of base constructor
+        /// </summary>
+        /// <param name="mod">One of provided image modifications</param>
+        /// <param name="imageSet">Pointer to image set from engine</param>
         public ColorInvert(ImageModification mod, ImageSet imageSet) : base(mod, imageSet) { }
 
+        /// <summary>
+        /// Calculate RGB inverted value from current value
+        /// </summary>
+        /// <param name="red">Red value in RGB format</param>
+        /// <param name="green">Green value in RGB format</param>
+        /// <param name="blue">Blue value in RGB format</param>
+        /// <returns>Tuple of (red, green, blue) values of new color in RGB format</returns>
         public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
         {
             int r = 255 - red;
@@ -190,12 +359,28 @@ namespace PhotoEditor
         }
     }
 
+    /// <summary>
+    /// Task for swapping two colors
+    /// </summary>
     public class ColorChange : ColorTask
     {
+        /// <summary>
+        /// Index of first color in exchange
+        /// </summary>
         private sbyte first;
 
+        /// <summary>
+        /// Index of second color in exchange
+        /// </summary>
         private sbyte second;
 
+        /// <summary>
+        /// Constructor caller of base constructor and color exchange parser
+        /// </summary>
+        /// <param name="mod">One of provided image modifications</param>
+        /// <param name="imageSet">Pointer to image set from engine</param>
+        /// <param name="first">First color</param>
+        /// <param name="second">Second color</param>
         public ColorChange(ImageModification mod, ImageSet imageSet, string first, string second) : base(mod, imageSet)
         {
             this.first = -1;
@@ -226,6 +411,13 @@ namespace PhotoEditor
             }
         }
 
+        /// <summary>
+        /// Calculate RGB value from current value after swapping two colors
+        /// </summary>
+        /// <param name="red">Red value in RGB format</param>
+        /// <param name="green">Green value in RGB format</param>
+        /// <param name="blue">Blue value in RGB format</param>
+        /// <returns>Tuple of (red, green, blue) values of new color in RGB format</returns>
         public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
         {
             byte[] colors = new byte[] { red, green, blue };
@@ -241,12 +433,28 @@ namespace PhotoEditor
 
     #region Color map tasks
 
+    /// <summary>
+    /// Task for look-up table applying
+    /// </summary>
     public class ApplyLUT : ColorTask
     {
+        /// <summary>
+        /// LUT file accuracy
+        /// </summary>
         private int size;
 
+        /// <summary>
+        /// LUT color map
+        /// </summary>
         private Tuple<byte, byte, byte>[,,] map;
 
+        /// <summary>
+        /// Constructor caller of base constructor
+        /// Also reads a saves LUT file by its filename
+        /// </summary>
+        /// <param name="mod">One of provided image modifications</param>
+        /// <param name="imageSet">Pointer to image set from engine</param>
+        /// <param name="name">LUT filename</param>
         public ApplyLUT(ImageModification mod, ImageSet imageSet, string name) : base(mod, imageSet)
         {
             Tuple<int, Tuple<byte, byte, byte>[,,]> lut = LookUpTable.Read(name);
@@ -254,6 +462,13 @@ namespace PhotoEditor
             map = lut.Item2;
         }
 
+        /// <summary>
+        /// Calculate RGB value from current value after mapping colors according to LUT file
+        /// </summary>
+        /// <param name="red">Red value in RGB format</param>
+        /// <param name="green">Green value in RGB format</param>
+        /// <param name="blue">Blue value in RGB format</param>
+        /// <returns>Tuple of (red, green, blue) values of new color in RGB format</returns>
         public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
         {
             Tuple<byte, byte, byte> color = map[
@@ -271,29 +486,72 @@ namespace PhotoEditor
 
     #region Layout tasks
 
+    /// <summary>
+    /// Common ancestor for flipping tasks
+    /// </summary>
     public abstract class FlipTask : ImageTask
     {
+        /// <summary>
+        /// Image pixels width
+        /// </summary>
         protected int width;
 
+        /// <summary>
+        /// Image pixels height
+        /// </summary>
         protected int height;
 
+        /// <summary>
+        /// Constructor caller of base constructor
+        /// </summary>
+        /// <param name="mod">One of provided image modifications</param>
+        /// <param name="imageSet">Pointer to image set from engine</param>
         public FlipTask(ImageModification mod, ImageSet imageSet) : base(mod, imageSet) { }
 
+        /// <summary>
+        /// Task common processing override
+        /// </summary>
         public override void Process()
         {
             iSet.ProcessLayout(MixLayout, MaxCoordinates);
             iSet.ProcessThumbnailLayout(MixLayout, MaxCoordinates);
         }
 
+        /// <summary>
+        /// Determines iterate array size based on image size
+        /// </summary>
+        /// <param name="x">Image width</param>
+        /// <param name="y">Image height</param>
+        /// <returns>Iterate array size as tuple (x, y)</returns>
         protected abstract Tuple<int, int> MaxCoordinates(int x, int y);
 
+        /// <summary>
+        /// Delegate for layout change
+        /// </summary>
+        /// <param name="x">X coordinate of pixel</param>
+        /// <param name="y">Y coordinate of pixel</param>
+        /// <returns>New coordinates as tuple (x, y)</returns>
         protected abstract Tuple<int, int> MixLayout(int x, int y);
     }
 
+    /// <summary>
+    /// Task for horizontal image flip
+    /// </summary>
     public class FlipHorizontal : FlipTask
     {
+        /// <summary>
+        /// Constructor caller of base constructor
+        /// </summary>
+        /// <param name="mod">One of provided image modifications</param>
+        /// <param name="imageSet">Pointer to image set from engine</param>
         public FlipHorizontal(ImageModification mod, ImageSet imageSet) : base(mod, imageSet) { }
 
+        /// <summary>
+        /// Determines iterate array size based on image size
+        /// </summary>
+        /// <param name="x">Image width</param>
+        /// <param name="y">Image height</param>
+        /// <returns>Iterate array size as tuple (x, y)</returns>
         protected override Tuple<int, int> MaxCoordinates(int x, int y)
         {
             width = x;
@@ -301,16 +559,36 @@ namespace PhotoEditor
             return new Tuple<int, int>(x, y / 2);
         }
 
+        /// <summary>
+        /// Delegate for layout change
+        /// </summary>
+        /// <param name="x">X coordinate of pixel</param>
+        /// <param name="y">Y coordinate of pixel</param>
+        /// <returns>New coordinates as tuple (x, y)</returns>
         protected override Tuple<int, int> MixLayout(int x, int y)
         {
             return new Tuple<int, int>(x, height - y - 1);
         }
     }
 
+    /// <summary>
+    /// Tsk for vertical image flip
+    /// </summary>
     public class FlipVertical : FlipTask
     {
+        /// <summary>
+        /// Constructor caller of base constructor
+        /// </summary>
+        /// <param name="mod">One of provided image modifications</param>
+        /// <param name="imageSet">Pointer to image set from engine</param>
         public FlipVertical(ImageModification mod, ImageSet imageSet) : base(mod, imageSet) { }
 
+        /// <summary>
+        /// Determines iterate array size based on image size
+        /// </summary>
+        /// <param name="x">Image width</param>
+        /// <param name="y">Image height</param>
+        /// <returns>Iterate array size as tuple (x, y)</returns>
         protected override Tuple<int, int> MaxCoordinates(int x, int y)
         {
             width = x;
@@ -318,6 +596,12 @@ namespace PhotoEditor
             return new Tuple<int, int>(x / 2, y);
         }
 
+        /// <summary>
+        /// Delegate for layout change
+        /// </summary>
+        /// <param name="x">X coordinate of pixel</param>
+        /// <param name="y">Y coordinate of pixel</param>
+        /// <returns>New coordinates as tuple (x, y)</returns>
         protected override Tuple<int, int> MixLayout(int x, int y)
         {
             return new Tuple<int, int>(width - x - 1, y);
@@ -328,14 +612,38 @@ namespace PhotoEditor
 
     #region Filter tasks
 
+    /// <summary>
+    /// Grey style filter for image
+    /// </summary>
     public class ApplyGreyStyle : ColorTask
     {
+        /// <summary>
+        /// Red color brightness ratio
+        /// </summary>
         private double redBrightness = 0.2989;
+        /// <summary>
+        /// Green color brightness ratio
+        /// </summary>
         private double greenBrightness = 0.5866;
+        /// <summary>
+        /// Blue color brightness ration
+        /// </summary>
         private double blueBrightness = 0.1145;
 
+        /// <summary>
+        /// Constructor caller of base constructor
+        /// </summary>
+        /// <param name="mod">One of provided image modifications</param>
+        /// <param name="imageSet">Pointer to image set from engine</param>
         public ApplyGreyStyle(ImageModification mod, ImageSet imageSet) : base(mod, imageSet) { }
 
+        /// <summary>
+        /// Calculate new RGB value from current value after greystyle applying
+        /// </summary>
+        /// <param name="red">Red value in RGB format</param>
+        /// <param name="green">Green value in RGB format</param>
+        /// <param name="blue">Blue value in RGB format</param>
+        /// <returns>Tuple of (red, green, blue) values of new color in RGB format</returns>
         public override Tuple<byte, byte, byte> ColorMixer(byte red, byte green, byte blue)
         {
             byte grey = (byte)(red * redBrightness + green * greenBrightness + blue * blueBrightness);

@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace PhotoEditor
 {
+    /// <summary>
+    /// Main form - graphic editor interface
+    /// </summary>
     public partial class MainForm : Form
     {
         #region Form variables
@@ -37,12 +40,18 @@ namespace PhotoEditor
         /// </summary>
         private Log log;
 
+        /// <summary>
+        /// Random generator
+        /// </summary>
         private static Random random;
 
         #endregion
 
         #region Form initialization
 
+        /// <summary>
+        /// Initialize form, image set, log file and rendom generator to its defaults
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -79,9 +88,18 @@ namespace PhotoEditor
             log.Add("Form loaded");
         }
 
+        /// <summary>
+        /// Sets numeric up/down value without raising on change event
+        /// </summary>
+        /// <param name="control">Pointer to numeric up/down</param>
+        /// <param name="value">Value to be set</param>
         private void SetNumericUpDownValue(NumericUpDown control, decimal value)
         {
-            if (control == null) throw new ArgumentNullException(nameof(control));
+            if (control == null)
+            {
+                throw new ArgumentNullException(nameof(control));
+            }
+
             var currentValueField = control.GetType().GetField("currentValue", BindingFlags.Instance | BindingFlags.NonPublic);
             if (currentValueField != null)
             {
@@ -90,6 +108,10 @@ namespace PhotoEditor
             }
         }
 
+        /// <summary>
+        /// Resets all image task controls to its defaults
+        /// Use only when loading new image
+        /// </summary>
         private void ResetSettings()
         {
             imageSet.saturation = 0;
@@ -430,6 +452,10 @@ namespace PhotoEditor
 
         #region Image load control
 
+        /// <summary>
+        /// Opens dialog window to choose image and 
+        /// prepares main form for image load
+        /// </summary>
         private void OpenNewImage()
         {
             OpenFileDialog dialog = new OpenFileDialog();
@@ -444,6 +470,11 @@ namespace PhotoEditor
             log.Add("Image opened");
         }
 
+        /// <summary>
+        /// Loads new image, prepares thumnails and 
+        /// shows everything in the main form
+        /// </summary>
+        /// <param name="data">Image file name (from parallel thread runner)</param>
         private void LoadNewImage(object data)
         {
             string filename = data.ToString();
@@ -464,7 +495,6 @@ namespace PhotoEditor
         /// <summary>
         /// Changes main image for some other miniature
         /// </summary>
-        /// <param name="button">Miniature which should be shown</param>
         private void ChangePreview()
         {
             button3.BackColor = toolGrey;
@@ -491,6 +521,9 @@ namespace PhotoEditor
             RedrawMainImage();
         }
 
+        /// <summary>
+        /// Redraws main image with currently active color filter
+        /// </summary>
         public void RedrawMainImage()
         {
             switch (imageSet.imageMode)
@@ -510,6 +543,9 @@ namespace PhotoEditor
             }
         }
 
+        /// <summary>
+        /// Redrwas whole image set (main image and all thumbnails)
+        /// </summary>
         public void RedrawImageSet()
         {
             try
@@ -528,6 +564,11 @@ namespace PhotoEditor
             }
         }
 
+        /// <summary>
+        /// Applies image restore point from undo/redo queue and 
+        /// propagates to thumbnails also
+        /// </summary>
+        /// <param name="restorePoint">Restore point to be applied</param>
         private void ApplyRestorePoint(RestorePoint restorePoint)
         {
             imageSet.image = restorePoint.image;
@@ -597,6 +638,9 @@ namespace PhotoEditor
 
         #region Control values synchronization
 
+        /// <summary>
+        /// Synchronizes appropriate track bar value on numeric up/down value change
+        /// </summary>
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)numericUpDown1.Value;
@@ -604,6 +648,9 @@ namespace PhotoEditor
             OnSyncValues(ImageModification.Saturation, value);
         }
 
+        /// <summary>
+        /// Synchronizes appropriate numeric up/down value on track bar value change
+        /// </summary>
         private void trackBar1_MouseUp(object sender, MouseEventArgs e)
         {
             int value = trackBar1.Value;
@@ -611,6 +658,9 @@ namespace PhotoEditor
             OnSyncValues(ImageModification.Saturation, value);
         }
 
+        /// <summary>
+        /// Synchronizes appropriate track bar value on numeric up/down value change
+        /// </summary>
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)numericUpDown2.Value;
@@ -618,6 +668,9 @@ namespace PhotoEditor
             OnSyncValues(ImageModification.Brightness, value);
         }
 
+        /// <summary>
+        /// Synchronizes appropriate numeric up/down value on track bar value change
+        /// </summary>
         private void trackBar2_MouseUp(object sender, MouseEventArgs e)
         {
             int value = trackBar2.Value;
@@ -625,6 +678,9 @@ namespace PhotoEditor
             OnSyncValues(ImageModification.Brightness, value);
         }
 
+        /// <summary>
+        /// Synchronizes appropriate track bar value on numeric up/down value change
+        /// </summary>
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
             int value = (int)numericUpDown3.Value;
@@ -632,6 +688,9 @@ namespace PhotoEditor
             OnSyncValues(ImageModification.Clarity, value);
         }
 
+        /// <summary>
+        /// Synchronizes appropriate numeric up/down value on track bar value change
+        /// </summary>
         private void trackBar3_MouseUp(object sender, MouseEventArgs e)
         {
             int value = trackBar3.Value;

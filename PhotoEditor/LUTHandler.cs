@@ -7,13 +7,25 @@ using System.IO;
 
 namespace PhotoEditor
 {
+    /// <summary>
+    /// Static class for LUT file methods
+    /// </summary>
     public static class LookUpTable
     {
+        /// <summary>
+        /// Lists all imported LUT files
+        /// </summary>
+        /// <returns>Array of LUT files names</returns>
         public static string[] List()
         {
             return Properties.Resources.luts.Split(',');
         }
 
+        /// <summary>
+        /// Reads LUT from file to memory
+        /// </summary>
+        /// <param name="name">LUT filename</param>
+        /// <returns>Tuple of LUT size and color 3D map</returns>
         public static Tuple<int, Tuple<byte, byte, byte>[,,]> Read(string name)
         {
             string[] lines = Regex.Split(
@@ -44,6 +56,11 @@ namespace PhotoEditor
             return new Tuple<int, Tuple<byte, byte, byte>[,,]>(size, map);
         }
 
+        /// <summary>
+        /// Creates color map based on chanes made
+        /// </summary>
+        /// <param name="tasks">Task list</param>
+        /// <returns>Tuple of LUT size and color map</returns>
         public static Tuple<int, Tuple<byte, byte, byte>[,,]> Export(Stack<ImageTask> tasks)
         {
             ColorMixerPipeline pipeline = new ColorMixerPipeline();
@@ -76,6 +93,11 @@ namespace PhotoEditor
             return new Tuple<int, Tuple<byte, byte, byte>[,,]>(32, colors);
         }
 
+        /// <summary>
+        /// Writes memory stream to LUT file
+        /// </summary>
+        /// <param name="filename">Filename of LUT file</param>
+        /// <param name="tasks">List of tasks LUT should be generated from</param>
         public static void Write(string filename, Stack<ImageTask> tasks)
         {
             using (StreamWriter sw = new StreamWriter(filename))
