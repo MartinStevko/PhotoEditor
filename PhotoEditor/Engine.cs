@@ -277,6 +277,37 @@ namespace PhotoEditor
             }
         }
 
+        /// <summary>
+        /// Dispose all sub images
+        /// </summary>
+        public void Dispose()
+        {
+            if (origin != null)
+            {
+                origin.Dispose();
+            }
+            if (image != null)
+            {
+                image.Dispose();
+            }
+            if (thumb != null)
+            {
+                thumb.Dispose();
+            }
+            if (thumbRed != null)
+            {
+                thumbRed.Dispose();
+            }
+            if (thumbGreen != null)
+            {
+                thumbGreen.Dispose();
+            }
+            if (thumbBlue != null)
+            {
+                thumbBlue.Dispose();
+            }
+        }
+
         #endregion
 
         #region Color processors

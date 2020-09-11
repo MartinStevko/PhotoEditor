@@ -159,35 +159,37 @@ namespace PhotoEditor
         /// </summary>
         private void Process()
         {
-            if (head != null)
+            while (true)
             {
-                head.ongoing = true;
-
-                RestorePoint old = new RestorePoint(
-                    form.imageSet.imageMode,
-                    head.taskType,
-                    form.imageSet.image.Clone(form.imageSet.rectangle, form.imageSet.image.PixelFormat),
-                    form.imageSet.thumb.Clone(form.imageSet.thumbRectangle, form.imageSet.thumb.PixelFormat),
-                    form.imageSet.saturation,
-                    form.imageSet.brightness,
-                    form.imageSet.clarity
-                );
-                undoQueue.Add(old);
-                redoQueue.Flush();
-
-                head.Process();
-                head = head.next;
                 if (head != null)
                 {
-                    head.previous = null;
+                    head.ongoing = true;
+
+                    RestorePoint old = new RestorePoint(
+                        form.imageSet.imageMode,
+                        head.taskType,
+                        form.imageSet.image.Clone(form.imageSet.rectangle, form.imageSet.image.PixelFormat),
+                        form.imageSet.thumb.Clone(form.imageSet.thumbRectangle, form.imageSet.thumb.PixelFormat),
+                        form.imageSet.saturation,
+                        form.imageSet.brightness,
+                        form.imageSet.clarity
+                    );
+                    undoQueue.Add(old);
+                    redoQueue.Flush();
+
+                    head.Process();
+                    head = head.next;
+                    if (head != null)
+                    {
+                        head.previous = null;
+                    }
+                    form.RedrawImageSet();
                 }
-                form.RedrawImageSet();
+                else
+                {
+                    Thread.Sleep(100);
+                }
             }
-            else
-            {
-                Thread.Sleep(100);
-            }
-            Process();
         }
 
         /// <summary>
