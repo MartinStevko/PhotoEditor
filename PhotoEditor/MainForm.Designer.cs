@@ -30,916 +30,916 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button27 = new System.Windows.Forms.Button();
-            this.button26 = new System.Windows.Forms.Button();
-            this.button25 = new System.Windows.Forms.Button();
-            this.button24 = new System.Windows.Forms.Button();
-            this.button23 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.trackBar3 = new System.Windows.Forms.TrackBar();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button14 = new System.Windows.Forms.Button();
-            this.button15 = new System.Windows.Forms.Button();
-            this.button16 = new System.Windows.Forms.Button();
-            this.button17 = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.button19 = new System.Windows.Forms.Button();
-            this.button20 = new System.Windows.Forms.Button();
-            this.button21 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.button18 = new System.Windows.Forms.Button();
-            this.button22 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.button28 = new System.Windows.Forms.Button();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.navigationPanel = new System.Windows.Forms.Panel();
+            this.iconPictureBox = new System.Windows.Forms.PictureBox();
+            this.helpMenuButton = new System.Windows.Forms.Button();
+            this.editMenuButton = new System.Windows.Forms.Button();
+            this.fileMenuButton = new System.Windows.Forms.Button();
+            this.minimizeButton = new System.Windows.Forms.Button();
+            this.closeButton = new System.Windows.Forms.Button();
+            this.closeToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.minimizeToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.resetPreviewButton = new System.Windows.Forms.Button();
+            this.redPreviewButton = new System.Windows.Forms.Button();
+            this.greenPreviewButton = new System.Windows.Forms.Button();
+            this.bluePreviewButton = new System.Windows.Forms.Button();
+            this.toolboxPanel = new System.Windows.Forms.Panel();
+            this.verticalFlipButton = new System.Windows.Forms.Button();
+            this.horizontalFlipButton = new System.Windows.Forms.Button();
+            this.graystyleButton = new System.Windows.Forms.Button();
+            this.colorButton = new System.Windows.Forms.Button();
+            this.invertColorButton = new System.Windows.Forms.Button();
+            this.brightnessLabel = new System.Windows.Forms.Label();
+            this.clarityLabel = new System.Windows.Forms.Label();
+            this.clarityTrackBar = new System.Windows.Forms.TrackBar();
+            this.brightnessTrackBar = new System.Windows.Forms.TrackBar();
+            this.saturationTrackBar = new System.Windows.Forms.TrackBar();
+            this.secondColorComboBox = new System.Windows.Forms.ComboBox();
+            this.betweenColorLabel = new System.Windows.Forms.Label();
+            this.firstColorComboBox = new System.Windows.Forms.ComboBox();
+            this.colorsLabel = new System.Windows.Forms.Label();
+            this.clarityNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.brightnessNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.saturationNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.saturationLabel = new System.Windows.Forms.Label();
+            this.filePanel = new System.Windows.Forms.Panel();
+            this.saveAsButton = new System.Windows.Forms.Button();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.openFileButton = new System.Windows.Forms.Button();
+            this.editPanel = new System.Windows.Forms.Panel();
+            this.applyLutButton = new System.Windows.Forms.Button();
+            this.exportLutButton = new System.Windows.Forms.Button();
+            this.redoButton = new System.Windows.Forms.Button();
+            this.undoButton = new System.Windows.Forms.Button();
+            this.helpPanel = new System.Windows.Forms.Panel();
+            this.reportIssueButton = new System.Windows.Forms.Button();
+            this.documentationButton = new System.Windows.Forms.Button();
+            this.manualButton = new System.Windows.Forms.Button();
+            this.mainPictureBox = new System.Windows.Forms.PictureBox();
+            this.openConfirmationPanel = new System.Windows.Forms.Panel();
+            this.openCancelButton = new System.Windows.Forms.Button();
+            this.openConfirmButton = new System.Windows.Forms.Button();
+            this.openFileLabel = new System.Windows.Forms.Label();
+            this.lutPanel = new System.Windows.Forms.Panel();
+            this.applyConfirmButton = new System.Windows.Forms.Button();
+            this.lutComboBox = new System.Windows.Forms.ComboBox();
+            this.navigationPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
+            this.toolboxPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clarityTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brightnessTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saturationTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clarityNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brightnessNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saturationNumericUpDown)).BeginInit();
+            this.filePanel.SuspendLayout();
+            this.editPanel.SuspendLayout();
+            this.helpPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.mainPictureBox)).BeginInit();
+            this.openConfirmationPanel.SuspendLayout();
+            this.lutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // navigationPanel
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.navigationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Controls.Add(this.button9);
-            this.panel1.Controls.Add(this.button8);
-            this.panel1.Controls.Add(this.button7);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1067, 37);
-            this.panel1.TabIndex = 2;
-            this.panel1.Click += new System.EventHandler(this.CloseAllPopUps);
+            this.navigationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.navigationPanel.Controls.Add(this.iconPictureBox);
+            this.navigationPanel.Controls.Add(this.helpMenuButton);
+            this.navigationPanel.Controls.Add(this.editMenuButton);
+            this.navigationPanel.Controls.Add(this.fileMenuButton);
+            this.navigationPanel.Controls.Add(this.minimizeButton);
+            this.navigationPanel.Controls.Add(this.closeButton);
+            this.navigationPanel.Location = new System.Drawing.Point(0, 0);
+            this.navigationPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.navigationPanel.Name = "navigationPanel";
+            this.navigationPanel.Size = new System.Drawing.Size(1067, 37);
+            this.navigationPanel.TabIndex = 2;
+            this.navigationPanel.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
-            // pictureBox1
+            // iconPictureBox
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.iconPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(40, 37);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.CloseAllPopUps);
+            this.iconPictureBox.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("iconPictureBox.BackgroundImage")));
+            this.iconPictureBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.iconPictureBox.InitialImage = null;
+            this.iconPictureBox.Location = new System.Drawing.Point(0, 0);
+            this.iconPictureBox.Margin = new System.Windows.Forms.Padding(4);
+            this.iconPictureBox.Name = "iconPictureBox";
+            this.iconPictureBox.Size = new System.Drawing.Size(40, 37);
+            this.iconPictureBox.TabIndex = 5;
+            this.iconPictureBox.TabStop = false;
+            this.iconPictureBox.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
-            // button9
+            // helpMenuButton
             // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.helpMenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.button9.ForeColor = System.Drawing.Color.White;
-            this.button9.Location = new System.Drawing.Point(173, 0);
-            this.button9.Margin = new System.Windows.Forms.Padding(0);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(67, 37);
-            this.button9.TabIndex = 4;
-            this.button9.Text = "Help";
-            this.button9.UseVisualStyleBackColor = true;
-            this.button9.Click += new System.EventHandler(this.button9_Click);
+            this.helpMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.helpMenuButton.FlatAppearance.BorderSize = 0;
+            this.helpMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.helpMenuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.helpMenuButton.ForeColor = System.Drawing.Color.White;
+            this.helpMenuButton.Location = new System.Drawing.Point(173, 0);
+            this.helpMenuButton.Margin = new System.Windows.Forms.Padding(0);
+            this.helpMenuButton.Name = "helpMenuButton";
+            this.helpMenuButton.Size = new System.Drawing.Size(67, 37);
+            this.helpMenuButton.TabIndex = 4;
+            this.helpMenuButton.Text = "Help";
+            this.helpMenuButton.UseVisualStyleBackColor = true;
+            this.helpMenuButton.Click += new System.EventHandler(this.button9_Click);
             // 
-            // button8
+            // editMenuButton
             // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.editMenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.button8.ForeColor = System.Drawing.Color.White;
-            this.button8.Location = new System.Drawing.Point(107, 0);
-            this.button8.Margin = new System.Windows.Forms.Padding(0);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(67, 37);
-            this.button8.TabIndex = 3;
-            this.button8.Text = "Edit";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.button8_Click);
+            this.editMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.editMenuButton.FlatAppearance.BorderSize = 0;
+            this.editMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editMenuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.editMenuButton.ForeColor = System.Drawing.Color.White;
+            this.editMenuButton.Location = new System.Drawing.Point(107, 0);
+            this.editMenuButton.Margin = new System.Windows.Forms.Padding(0);
+            this.editMenuButton.Name = "editMenuButton";
+            this.editMenuButton.Size = new System.Drawing.Size(67, 37);
+            this.editMenuButton.TabIndex = 3;
+            this.editMenuButton.Text = "Edit";
+            this.editMenuButton.UseVisualStyleBackColor = true;
+            this.editMenuButton.Click += new System.EventHandler(this.button8_Click);
             // 
-            // button7
+            // fileMenuButton
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.fileMenuButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.button7.ForeColor = System.Drawing.Color.White;
-            this.button7.Location = new System.Drawing.Point(40, 0);
-            this.button7.Margin = new System.Windows.Forms.Padding(0);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(67, 37);
-            this.button7.TabIndex = 2;
-            this.button7.Text = "File";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
+            this.fileMenuButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.fileMenuButton.FlatAppearance.BorderSize = 0;
+            this.fileMenuButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.fileMenuButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.fileMenuButton.ForeColor = System.Drawing.Color.White;
+            this.fileMenuButton.Location = new System.Drawing.Point(40, 0);
+            this.fileMenuButton.Margin = new System.Windows.Forms.Padding(0);
+            this.fileMenuButton.Name = "fileMenuButton";
+            this.fileMenuButton.Size = new System.Drawing.Size(67, 37);
+            this.fileMenuButton.TabIndex = 2;
+            this.fileMenuButton.Text = "File";
+            this.fileMenuButton.UseVisualStyleBackColor = true;
+            this.fileMenuButton.Click += new System.EventHandler(this.button7_Click);
             // 
-            // button2
+            // minimizeButton
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(947, 0);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(60, 37);
-            this.button2.TabIndex = 1;
-            this.toolTip2.SetToolTip(this.button2, "Minimize");
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.minimizeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.minimizeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.minimizeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.minimizeButton.FlatAppearance.BorderSize = 0;
+            this.minimizeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.minimizeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minimizeButton.Image = ((System.Drawing.Image)(resources.GetObject("minimizeButton.Image")));
+            this.minimizeButton.Location = new System.Drawing.Point(947, 0);
+            this.minimizeButton.Margin = new System.Windows.Forms.Padding(0);
+            this.minimizeButton.Name = "minimizeButton";
+            this.minimizeButton.Size = new System.Drawing.Size(60, 37);
+            this.minimizeButton.TabIndex = 1;
+            this.minimizeToolTip.SetToolTip(this.minimizeButton, "Minimize");
+            this.minimizeButton.UseVisualStyleBackColor = true;
+            this.minimizeButton.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // closeButton
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(1008, 0);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(60, 37);
-            this.button1.TabIndex = 0;
-            this.toolTip1.SetToolTip(this.button1, "Close");
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.closeButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.closeButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.closeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.closeButton.FlatAppearance.BorderSize = 0;
+            this.closeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeButton.ForeColor = System.Drawing.Color.White;
+            this.closeButton.Image = ((System.Drawing.Image)(resources.GetObject("closeButton.Image")));
+            this.closeButton.Location = new System.Drawing.Point(1008, 0);
+            this.closeButton.Margin = new System.Windows.Forms.Padding(0);
+            this.closeButton.Name = "closeButton";
+            this.closeButton.Size = new System.Drawing.Size(60, 37);
+            this.closeButton.TabIndex = 0;
+            this.closeToolTip.SetToolTip(this.closeButton, "Close");
+            this.closeButton.UseVisualStyleBackColor = true;
+            this.closeButton.Click += new System.EventHandler(this.button1_Click);
             // 
-            // toolTip1
+            // closeToolTip
             // 
-            this.toolTip1.AutoPopDelay = 5000;
-            this.toolTip1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.toolTip1.ForeColor = System.Drawing.Color.White;
-            this.toolTip1.InitialDelay = 300;
-            this.toolTip1.ReshowDelay = 100;
-            this.toolTip1.Tag = "";
+            this.closeToolTip.AutoPopDelay = 5000;
+            this.closeToolTip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.closeToolTip.ForeColor = System.Drawing.Color.White;
+            this.closeToolTip.InitialDelay = 300;
+            this.closeToolTip.ReshowDelay = 100;
+            this.closeToolTip.Tag = "";
             // 
-            // toolTip2
+            // minimizeToolTip
             // 
-            this.toolTip2.AutoPopDelay = 5000;
-            this.toolTip2.InitialDelay = 300;
-            this.toolTip2.ReshowDelay = 100;
+            this.minimizeToolTip.AutoPopDelay = 5000;
+            this.minimizeToolTip.InitialDelay = 300;
+            this.minimizeToolTip.ReshowDelay = 100;
             // 
-            // button3
+            // resetPreviewButton
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.resetPreviewButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Enabled = false;
-            this.button3.FlatAppearance.BorderSize = 0;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.button3.Location = new System.Drawing.Point(0, 455);
-            this.button3.Margin = new System.Windows.Forms.Padding(0);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(200, 98);
-            this.button3.TabIndex = 2;
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.resetPreviewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.resetPreviewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.resetPreviewButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.resetPreviewButton.Enabled = false;
+            this.resetPreviewButton.FlatAppearance.BorderSize = 0;
+            this.resetPreviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resetPreviewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetPreviewButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.resetPreviewButton.Location = new System.Drawing.Point(0, 455);
+            this.resetPreviewButton.Margin = new System.Windows.Forms.Padding(0);
+            this.resetPreviewButton.Name = "resetPreviewButton";
+            this.resetPreviewButton.Size = new System.Drawing.Size(200, 98);
+            this.resetPreviewButton.TabIndex = 2;
+            this.resetPreviewButton.UseVisualStyleBackColor = false;
+            this.resetPreviewButton.Click += new System.EventHandler(this.button3_Click);
             // 
-            // button4
+            // redPreviewButton
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.redPreviewButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Enabled = false;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.button4.Location = new System.Drawing.Point(200, 455);
-            this.button4.Margin = new System.Windows.Forms.Padding(0);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(200, 98);
-            this.button4.TabIndex = 4;
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.redPreviewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.redPreviewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.redPreviewButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.redPreviewButton.Enabled = false;
+            this.redPreviewButton.FlatAppearance.BorderSize = 0;
+            this.redPreviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.redPreviewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.redPreviewButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.redPreviewButton.Location = new System.Drawing.Point(200, 455);
+            this.redPreviewButton.Margin = new System.Windows.Forms.Padding(0);
+            this.redPreviewButton.Name = "redPreviewButton";
+            this.redPreviewButton.Size = new System.Drawing.Size(200, 98);
+            this.redPreviewButton.TabIndex = 4;
+            this.redPreviewButton.UseVisualStyleBackColor = false;
+            this.redPreviewButton.Click += new System.EventHandler(this.button4_Click);
             // 
-            // button5
+            // greenPreviewButton
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.greenPreviewButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Enabled = false;
-            this.button5.FlatAppearance.BorderSize = 0;
-            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.button5.Location = new System.Drawing.Point(400, 455);
-            this.button5.Margin = new System.Windows.Forms.Padding(0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(200, 98);
-            this.button5.TabIndex = 5;
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
+            this.greenPreviewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.greenPreviewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.greenPreviewButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.greenPreviewButton.Enabled = false;
+            this.greenPreviewButton.FlatAppearance.BorderSize = 0;
+            this.greenPreviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.greenPreviewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.greenPreviewButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.greenPreviewButton.Location = new System.Drawing.Point(400, 455);
+            this.greenPreviewButton.Margin = new System.Windows.Forms.Padding(0);
+            this.greenPreviewButton.Name = "greenPreviewButton";
+            this.greenPreviewButton.Size = new System.Drawing.Size(200, 98);
+            this.greenPreviewButton.TabIndex = 5;
+            this.greenPreviewButton.UseVisualStyleBackColor = false;
+            this.greenPreviewButton.Click += new System.EventHandler(this.button5_Click);
             // 
-            // button6
+            // bluePreviewButton
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.bluePreviewButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.Enabled = false;
-            this.button6.FlatAppearance.BorderSize = 0;
-            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.button6.Location = new System.Drawing.Point(600, 455);
-            this.button6.Margin = new System.Windows.Forms.Padding(0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(200, 98);
-            this.button6.TabIndex = 6;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
+            this.bluePreviewButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.bluePreviewButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.bluePreviewButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bluePreviewButton.Enabled = false;
+            this.bluePreviewButton.FlatAppearance.BorderSize = 0;
+            this.bluePreviewButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bluePreviewButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bluePreviewButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.bluePreviewButton.Location = new System.Drawing.Point(600, 455);
+            this.bluePreviewButton.Margin = new System.Windows.Forms.Padding(0);
+            this.bluePreviewButton.Name = "bluePreviewButton";
+            this.bluePreviewButton.Size = new System.Drawing.Size(200, 98);
+            this.bluePreviewButton.TabIndex = 6;
+            this.bluePreviewButton.UseVisualStyleBackColor = false;
+            this.bluePreviewButton.Click += new System.EventHandler(this.button6_Click);
             // 
-            // panel2
+            // toolboxPanel
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.toolboxPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.panel2.Controls.Add(this.button27);
-            this.panel2.Controls.Add(this.button26);
-            this.panel2.Controls.Add(this.button25);
-            this.panel2.Controls.Add(this.button24);
-            this.panel2.Controls.Add(this.button23);
-            this.panel2.Controls.Add(this.label3);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.trackBar3);
-            this.panel2.Controls.Add(this.trackBar2);
-            this.panel2.Controls.Add(this.trackBar1);
-            this.panel2.Controls.Add(this.comboBox2);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.comboBox1);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.numericUpDown3);
-            this.panel2.Controls.Add(this.numericUpDown2);
-            this.panel2.Controls.Add(this.numericUpDown1);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(800, 37);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(267, 517);
-            this.panel2.TabIndex = 3;
-            this.panel2.Click += new System.EventHandler(this.CloseAllPopUps);
+            this.toolboxPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.toolboxPanel.Controls.Add(this.verticalFlipButton);
+            this.toolboxPanel.Controls.Add(this.horizontalFlipButton);
+            this.toolboxPanel.Controls.Add(this.graystyleButton);
+            this.toolboxPanel.Controls.Add(this.colorButton);
+            this.toolboxPanel.Controls.Add(this.invertColorButton);
+            this.toolboxPanel.Controls.Add(this.brightnessLabel);
+            this.toolboxPanel.Controls.Add(this.clarityLabel);
+            this.toolboxPanel.Controls.Add(this.clarityTrackBar);
+            this.toolboxPanel.Controls.Add(this.brightnessTrackBar);
+            this.toolboxPanel.Controls.Add(this.saturationTrackBar);
+            this.toolboxPanel.Controls.Add(this.secondColorComboBox);
+            this.toolboxPanel.Controls.Add(this.betweenColorLabel);
+            this.toolboxPanel.Controls.Add(this.firstColorComboBox);
+            this.toolboxPanel.Controls.Add(this.colorsLabel);
+            this.toolboxPanel.Controls.Add(this.clarityNumericUpDown);
+            this.toolboxPanel.Controls.Add(this.brightnessNumericUpDown);
+            this.toolboxPanel.Controls.Add(this.saturationNumericUpDown);
+            this.toolboxPanel.Controls.Add(this.saturationLabel);
+            this.toolboxPanel.Location = new System.Drawing.Point(800, 37);
+            this.toolboxPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.toolboxPanel.Name = "toolboxPanel";
+            this.toolboxPanel.Size = new System.Drawing.Size(267, 517);
+            this.toolboxPanel.TabIndex = 3;
+            this.toolboxPanel.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
-            // button27
+            // verticalFlipButton
             // 
-            this.button27.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button27.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button27.Enabled = false;
-            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button27.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button27.Location = new System.Drawing.Point(215, 450);
-            this.button27.Name = "button27";
-            this.button27.Size = new System.Drawing.Size(175, 36);
-            this.button27.TabIndex = 20;
-            this.button27.Text = "Flip vertical";
-            this.button27.UseVisualStyleBackColor = true;
-            this.button27.Click += new System.EventHandler(this.button27_Click);
+            this.verticalFlipButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.verticalFlipButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.verticalFlipButton.Enabled = false;
+            this.verticalFlipButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.verticalFlipButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.verticalFlipButton.Location = new System.Drawing.Point(215, 450);
+            this.verticalFlipButton.Name = "verticalFlipButton";
+            this.verticalFlipButton.Size = new System.Drawing.Size(175, 36);
+            this.verticalFlipButton.TabIndex = 20;
+            this.verticalFlipButton.Text = "Flip vertical";
+            this.verticalFlipButton.UseVisualStyleBackColor = true;
+            this.verticalFlipButton.Click += new System.EventHandler(this.button27_Click);
             // 
-            // button26
+            // horizontalFlipButton
             // 
-            this.button26.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button26.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button26.Enabled = false;
-            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button26.Location = new System.Drawing.Point(20, 450);
-            this.button26.Name = "button26";
-            this.button26.Size = new System.Drawing.Size(175, 36);
-            this.button26.TabIndex = 19;
-            this.button26.Text = "Flip horizontal";
-            this.button26.UseVisualStyleBackColor = true;
-            this.button26.Click += new System.EventHandler(this.button26_Click);
+            this.horizontalFlipButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.horizontalFlipButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.horizontalFlipButton.Enabled = false;
+            this.horizontalFlipButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.horizontalFlipButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.horizontalFlipButton.Location = new System.Drawing.Point(20, 450);
+            this.horizontalFlipButton.Name = "horizontalFlipButton";
+            this.horizontalFlipButton.Size = new System.Drawing.Size(175, 36);
+            this.horizontalFlipButton.TabIndex = 19;
+            this.horizontalFlipButton.Text = "Flip horizontal";
+            this.horizontalFlipButton.UseVisualStyleBackColor = true;
+            this.horizontalFlipButton.Click += new System.EventHandler(this.button26_Click);
             // 
-            // button25
+            // graystyleButton
             // 
-            this.button25.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button25.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button25.Enabled = false;
-            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button25.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button25.Location = new System.Drawing.Point(20, 390);
-            this.button25.Name = "button25";
-            this.button25.Size = new System.Drawing.Size(175, 36);
-            this.button25.TabIndex = 18;
-            this.button25.Text = "Graystyle filter";
-            this.button25.UseVisualStyleBackColor = true;
-            this.button25.Click += new System.EventHandler(this.button25_Click);
+            this.graystyleButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.graystyleButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.graystyleButton.Enabled = false;
+            this.graystyleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.graystyleButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.graystyleButton.Location = new System.Drawing.Point(20, 390);
+            this.graystyleButton.Name = "graystyleButton";
+            this.graystyleButton.Size = new System.Drawing.Size(175, 36);
+            this.graystyleButton.TabIndex = 18;
+            this.graystyleButton.Text = "Graystyle filter";
+            this.graystyleButton.UseVisualStyleBackColor = true;
+            this.graystyleButton.Click += new System.EventHandler(this.button25_Click);
             // 
-            // button24
+            // colorButton
             // 
-            this.button24.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button24.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button24.Enabled = false;
-            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button24.Location = new System.Drawing.Point(290, 337);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(100, 36);
-            this.button24.TabIndex = 14;
-            this.button24.Text = "Change";
-            this.button24.UseVisualStyleBackColor = true;
-            this.button24.Click += new System.EventHandler(this.button24_Click);
+            this.colorButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.colorButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.colorButton.Enabled = false;
+            this.colorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.colorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colorButton.Location = new System.Drawing.Point(290, 337);
+            this.colorButton.Name = "colorButton";
+            this.colorButton.Size = new System.Drawing.Size(100, 36);
+            this.colorButton.TabIndex = 14;
+            this.colorButton.Text = "Change";
+            this.colorButton.UseVisualStyleBackColor = true;
+            this.colorButton.Click += new System.EventHandler(this.button24_Click);
             // 
-            // button23
+            // invertColorButton
             // 
-            this.button23.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button23.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button23.Enabled = false;
-            this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button23.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button23.Location = new System.Drawing.Point(20, 250);
-            this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(175, 36);
-            this.button23.TabIndex = 9;
-            this.button23.Text = "Invert color";
-            this.button23.UseVisualStyleBackColor = true;
-            this.button23.Click += new System.EventHandler(this.button23_Click);
+            this.invertColorButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.invertColorButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.invertColorButton.Enabled = false;
+            this.invertColorButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.invertColorButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invertColorButton.Location = new System.Drawing.Point(20, 250);
+            this.invertColorButton.Name = "invertColorButton";
+            this.invertColorButton.Size = new System.Drawing.Size(175, 36);
+            this.invertColorButton.TabIndex = 9;
+            this.invertColorButton.Text = "Invert color";
+            this.invertColorButton.UseVisualStyleBackColor = true;
+            this.invertColorButton.Click += new System.EventHandler(this.button23_Click);
             // 
-            // label3
+            // brightnessLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label3.Location = new System.Drawing.Point(15, 90);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(90, 20);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Brightness";
+            this.brightnessLabel.AutoSize = true;
+            this.brightnessLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.brightnessLabel.Location = new System.Drawing.Point(15, 90);
+            this.brightnessLabel.Name = "brightnessLabel";
+            this.brightnessLabel.Size = new System.Drawing.Size(90, 20);
+            this.brightnessLabel.TabIndex = 3;
+            this.brightnessLabel.Text = "Brightness";
             // 
-            // label4
+            // clarityLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label4.Location = new System.Drawing.Point(15, 170);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(57, 20);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Clarity";
+            this.clarityLabel.AutoSize = true;
+            this.clarityLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.clarityLabel.Location = new System.Drawing.Point(15, 170);
+            this.clarityLabel.Name = "clarityLabel";
+            this.clarityLabel.Size = new System.Drawing.Size(57, 20);
+            this.clarityLabel.TabIndex = 6;
+            this.clarityLabel.Text = "Clarity";
             // 
-            // trackBar3
+            // clarityTrackBar
             // 
-            this.trackBar3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.clarityTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBar3.Enabled = false;
-            this.trackBar3.LargeChange = 3;
-            this.trackBar3.Location = new System.Drawing.Point(15, 200);
-            this.trackBar3.Maximum = 100;
-            this.trackBar3.Minimum = -100;
-            this.trackBar3.Name = "trackBar3";
-            this.trackBar3.Size = new System.Drawing.Size(120, 56);
-            this.trackBar3.TabIndex = 17;
-            this.trackBar3.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBar3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseAllPopUps);
-            this.trackBar3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar3_MouseUp);
+            this.clarityTrackBar.Enabled = false;
+            this.clarityTrackBar.LargeChange = 3;
+            this.clarityTrackBar.Location = new System.Drawing.Point(15, 200);
+            this.clarityTrackBar.Maximum = 100;
+            this.clarityTrackBar.Minimum = -100;
+            this.clarityTrackBar.Name = "clarityTrackBar";
+            this.clarityTrackBar.Size = new System.Drawing.Size(120, 56);
+            this.clarityTrackBar.TabIndex = 17;
+            this.clarityTrackBar.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.clarityTrackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseAllPopUps);
+            this.clarityTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar3_MouseUp);
             // 
-            // trackBar2
+            // brightnessTrackBar
             // 
-            this.trackBar2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.brightnessTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBar2.Enabled = false;
-            this.trackBar2.LargeChange = 3;
-            this.trackBar2.Location = new System.Drawing.Point(15, 120);
-            this.trackBar2.Maximum = 100;
-            this.trackBar2.Minimum = -100;
-            this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(120, 56);
-            this.trackBar2.TabIndex = 16;
-            this.trackBar2.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBar2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseAllPopUps);
-            this.trackBar2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar2_MouseUp);
+            this.brightnessTrackBar.Enabled = false;
+            this.brightnessTrackBar.LargeChange = 3;
+            this.brightnessTrackBar.Location = new System.Drawing.Point(15, 120);
+            this.brightnessTrackBar.Maximum = 100;
+            this.brightnessTrackBar.Minimum = -100;
+            this.brightnessTrackBar.Name = "brightnessTrackBar";
+            this.brightnessTrackBar.Size = new System.Drawing.Size(120, 56);
+            this.brightnessTrackBar.TabIndex = 16;
+            this.brightnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.brightnessTrackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseAllPopUps);
+            this.brightnessTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar2_MouseUp);
             // 
-            // trackBar1
+            // saturationTrackBar
             // 
-            this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.saturationTrackBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.trackBar1.Enabled = false;
-            this.trackBar1.LargeChange = 3;
-            this.trackBar1.Location = new System.Drawing.Point(15, 40);
-            this.trackBar1.Maximum = 100;
-            this.trackBar1.Minimum = -100;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(120, 56);
-            this.trackBar1.TabIndex = 15;
-            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
-            this.trackBar1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseAllPopUps);
-            this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
+            this.saturationTrackBar.Enabled = false;
+            this.saturationTrackBar.LargeChange = 3;
+            this.saturationTrackBar.Location = new System.Drawing.Point(15, 40);
+            this.saturationTrackBar.Maximum = 100;
+            this.saturationTrackBar.Minimum = -100;
+            this.saturationTrackBar.Name = "saturationTrackBar";
+            this.saturationTrackBar.Size = new System.Drawing.Size(120, 56);
+            this.saturationTrackBar.TabIndex = 15;
+            this.saturationTrackBar.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.saturationTrackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseAllPopUps);
+            this.saturationTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
             // 
-            // comboBox2
+            // secondColorComboBox
             // 
-            this.comboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.ForeColor = System.Drawing.Color.White;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.secondColorComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.secondColorComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.secondColorComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.secondColorComboBox.ForeColor = System.Drawing.Color.White;
+            this.secondColorComboBox.FormattingEnabled = true;
+            this.secondColorComboBox.Items.AddRange(new object[] {
             "red",
             "green",
             "blue"});
-            this.comboBox2.Location = new System.Drawing.Point(170, 340);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(100, 28);
-            this.comboBox2.TabIndex = 13;
-            this.comboBox2.Click += new System.EventHandler(this.CloseAllPopUps);
+            this.secondColorComboBox.Location = new System.Drawing.Point(170, 340);
+            this.secondColorComboBox.Name = "secondColorComboBox";
+            this.secondColorComboBox.Size = new System.Drawing.Size(100, 28);
+            this.secondColorComboBox.TabIndex = 13;
+            this.secondColorComboBox.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
-            // label6
+            // betweenColorLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label6.Location = new System.Drawing.Point(130, 344);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(29, 20);
-            this.label6.TabIndex = 12;
-            this.label6.Text = "for";
-            this.label6.Click += new System.EventHandler(this.CloseAllPopUps);
+            this.betweenColorLabel.AutoSize = true;
+            this.betweenColorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.betweenColorLabel.Location = new System.Drawing.Point(130, 344);
+            this.betweenColorLabel.Name = "betweenColorLabel";
+            this.betweenColorLabel.Size = new System.Drawing.Size(29, 20);
+            this.betweenColorLabel.TabIndex = 12;
+            this.betweenColorLabel.Text = "for";
+            this.betweenColorLabel.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
-            // comboBox1
+            // firstColorComboBox
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.ForeColor = System.Drawing.Color.White;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.firstColorComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.firstColorComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.firstColorComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.firstColorComboBox.ForeColor = System.Drawing.Color.White;
+            this.firstColorComboBox.FormattingEnabled = true;
+            this.firstColorComboBox.Items.AddRange(new object[] {
             "red",
             "green",
             "blue"});
-            this.comboBox1.Location = new System.Drawing.Point(20, 340);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(100, 28);
-            this.comboBox1.TabIndex = 11;
-            this.comboBox1.Click += new System.EventHandler(this.CloseAllPopUps);
+            this.firstColorComboBox.Location = new System.Drawing.Point(20, 340);
+            this.firstColorComboBox.Name = "firstColorComboBox";
+            this.firstColorComboBox.Size = new System.Drawing.Size(100, 28);
+            this.firstColorComboBox.TabIndex = 11;
+            this.firstColorComboBox.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
-            // label5
+            // colorsLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label5.Location = new System.Drawing.Point(15, 310);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 20);
-            this.label5.TabIndex = 10;
-            this.label5.Text = "Change colors";
-            this.label5.Click += new System.EventHandler(this.CloseAllPopUps);
+            this.colorsLabel.AutoSize = true;
+            this.colorsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.colorsLabel.Location = new System.Drawing.Point(15, 310);
+            this.colorsLabel.Name = "colorsLabel";
+            this.colorsLabel.Size = new System.Drawing.Size(117, 20);
+            this.colorsLabel.TabIndex = 10;
+            this.colorsLabel.Text = "Change colors";
+            this.colorsLabel.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
-            // numericUpDown3
+            // clarityNumericUpDown
             // 
-            this.numericUpDown3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.numericUpDown3.Enabled = false;
-            this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.numericUpDown3.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown3.Location = new System.Drawing.Point(160, 200);
-            this.numericUpDown3.Minimum = new decimal(new int[] {
+            this.clarityNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.clarityNumericUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.clarityNumericUpDown.Enabled = false;
+            this.clarityNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.clarityNumericUpDown.ForeColor = System.Drawing.Color.White;
+            this.clarityNumericUpDown.Location = new System.Drawing.Point(160, 200);
+            this.clarityNumericUpDown.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(80, 26);
-            this.numericUpDown3.TabIndex = 8;
-            this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
-            this.numericUpDown3.Click += new System.EventHandler(this.CloseAllPopUps);
+            this.clarityNumericUpDown.Name = "clarityNumericUpDown";
+            this.clarityNumericUpDown.Size = new System.Drawing.Size(80, 26);
+            this.clarityNumericUpDown.TabIndex = 8;
+            this.clarityNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.clarityNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
+            this.clarityNumericUpDown.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
-            // numericUpDown2
+            // brightnessNumericUpDown
             // 
-            this.numericUpDown2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.numericUpDown2.Enabled = false;
-            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.numericUpDown2.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown2.Location = new System.Drawing.Point(160, 120);
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.brightnessNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.brightnessNumericUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.brightnessNumericUpDown.Enabled = false;
+            this.brightnessNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.brightnessNumericUpDown.ForeColor = System.Drawing.Color.White;
+            this.brightnessNumericUpDown.Location = new System.Drawing.Point(160, 120);
+            this.brightnessNumericUpDown.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(80, 26);
-            this.numericUpDown2.TabIndex = 5;
-            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
-            this.numericUpDown2.Click += new System.EventHandler(this.CloseAllPopUps);
+            this.brightnessNumericUpDown.Name = "brightnessNumericUpDown";
+            this.brightnessNumericUpDown.Size = new System.Drawing.Size(80, 26);
+            this.brightnessNumericUpDown.TabIndex = 5;
+            this.brightnessNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.brightnessNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            this.brightnessNumericUpDown.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
-            // numericUpDown1
+            // saturationNumericUpDown
             // 
-            this.numericUpDown1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericUpDown1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.numericUpDown1.Enabled = false;
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.numericUpDown1.ForeColor = System.Drawing.Color.White;
-            this.numericUpDown1.Location = new System.Drawing.Point(160, 40);
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.saturationNumericUpDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.saturationNumericUpDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.saturationNumericUpDown.Enabled = false;
+            this.saturationNumericUpDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.saturationNumericUpDown.ForeColor = System.Drawing.Color.White;
+            this.saturationNumericUpDown.Location = new System.Drawing.Point(160, 40);
+            this.saturationNumericUpDown.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(80, 26);
-            this.numericUpDown1.TabIndex = 2;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            this.numericUpDown1.Click += new System.EventHandler(this.CloseAllPopUps);
+            this.saturationNumericUpDown.Name = "saturationNumericUpDown";
+            this.saturationNumericUpDown.Size = new System.Drawing.Size(80, 26);
+            this.saturationNumericUpDown.TabIndex = 2;
+            this.saturationNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.saturationNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.saturationNumericUpDown.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
-            // label2
+            // saturationLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.label2.Location = new System.Drawing.Point(15, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 20);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Saturation";
-            this.label2.Click += new System.EventHandler(this.CloseAllPopUps);
+            this.saturationLabel.AutoSize = true;
+            this.saturationLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.saturationLabel.Location = new System.Drawing.Point(15, 10);
+            this.saturationLabel.Name = "saturationLabel";
+            this.saturationLabel.Size = new System.Drawing.Size(85, 20);
+            this.saturationLabel.TabIndex = 0;
+            this.saturationLabel.Text = "Saturation";
+            this.saturationLabel.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
-            // panel3
+            // filePanel
             // 
-            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel3.Controls.Add(this.button12);
-            this.panel3.Controls.Add(this.button11);
-            this.panel3.Controls.Add(this.button10);
-            this.panel3.Location = new System.Drawing.Point(40, 37);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(133, 147);
-            this.panel3.TabIndex = 7;
-            this.panel3.Visible = false;
+            this.filePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.filePanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.filePanel.Controls.Add(this.saveAsButton);
+            this.filePanel.Controls.Add(this.saveButton);
+            this.filePanel.Controls.Add(this.openFileButton);
+            this.filePanel.Location = new System.Drawing.Point(40, 37);
+            this.filePanel.Margin = new System.Windows.Forms.Padding(4);
+            this.filePanel.Name = "filePanel";
+            this.filePanel.Size = new System.Drawing.Size(133, 147);
+            this.filePanel.TabIndex = 7;
+            this.filePanel.Visible = false;
             // 
-            // button12
+            // saveAsButton
             // 
-            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button12.Enabled = false;
-            this.button12.FlatAppearance.BorderSize = 0;
-            this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button12.Location = new System.Drawing.Point(0, 98);
-            this.button12.Margin = new System.Windows.Forms.Padding(0);
-            this.button12.Name = "button12";
-            this.button12.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button12.Size = new System.Drawing.Size(133, 49);
-            this.button12.TabIndex = 2;
-            this.button12.Text = "Save as...";
-            this.button12.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
+            this.saveAsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.saveAsButton.Enabled = false;
+            this.saveAsButton.FlatAppearance.BorderSize = 0;
+            this.saveAsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveAsButton.Location = new System.Drawing.Point(0, 98);
+            this.saveAsButton.Margin = new System.Windows.Forms.Padding(0);
+            this.saveAsButton.Name = "saveAsButton";
+            this.saveAsButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.saveAsButton.Size = new System.Drawing.Size(133, 49);
+            this.saveAsButton.TabIndex = 2;
+            this.saveAsButton.Text = "Save as...";
+            this.saveAsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.saveAsButton.UseVisualStyleBackColor = true;
+            this.saveAsButton.Click += new System.EventHandler(this.button12_Click);
             // 
-            // button11
+            // saveButton
             // 
-            this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button11.Enabled = false;
-            this.button11.FlatAppearance.BorderSize = 0;
-            this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button11.Location = new System.Drawing.Point(0, 49);
-            this.button11.Margin = new System.Windows.Forms.Padding(0);
-            this.button11.Name = "button11";
-            this.button11.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button11.Size = new System.Drawing.Size(133, 49);
-            this.button11.TabIndex = 1;
-            this.button11.Text = "Save";
-            this.button11.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button11.UseVisualStyleBackColor = true;
-            this.button11.Click += new System.EventHandler(this.button11_Click);
+            this.saveButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.saveButton.Enabled = false;
+            this.saveButton.FlatAppearance.BorderSize = 0;
+            this.saveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.saveButton.Location = new System.Drawing.Point(0, 49);
+            this.saveButton.Margin = new System.Windows.Forms.Padding(0);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.saveButton.Size = new System.Drawing.Size(133, 49);
+            this.saveButton.TabIndex = 1;
+            this.saveButton.Text = "Save";
+            this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.button11_Click);
             // 
-            // button10
+            // openFileButton
             // 
-            this.button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Location = new System.Drawing.Point(0, 0);
-            this.button10.Margin = new System.Windows.Forms.Padding(0);
-            this.button10.Name = "button10";
-            this.button10.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button10.Size = new System.Drawing.Size(133, 49);
-            this.button10.TabIndex = 0;
-            this.button10.Text = "Open new";
-            this.button10.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button10.UseVisualStyleBackColor = true;
-            this.button10.Click += new System.EventHandler(this.button10_Click);
+            this.openFileButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.openFileButton.FlatAppearance.BorderSize = 0;
+            this.openFileButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openFileButton.Location = new System.Drawing.Point(0, 0);
+            this.openFileButton.Margin = new System.Windows.Forms.Padding(0);
+            this.openFileButton.Name = "openFileButton";
+            this.openFileButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.openFileButton.Size = new System.Drawing.Size(133, 49);
+            this.openFileButton.TabIndex = 0;
+            this.openFileButton.Text = "Open new";
+            this.openFileButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.openFileButton.UseVisualStyleBackColor = true;
+            this.openFileButton.Click += new System.EventHandler(this.button10_Click);
             // 
-            // panel4
+            // editPanel
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel4.Controls.Add(this.button14);
-            this.panel4.Controls.Add(this.button15);
-            this.panel4.Controls.Add(this.button16);
-            this.panel4.Controls.Add(this.button17);
-            this.panel4.Location = new System.Drawing.Point(107, 37);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(133, 197);
-            this.panel4.TabIndex = 8;
-            this.panel4.Visible = false;
+            this.editPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.editPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.editPanel.Controls.Add(this.applyLutButton);
+            this.editPanel.Controls.Add(this.exportLutButton);
+            this.editPanel.Controls.Add(this.redoButton);
+            this.editPanel.Controls.Add(this.undoButton);
+            this.editPanel.Location = new System.Drawing.Point(107, 37);
+            this.editPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.editPanel.Name = "editPanel";
+            this.editPanel.Size = new System.Drawing.Size(133, 197);
+            this.editPanel.TabIndex = 8;
+            this.editPanel.Visible = false;
             // 
-            // button14
+            // applyLutButton
             // 
-            this.button14.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button14.Enabled = false;
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Location = new System.Drawing.Point(0, 147);
-            this.button14.Margin = new System.Windows.Forms.Padding(0);
-            this.button14.Name = "button14";
-            this.button14.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button14.Size = new System.Drawing.Size(133, 49);
-            this.button14.TabIndex = 3;
-            this.button14.Text = "Apply LUT file";
-            this.button14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button14.UseVisualStyleBackColor = true;
-            this.button14.Click += new System.EventHandler(this.button14_Click);
+            this.applyLutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.applyLutButton.Enabled = false;
+            this.applyLutButton.FlatAppearance.BorderSize = 0;
+            this.applyLutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.applyLutButton.Location = new System.Drawing.Point(0, 147);
+            this.applyLutButton.Margin = new System.Windows.Forms.Padding(0);
+            this.applyLutButton.Name = "applyLutButton";
+            this.applyLutButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.applyLutButton.Size = new System.Drawing.Size(133, 49);
+            this.applyLutButton.TabIndex = 3;
+            this.applyLutButton.Text = "Apply LUT file";
+            this.applyLutButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.applyLutButton.UseVisualStyleBackColor = true;
+            this.applyLutButton.Click += new System.EventHandler(this.button14_Click);
             // 
-            // button15
+            // exportLutButton
             // 
-            this.button15.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button15.Enabled = false;
-            this.button15.FlatAppearance.BorderSize = 0;
-            this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button15.Location = new System.Drawing.Point(0, 98);
-            this.button15.Margin = new System.Windows.Forms.Padding(0);
-            this.button15.Name = "button15";
-            this.button15.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button15.Size = new System.Drawing.Size(133, 49);
-            this.button15.TabIndex = 2;
-            this.button15.Text = "Export LUT";
-            this.button15.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button15.UseVisualStyleBackColor = true;
-            this.button15.Click += new System.EventHandler(this.button15_Click);
+            this.exportLutButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.exportLutButton.Enabled = false;
+            this.exportLutButton.FlatAppearance.BorderSize = 0;
+            this.exportLutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exportLutButton.Location = new System.Drawing.Point(0, 98);
+            this.exportLutButton.Margin = new System.Windows.Forms.Padding(0);
+            this.exportLutButton.Name = "exportLutButton";
+            this.exportLutButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.exportLutButton.Size = new System.Drawing.Size(133, 49);
+            this.exportLutButton.TabIndex = 2;
+            this.exportLutButton.Text = "Export LUT";
+            this.exportLutButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.exportLutButton.UseVisualStyleBackColor = true;
+            this.exportLutButton.Click += new System.EventHandler(this.button15_Click);
             // 
-            // button16
+            // redoButton
             // 
-            this.button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button16.Enabled = false;
-            this.button16.FlatAppearance.BorderSize = 0;
-            this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button16.Location = new System.Drawing.Point(0, 49);
-            this.button16.Margin = new System.Windows.Forms.Padding(0);
-            this.button16.Name = "button16";
-            this.button16.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button16.Size = new System.Drawing.Size(133, 49);
-            this.button16.TabIndex = 1;
-            this.button16.Text = "Redo";
-            this.button16.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button16.UseVisualStyleBackColor = true;
-            this.button16.Click += new System.EventHandler(this.button16_Click);
+            this.redoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.redoButton.Enabled = false;
+            this.redoButton.FlatAppearance.BorderSize = 0;
+            this.redoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.redoButton.Location = new System.Drawing.Point(0, 49);
+            this.redoButton.Margin = new System.Windows.Forms.Padding(0);
+            this.redoButton.Name = "redoButton";
+            this.redoButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.redoButton.Size = new System.Drawing.Size(133, 49);
+            this.redoButton.TabIndex = 1;
+            this.redoButton.Text = "Redo";
+            this.redoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.redoButton.UseVisualStyleBackColor = true;
+            this.redoButton.Click += new System.EventHandler(this.button16_Click);
             // 
-            // button17
+            // undoButton
             // 
-            this.button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button17.Enabled = false;
-            this.button17.FlatAppearance.BorderSize = 0;
-            this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button17.Location = new System.Drawing.Point(0, 0);
-            this.button17.Margin = new System.Windows.Forms.Padding(0);
-            this.button17.Name = "button17";
-            this.button17.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button17.Size = new System.Drawing.Size(133, 49);
-            this.button17.TabIndex = 0;
-            this.button17.Text = "Undo";
-            this.button17.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button17.UseVisualStyleBackColor = true;
-            this.button17.Click += new System.EventHandler(this.button17_Click);
+            this.undoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.undoButton.Enabled = false;
+            this.undoButton.FlatAppearance.BorderSize = 0;
+            this.undoButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.undoButton.Location = new System.Drawing.Point(0, 0);
+            this.undoButton.Margin = new System.Windows.Forms.Padding(0);
+            this.undoButton.Name = "undoButton";
+            this.undoButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.undoButton.Size = new System.Drawing.Size(133, 49);
+            this.undoButton.TabIndex = 0;
+            this.undoButton.Text = "Undo";
+            this.undoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.undoButton.UseVisualStyleBackColor = true;
+            this.undoButton.Click += new System.EventHandler(this.button17_Click);
             // 
-            // panel5
+            // helpPanel
             // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel5.Controls.Add(this.button19);
-            this.panel5.Controls.Add(this.button20);
-            this.panel5.Controls.Add(this.button21);
-            this.panel5.Location = new System.Drawing.Point(173, 37);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(160, 148);
-            this.panel5.TabIndex = 9;
-            this.panel5.Visible = false;
+            this.helpPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.helpPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.helpPanel.Controls.Add(this.reportIssueButton);
+            this.helpPanel.Controls.Add(this.documentationButton);
+            this.helpPanel.Controls.Add(this.manualButton);
+            this.helpPanel.Location = new System.Drawing.Point(173, 37);
+            this.helpPanel.Margin = new System.Windows.Forms.Padding(4);
+            this.helpPanel.Name = "helpPanel";
+            this.helpPanel.Size = new System.Drawing.Size(160, 148);
+            this.helpPanel.TabIndex = 9;
+            this.helpPanel.Visible = false;
             // 
-            // button19
+            // reportIssueButton
             // 
-            this.button19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button19.FlatAppearance.BorderSize = 0;
-            this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button19.Location = new System.Drawing.Point(0, 98);
-            this.button19.Margin = new System.Windows.Forms.Padding(0);
-            this.button19.Name = "button19";
-            this.button19.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button19.Size = new System.Drawing.Size(160, 49);
-            this.button19.TabIndex = 2;
-            this.button19.Text = "Report issue";
-            this.button19.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button19.UseVisualStyleBackColor = true;
-            this.button19.Click += new System.EventHandler(this.button19_Click);
+            this.reportIssueButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.reportIssueButton.FlatAppearance.BorderSize = 0;
+            this.reportIssueButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.reportIssueButton.Location = new System.Drawing.Point(0, 98);
+            this.reportIssueButton.Margin = new System.Windows.Forms.Padding(0);
+            this.reportIssueButton.Name = "reportIssueButton";
+            this.reportIssueButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.reportIssueButton.Size = new System.Drawing.Size(160, 49);
+            this.reportIssueButton.TabIndex = 2;
+            this.reportIssueButton.Text = "Report issue";
+            this.reportIssueButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.reportIssueButton.UseVisualStyleBackColor = true;
+            this.reportIssueButton.Click += new System.EventHandler(this.button19_Click);
             // 
-            // button20
+            // documentationButton
             // 
-            this.button20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button20.FlatAppearance.BorderSize = 0;
-            this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button20.Location = new System.Drawing.Point(0, 49);
-            this.button20.Margin = new System.Windows.Forms.Padding(0);
-            this.button20.Name = "button20";
-            this.button20.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button20.Size = new System.Drawing.Size(160, 49);
-            this.button20.TabIndex = 1;
-            this.button20.Text = "Documentation";
-            this.button20.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button20.UseVisualStyleBackColor = true;
-            this.button20.Click += new System.EventHandler(this.button20_Click);
+            this.documentationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.documentationButton.FlatAppearance.BorderSize = 0;
+            this.documentationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.documentationButton.Location = new System.Drawing.Point(0, 49);
+            this.documentationButton.Margin = new System.Windows.Forms.Padding(0);
+            this.documentationButton.Name = "documentationButton";
+            this.documentationButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.documentationButton.Size = new System.Drawing.Size(160, 49);
+            this.documentationButton.TabIndex = 1;
+            this.documentationButton.Text = "Documentation";
+            this.documentationButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.documentationButton.UseVisualStyleBackColor = true;
+            this.documentationButton.Click += new System.EventHandler(this.button20_Click);
             // 
-            // button21
+            // manualButton
             // 
-            this.button21.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button21.FlatAppearance.BorderSize = 0;
-            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button21.Location = new System.Drawing.Point(0, 0);
-            this.button21.Margin = new System.Windows.Forms.Padding(0);
-            this.button21.Name = "button21";
-            this.button21.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button21.Size = new System.Drawing.Size(160, 49);
-            this.button21.TabIndex = 0;
-            this.button21.Text = "User manual";
-            this.button21.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button21.UseVisualStyleBackColor = true;
-            this.button21.Click += new System.EventHandler(this.button21_Click);
+            this.manualButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.manualButton.FlatAppearance.BorderSize = 0;
+            this.manualButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.manualButton.Location = new System.Drawing.Point(0, 0);
+            this.manualButton.Margin = new System.Windows.Forms.Padding(0);
+            this.manualButton.Name = "manualButton";
+            this.manualButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.manualButton.Size = new System.Drawing.Size(160, 49);
+            this.manualButton.TabIndex = 0;
+            this.manualButton.Text = "User manual";
+            this.manualButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.manualButton.UseVisualStyleBackColor = true;
+            this.manualButton.Click += new System.EventHandler(this.button21_Click);
             // 
-            // pictureBox2
+            // mainPictureBox
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.mainPictureBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.pictureBox2.Location = new System.Drawing.Point(13, 49);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(773, 394);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox2.TabIndex = 10;
-            this.pictureBox2.TabStop = false;
-            this.pictureBox2.Click += new System.EventHandler(this.CloseAllPopUps);
-            this.pictureBox2.DoubleClick += new System.EventHandler(this.button10_Click);
+            this.mainPictureBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.mainPictureBox.Location = new System.Drawing.Point(13, 49);
+            this.mainPictureBox.Margin = new System.Windows.Forms.Padding(0);
+            this.mainPictureBox.Name = "mainPictureBox";
+            this.mainPictureBox.Size = new System.Drawing.Size(773, 394);
+            this.mainPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.mainPictureBox.TabIndex = 10;
+            this.mainPictureBox.TabStop = false;
+            this.mainPictureBox.Click += new System.EventHandler(this.CloseAllPopUps);
+            this.mainPictureBox.DoubleClick += new System.EventHandler(this.button10_Click);
             // 
-            // panel6
+            // openConfirmationPanel
             // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.panel6.Controls.Add(this.button18);
-            this.panel6.Controls.Add(this.button22);
-            this.panel6.Controls.Add(this.label1);
-            this.panel6.Location = new System.Drawing.Point(173, 37);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(524, 98);
-            this.panel6.TabIndex = 11;
-            this.panel6.Visible = false;
+            this.openConfirmationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.openConfirmationPanel.Controls.Add(this.openCancelButton);
+            this.openConfirmationPanel.Controls.Add(this.openConfirmButton);
+            this.openConfirmationPanel.Controls.Add(this.openFileLabel);
+            this.openConfirmationPanel.Location = new System.Drawing.Point(173, 37);
+            this.openConfirmationPanel.Name = "openConfirmationPanel";
+            this.openConfirmationPanel.Size = new System.Drawing.Size(524, 98);
+            this.openConfirmationPanel.TabIndex = 11;
+            this.openConfirmationPanel.Visible = false;
             // 
-            // button18
+            // openCancelButton
             // 
-            this.button18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button18.FlatAppearance.BorderSize = 0;
-            this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button18.Location = new System.Drawing.Point(262, 49);
-            this.button18.Margin = new System.Windows.Forms.Padding(0);
-            this.button18.Name = "button18";
-            this.button18.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button18.Size = new System.Drawing.Size(262, 49);
-            this.button18.TabIndex = 3;
-            this.button18.Text = "No, take me back";
-            this.button18.UseVisualStyleBackColor = true;
-            this.button18.Click += new System.EventHandler(this.button18_Click);
+            this.openCancelButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.openCancelButton.FlatAppearance.BorderSize = 0;
+            this.openCancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openCancelButton.Location = new System.Drawing.Point(262, 49);
+            this.openCancelButton.Margin = new System.Windows.Forms.Padding(0);
+            this.openCancelButton.Name = "openCancelButton";
+            this.openCancelButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.openCancelButton.Size = new System.Drawing.Size(262, 49);
+            this.openCancelButton.TabIndex = 3;
+            this.openCancelButton.Text = "No, take me back";
+            this.openCancelButton.UseVisualStyleBackColor = true;
+            this.openCancelButton.Click += new System.EventHandler(this.button18_Click);
             // 
-            // button22
+            // openConfirmButton
             // 
-            this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button22.FlatAppearance.BorderSize = 0;
-            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button22.Location = new System.Drawing.Point(0, 49);
-            this.button22.Margin = new System.Windows.Forms.Padding(0);
-            this.button22.Name = "button22";
-            this.button22.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button22.Size = new System.Drawing.Size(262, 49);
-            this.button22.TabIndex = 2;
-            this.button22.Text = "Yes, I am sure";
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
+            this.openConfirmButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.openConfirmButton.FlatAppearance.BorderSize = 0;
+            this.openConfirmButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.openConfirmButton.Location = new System.Drawing.Point(0, 49);
+            this.openConfirmButton.Margin = new System.Windows.Forms.Padding(0);
+            this.openConfirmButton.Name = "openConfirmButton";
+            this.openConfirmButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.openConfirmButton.Size = new System.Drawing.Size(262, 49);
+            this.openConfirmButton.TabIndex = 2;
+            this.openConfirmButton.Text = "Yes, I am sure";
+            this.openConfirmButton.UseVisualStyleBackColor = true;
+            this.openConfirmButton.Click += new System.EventHandler(this.button22_Click);
             // 
-            // label1
+            // openFileLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Padding = new System.Windows.Forms.Padding(13, 16, 13, 16);
-            this.label1.Size = new System.Drawing.Size(524, 49);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Are you sure you want to open a new image? All unsaved changes will be lost!";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.openFileLabel.AutoSize = true;
+            this.openFileLabel.Location = new System.Drawing.Point(0, 0);
+            this.openFileLabel.Margin = new System.Windows.Forms.Padding(0);
+            this.openFileLabel.Name = "openFileLabel";
+            this.openFileLabel.Padding = new System.Windows.Forms.Padding(13, 16, 13, 16);
+            this.openFileLabel.Size = new System.Drawing.Size(524, 49);
+            this.openFileLabel.TabIndex = 0;
+            this.openFileLabel.Text = "Are you sure you want to open a new image? All unsaved changes will be lost!";
+            this.openFileLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // panel7
+            // lutPanel
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.panel7.Controls.Add(this.button28);
-            this.panel7.Controls.Add(this.comboBox3);
-            this.panel7.Location = new System.Drawing.Point(240, 185);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(300, 49);
-            this.panel7.TabIndex = 12;
-            this.panel7.Visible = false;
+            this.lutPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.lutPanel.Controls.Add(this.applyConfirmButton);
+            this.lutPanel.Controls.Add(this.lutComboBox);
+            this.lutPanel.Location = new System.Drawing.Point(240, 185);
+            this.lutPanel.Name = "lutPanel";
+            this.lutPanel.Size = new System.Drawing.Size(300, 49);
+            this.lutPanel.TabIndex = 12;
+            this.lutPanel.Visible = false;
             // 
-            // button28
+            // applyConfirmButton
             // 
-            this.button28.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button28.Enabled = false;
-            this.button28.FlatAppearance.BorderSize = 0;
-            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button28.Location = new System.Drawing.Point(200, 0);
-            this.button28.Margin = new System.Windows.Forms.Padding(0);
-            this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(100, 49);
-            this.button28.TabIndex = 4;
-            this.button28.Text = "Apply";
-            this.button28.UseVisualStyleBackColor = true;
-            this.button28.Click += new System.EventHandler(this.button28_Click);
+            this.applyConfirmButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.applyConfirmButton.Enabled = false;
+            this.applyConfirmButton.FlatAppearance.BorderSize = 0;
+            this.applyConfirmButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.applyConfirmButton.Location = new System.Drawing.Point(200, 0);
+            this.applyConfirmButton.Margin = new System.Windows.Forms.Padding(0);
+            this.applyConfirmButton.Name = "applyConfirmButton";
+            this.applyConfirmButton.Size = new System.Drawing.Size(100, 49);
+            this.applyConfirmButton.TabIndex = 4;
+            this.applyConfirmButton.Text = "Apply";
+            this.applyConfirmButton.UseVisualStyleBackColor = true;
+            this.applyConfirmButton.Click += new System.EventHandler(this.button28_Click);
             // 
-            // comboBox3
+            // lutComboBox
             // 
-            this.comboBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
-            this.comboBox3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
-            this.comboBox3.ForeColor = System.Drawing.Color.White;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(11, 10);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(178, 28);
-            this.comboBox3.TabIndex = 1;
+            this.lutComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.lutComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lutComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F);
+            this.lutComboBox.ForeColor = System.Drawing.Color.White;
+            this.lutComboBox.FormattingEnabled = true;
+            this.lutComboBox.Location = new System.Drawing.Point(11, 10);
+            this.lutComboBox.Name = "lutComboBox";
+            this.lutComboBox.Size = new System.Drawing.Size(178, 28);
+            this.lutComboBox.TabIndex = 1;
             // 
             // MainForm
             // 
@@ -948,18 +948,18 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1067, 554);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.panel6);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.lutPanel);
+            this.Controls.Add(this.openConfirmationPanel);
+            this.Controls.Add(this.helpPanel);
+            this.Controls.Add(this.editPanel);
+            this.Controls.Add(this.filePanel);
+            this.Controls.Add(this.navigationPanel);
+            this.Controls.Add(this.resetPreviewButton);
+            this.Controls.Add(this.redPreviewButton);
+            this.Controls.Add(this.greenPreviewButton);
+            this.Controls.Add(this.bluePreviewButton);
+            this.Controls.Add(this.toolboxPanel);
+            this.Controls.Add(this.mainPictureBox);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -969,82 +969,82 @@
             this.Text = "PhotoEditor";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Click += new System.EventHandler(this.CloseAllPopUps);
-            this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
+            this.navigationPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();
+            this.toolboxPanel.ResumeLayout(false);
+            this.toolboxPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clarityTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brightnessTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saturationTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clarityNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brightnessNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.saturationNumericUpDown)).EndInit();
+            this.filePanel.ResumeLayout(false);
+            this.editPanel.ResumeLayout(false);
+            this.helpPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.mainPictureBox)).EndInit();
+            this.openConfirmationPanel.ResumeLayout(false);
+            this.openConfirmationPanel.PerformLayout();
+            this.lutPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ToolTip toolTip2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Button button11;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button button14;
-        private System.Windows.Forms.Button button15;
-        private System.Windows.Forms.Button button16;
-        private System.Windows.Forms.Button button17;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Button button19;
-        private System.Windows.Forms.Button button20;
-        private System.Windows.Forms.Button button21;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button button18;
-        private System.Windows.Forms.Button button22;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button23;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button24;
-        private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.TrackBar trackBar3;
-        private System.Windows.Forms.TrackBar trackBar2;
-        private System.Windows.Forms.Button button27;
-        private System.Windows.Forms.Button button26;
-        private System.Windows.Forms.Button button25;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.ComboBox comboBox3;
-        private System.Windows.Forms.Button button28;
+        private System.Windows.Forms.Panel navigationPanel;
+        private System.Windows.Forms.Button minimizeButton;
+        private System.Windows.Forms.Button closeButton;
+        private System.Windows.Forms.ToolTip closeToolTip;
+        private System.Windows.Forms.ToolTip minimizeToolTip;
+        private System.Windows.Forms.Button resetPreviewButton;
+        private System.Windows.Forms.Button redPreviewButton;
+        private System.Windows.Forms.Button greenPreviewButton;
+        private System.Windows.Forms.Button bluePreviewButton;
+        private System.Windows.Forms.Panel toolboxPanel;
+        private System.Windows.Forms.Button fileMenuButton;
+        private System.Windows.Forms.Button helpMenuButton;
+        private System.Windows.Forms.Button editMenuButton;
+        private System.Windows.Forms.PictureBox iconPictureBox;
+        private System.Windows.Forms.Panel filePanel;
+        private System.Windows.Forms.Button saveAsButton;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button openFileButton;
+        private System.Windows.Forms.Panel editPanel;
+        private System.Windows.Forms.Button applyLutButton;
+        private System.Windows.Forms.Button exportLutButton;
+        private System.Windows.Forms.Button redoButton;
+        private System.Windows.Forms.Button undoButton;
+        private System.Windows.Forms.Panel helpPanel;
+        private System.Windows.Forms.Button reportIssueButton;
+        private System.Windows.Forms.Button documentationButton;
+        private System.Windows.Forms.Button manualButton;
+        private System.Windows.Forms.PictureBox mainPictureBox;
+        private System.Windows.Forms.Panel openConfirmationPanel;
+        private System.Windows.Forms.Button openCancelButton;
+        private System.Windows.Forms.Button openConfirmButton;
+        private System.Windows.Forms.Label openFileLabel;
+        private System.Windows.Forms.Label saturationLabel;
+        private System.Windows.Forms.NumericUpDown saturationNumericUpDown;
+        private System.Windows.Forms.Label brightnessLabel;
+        private System.Windows.Forms.NumericUpDown brightnessNumericUpDown;
+        private System.Windows.Forms.NumericUpDown clarityNumericUpDown;
+        private System.Windows.Forms.Label clarityLabel;
+        private System.Windows.Forms.Button invertColorButton;
+        private System.Windows.Forms.ComboBox firstColorComboBox;
+        private System.Windows.Forms.Label colorsLabel;
+        private System.Windows.Forms.ComboBox secondColorComboBox;
+        private System.Windows.Forms.Label betweenColorLabel;
+        private System.Windows.Forms.Button colorButton;
+        private System.Windows.Forms.TrackBar saturationTrackBar;
+        private System.Windows.Forms.TrackBar clarityTrackBar;
+        private System.Windows.Forms.TrackBar brightnessTrackBar;
+        private System.Windows.Forms.Button verticalFlipButton;
+        private System.Windows.Forms.Button horizontalFlipButton;
+        private System.Windows.Forms.Button graystyleButton;
+        private System.Windows.Forms.Panel lutPanel;
+        private System.Windows.Forms.ComboBox lutComboBox;
+        private System.Windows.Forms.Button applyConfirmButton;
     }
 }
 

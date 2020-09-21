@@ -58,23 +58,23 @@ namespace PhotoEditor
             Left = Top = 0;
             Width = Screen.PrimaryScreen.WorkingArea.Width;
             Height = Screen.PrimaryScreen.WorkingArea.Height;
-            panel2.Width = Width / 4;
-            panel2.Location = new Point(Width - panel2.Width, 30);
+            toolboxPanel.Width = Width / 4;
+            toolboxPanel.Location = new Point(Width - toolboxPanel.Width, 30);
             int newPreviewWidth = 3 * Width / 16;
             int newPreviewHeight = (Height - 30) / 5;
-            Button[] buttons = { button3, button4, button5, button6 };
+            Button[] buttons = { resetPreviewButton, redPreviewButton, greenPreviewButton, bluePreviewButton };
             for (int i = 0; i < 4; ++i)
             {
                 buttons[i].Width = newPreviewWidth;
                 buttons[i].Height = newPreviewHeight;
                 buttons[i].Location = new Point(newPreviewWidth * i, Height - newPreviewHeight);
             }
-            pictureBox2.Width = Width - panel2.Width - 20;
-            pictureBox2.Height = Height - newPreviewHeight - 50;
+            mainPictureBox.Width = Width - toolboxPanel.Width - 20;
+            mainPictureBox.Height = Height - newPreviewHeight - 50;
 
             taskControl = new TaskControl(this);
 
-            comboBox3.Items.AddRange(LookUpTable.List());
+            lutComboBox.Items.AddRange(LookUpTable.List());
             log.Add("Form loaded");
         }
 
@@ -86,40 +86,40 @@ namespace PhotoEditor
         {
             saturationChanging = true;
             imageSet.saturation = 0;
-            trackBar1.Value = 0;
+            saturationTrackBar.Value = 0;
             saturationChanging = false;
             brightnessChanging = true;
             imageSet.brightness = 0;
-            trackBar2.Value = 0;
+            brightnessTrackBar.Value = 0;
             brightnessChanging = false;
             clarityChanging = true;
             imageSet.clarity = 0;
-            trackBar3.Value = 0;
+            clarityTrackBar.Value = 0;
             clarityChanging = false;
 
-            trackBar1.Enabled = true;
-            trackBar2.Enabled = true;
-            trackBar3.Enabled = true;
-            numericUpDown1.Enabled = true;
-            numericUpDown2.Enabled = true;
-            numericUpDown3.Enabled = true;
-            button23.Enabled = true;
-            button24.Enabled = true;
-            button25.Enabled = true;
-            button26.Enabled = true;
-            button27.Enabled = true;
+            saturationTrackBar.Enabled = true;
+            brightnessTrackBar.Enabled = true;
+            clarityTrackBar.Enabled = true;
+            saturationNumericUpDown.Enabled = true;
+            brightnessNumericUpDown.Enabled = true;
+            clarityNumericUpDown.Enabled = true;
+            invertColorButton.Enabled = true;
+            colorButton.Enabled = true;
+            graystyleButton.Enabled = true;
+            horizontalFlipButton.Enabled = true;
+            verticalFlipButton.Enabled = true;
 
-            button11.Enabled = true;
-            button12.Enabled = true;
+            saveButton.Enabled = true;
+            saveAsButton.Enabled = true;
 
-            button14.Enabled = true;
-            button15.Enabled = true;
-            button28.Enabled = true;
+            applyLutButton.Enabled = true;
+            exportLutButton.Enabled = true;
+            applyConfirmButton.Enabled = true;
 
-            button3.Enabled = true;
-            button4.Enabled = true;
-            button5.Enabled = true;
-            button6.Enabled = true;
+            resetPreviewButton.Enabled = true;
+            redPreviewButton.Enabled = true;
+            greenPreviewButton.Enabled = true;
+            bluePreviewButton.Enabled = true;
         }
 
         #endregion
@@ -149,11 +149,11 @@ namespace PhotoEditor
         /// </summary>
         private void CloseAllPopUps(object sender, EventArgs e)
         {
-            panel3.Visible = false;
-            panel4.Visible = false;
-            panel5.Visible = false;
-            panel6.Visible = false;
-            panel7.Visible = false;
+            filePanel.Visible = false;
+            editPanel.Visible = false;
+            helpPanel.Visible = false;
+            openConfirmationPanel.Visible = false;
+            lutPanel.Visible = false;
         }
 
         #endregion

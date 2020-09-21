@@ -20,8 +20,8 @@ namespace PhotoEditor
         {
             if (!saturationChanging)
             {
-                int value = (int)numericUpDown1.Value;
-                trackBar1.Value = value;
+                int value = (int)saturationNumericUpDown.Value;
+                saturationTrackBar.Value = value;
             }
         }
 
@@ -33,8 +33,8 @@ namespace PhotoEditor
             if (!saturationChanging)
             {
                 saturationChanging = true;
-                int value = trackBar1.Value;
-                numericUpDown1.Value = value;
+                int value = saturationTrackBar.Value;
+                saturationNumericUpDown.Value = value;
                 OnSyncValues(ImageModification.Saturation, value);
                 saturationChanging = false;
             }
@@ -47,8 +47,8 @@ namespace PhotoEditor
         {
             if (!brightnessChanging)
             {
-                int value = (int)numericUpDown2.Value;
-                trackBar2.Value = value;
+                int value = (int)brightnessNumericUpDown.Value;
+                brightnessTrackBar.Value = value;
             }
         }
 
@@ -60,8 +60,8 @@ namespace PhotoEditor
             if (!brightnessChanging)
             {
                 brightnessChanging = true;
-                int value = trackBar2.Value;
-                numericUpDown2.Value = value;
+                int value = brightnessTrackBar.Value;
+                brightnessNumericUpDown.Value = value;
                 OnSyncValues(ImageModification.Brightness, value);
                 brightnessChanging = false;
             }
@@ -74,8 +74,8 @@ namespace PhotoEditor
         {
             if (!clarityChanging)
             {
-                int value = (int)numericUpDown3.Value;
-                trackBar3.Value = value;
+                int value = (int)clarityNumericUpDown.Value;
+                clarityTrackBar.Value = value;
             }
         }
 
@@ -87,8 +87,8 @@ namespace PhotoEditor
             if (!clarityChanging)
             {
                 clarityChanging = true;
-                int value = trackBar3.Value;
-                numericUpDown3.Value = value;
+                int value = clarityTrackBar.Value;
+                clarityNumericUpDown.Value = value;
                 OnSyncValues(ImageModification.Clarity, value);
                 clarityChanging = false;
             }
@@ -144,17 +144,17 @@ namespace PhotoEditor
         private void button24_Click(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
-            if ((comboBox1.SelectedItem != null) && (comboBox2.SelectedItem != null))
+            if ((firstColorComboBox.SelectedItem != null) && (secondColorComboBox.SelectedItem != null))
             {
                 ImageTask task = new ColorChange(
                     ImageModification.ColorRotate,
                     imageSet,
-                    comboBox1.SelectedItem.ToString(),
-                    comboBox2.SelectedItem.ToString()
+                    firstColorComboBox.SelectedItem.ToString(),
+                    secondColorComboBox.SelectedItem.ToString()
                 );
                 taskControl.Add(task);
                 taskControl.CheckAndProcess();
-                log.Add("Image colors swaped (" + comboBox1.SelectedItem.ToString() + ", " + comboBox2.SelectedItem.ToString() + ")");
+                log.Add("Image colors swaped (" + firstColorComboBox.SelectedItem.ToString() + ", " + secondColorComboBox.SelectedItem.ToString() + ")");
             }
         }
 

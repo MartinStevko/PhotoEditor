@@ -40,10 +40,10 @@ namespace PhotoEditor
             string filename = data.ToString();
             imageSet.Load(
                 filename,
-                pictureBox2.Width,
-                pictureBox2.Height,
-                button3.Width - 26,
-                button3.Height - 10
+                mainPictureBox.Width,
+                mainPictureBox.Height,
+                resetPreviewButton.Width - 26,
+                resetPreviewButton.Height - 10
             );
             RedrawImageSet();
         }

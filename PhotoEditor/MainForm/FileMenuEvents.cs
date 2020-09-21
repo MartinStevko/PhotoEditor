@@ -13,9 +13,9 @@ namespace PhotoEditor
         /// </summary>
         private void button7_Click(object sender, EventArgs e)
         {
-            bool state = !panel3.Visible;
+            bool state = !filePanel.Visible;
             CloseAllPopUps(sender, e);
-            panel3.Visible = state;
+            filePanel.Visible = state;
         }
 
         /// <summary>
@@ -23,13 +23,13 @@ namespace PhotoEditor
         /// </summary>
         private void button10_Click(object sender, EventArgs e)
         {
-            if (pictureBox2.Image != null)
+            if (mainPictureBox.Image != null)
             {
-                panel6.Visible = true;
+                openConfirmationPanel.Visible = true;
             }
             else
             {
-                panel3.Visible = false;
+                filePanel.Visible = false;
                 OpenNewImage();
             }
         }
@@ -56,9 +56,9 @@ namespace PhotoEditor
         /// </summary>
         private void button11_Click(object sender, EventArgs e)
         {
-            panel3.Visible = false;
+            filePanel.Visible = false;
             string file = imageSet.filename;
-            pictureBox2.Image.Save(file);
+            mainPictureBox.Image.Save(file);
             log.Add("File saved");
         }
 
@@ -67,12 +67,12 @@ namespace PhotoEditor
         /// </summary>
         private void button12_Click(object sender, EventArgs e)
         {
-            panel3.Visible = false;
+            filePanel.Visible = false;
             SaveFileDialog dialog = new SaveFileDialog();
             dialog.Filter = "All Images|*.jpg;*.bmp;*.png";
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                pictureBox2.Image.Save(dialog.FileName);
+                mainPictureBox.Image.Save(dialog.FileName);
             }
             log.Add("File saved as " + dialog.FileName);
         }

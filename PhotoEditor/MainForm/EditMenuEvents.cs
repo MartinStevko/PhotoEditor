@@ -16,9 +16,9 @@ namespace PhotoEditor
         /// </summary>
         private void button8_Click(object sender, EventArgs e)
         {
-            bool state = !panel4.Visible;
+            bool state = !editPanel.Visible;
             CloseAllPopUps(sender, e);
-            panel4.Visible = state;
+            editPanel.Visible = state;
         }
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace PhotoEditor
         /// </summary>
         private void button17_Click(object sender, EventArgs e)
         {
-            panel4.Visible = false;
+            editPanel.Visible = false;
 
             if (taskControl.tasks.Any())
             {
@@ -60,7 +60,7 @@ namespace PhotoEditor
         /// </summary>
         private void button16_Click(object sender, EventArgs e)
         {
-            panel4.Visible = false;
+            editPanel.Visible = false;
 
             if (taskControl.removed.Any())
             {
@@ -97,23 +97,23 @@ namespace PhotoEditor
         {
             if (taskControl.undoQueue.IsEmpty())
             {
-                button17.Enabled = false;
-                button17.Refresh();
+                undoButton.Enabled = false;
+                undoButton.Refresh();
             }
             else
             {
-                button17.Enabled = true;
-                button17.Refresh();
+                undoButton.Enabled = true;
+                undoButton.Refresh();
             }
             if (taskControl.redoQueue.IsEmpty())
             {
-                button16.Enabled = false;
-                button16.Refresh();
+                redoButton.Enabled = false;
+                redoButton.Refresh();
             }
             else
             {
-                button16.Enabled = true;
-                button16.Refresh();
+                redoButton.Enabled = true;
+                redoButton.Refresh();
             }
         }
 
@@ -124,7 +124,7 @@ namespace PhotoEditor
         {
             Thread thr = new Thread(ExportLUT);
             thr.Start();
-            panel4.Visible = false;
+            editPanel.Visible = false;
         }
 
         /// <summary>
@@ -142,7 +142,7 @@ namespace PhotoEditor
         /// </summary>
         private void button14_Click(object sender, EventArgs e)
         {
-            panel7.Visible = panel7.Visible == false;
+            lutPanel.Visible = lutPanel.Visible == false;
         }
 
         /// <summary>
@@ -150,12 +150,12 @@ namespace PhotoEditor
         /// </summary>
         private void button28_Click(object sender, EventArgs e)
         {
-            if (comboBox3.SelectedItem != null)
+            if (lutComboBox.SelectedItem != null)
             {
                 ImageTask task = new ApplyLUT(
                     ImageModification.ApplyLUT,
                     imageSet,
-                    comboBox3.SelectedItem.ToString()
+                    lutComboBox.SelectedItem.ToString()
                 );
                 taskControl.Add(task);
                 taskControl.CheckAndProcess();
