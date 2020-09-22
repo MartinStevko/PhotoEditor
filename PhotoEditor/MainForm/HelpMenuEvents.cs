@@ -11,7 +11,7 @@ namespace PhotoEditor
         /// <summary>
         /// Show app menu under 'Help' - User manual, Documentation, Report issue
         /// </summary>
-        private void button9_Click(object sender, EventArgs e)
+        private void HelpMenuButtonClick(object sender, EventArgs e)
         {
             bool state = !helpPanel.Visible;
             CloseAllPopUps(sender, e);
@@ -21,7 +21,7 @@ namespace PhotoEditor
         /// <summary>
         /// Help -> User manual menu button - opens user manual in user default web browser
         /// </summary>
-        private void button21_Click(object sender, EventArgs e)
+        private void ManualButtonClick(object sender, EventArgs e)
         {
             helpPanel.Visible = false;
             string targetURL = @"https://github.com/MartinStevko/PhotoEditor/wiki/User-manual";
@@ -32,7 +32,7 @@ namespace PhotoEditor
         /// <summary>
         /// Help -> Documentation menu button - opens program documentation in user default web browser
         /// </summary>
-        private void button20_Click(object sender, EventArgs e)
+        private void DocumentationButtonClick(object sender, EventArgs e)
         {
             helpPanel.Visible = false;
             string targetURL = @"https://github.com/MartinStevko/PhotoEditor/wiki/Documentation";
@@ -43,7 +43,7 @@ namespace PhotoEditor
         /// <summary>
         /// Help -> Report issue menu button - opens report issue website in user default web browser
         /// </summary>
-        private void button19_Click(object sender, EventArgs e)
+        private void IssueButtonClick(object sender, EventArgs e)
         {
             helpPanel.Visible = false;
             string targetURL = @"https://github.com/MartinStevko/PhotoEditor/issues/new/choose";

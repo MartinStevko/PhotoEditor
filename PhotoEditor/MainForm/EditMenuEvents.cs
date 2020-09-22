@@ -14,7 +14,7 @@ namespace PhotoEditor
         /// <summary>
         /// Show app menu under 'Edit' - Undo, Redo, Export LUT, Settings
         /// </summary>
-        private void button8_Click(object sender, EventArgs e)
+        private void EditMenuButtonClick(object sender, EventArgs e)
         {
             bool state = !editPanel.Visible;
             CloseAllPopUps(sender, e);
@@ -24,7 +24,7 @@ namespace PhotoEditor
         /// <summary>
         /// Edit -> Undo menu button - undo last action
         /// </summary>
-        private void button17_Click(object sender, EventArgs e)
+        private void UndoButtonClick(object sender, EventArgs e)
         {
             editPanel.Visible = false;
 
@@ -58,7 +58,7 @@ namespace PhotoEditor
         /// <summary>
         /// Edit -> Redo menu button - redo last action if it was undone
         /// </summary>
-        private void button16_Click(object sender, EventArgs e)
+        private void RedoButtonClick(object sender, EventArgs e)
         {
             editPanel.Visible = false;
 
@@ -120,7 +120,7 @@ namespace PhotoEditor
         /// <summary>
         /// Edit -> Export LUT menu button - exports LUT file from changes made onto currently opened image
         /// </summary>
-        private void button15_Click(object sender, EventArgs e)
+        private void ExportLutButtonClick(object sender, EventArgs e)
         {
             Thread thr = new Thread(ExportLUT);
             thr.Start();
@@ -140,7 +140,7 @@ namespace PhotoEditor
         /// <summary>
         /// Edit -> Apply LUT file menu button - prompts LUT file choice
         /// </summary>
-        private void button14_Click(object sender, EventArgs e)
+        private void ApplyLutButtonClick(object sender, EventArgs e)
         {
             lutPanel.Visible = lutPanel.Visible == false;
         }
@@ -148,7 +148,7 @@ namespace PhotoEditor
         /// <summary>
         /// Edit -> Apply LUT file -> Apply menu button - applies choosen LUT file
         /// </summary>
-        private void button28_Click(object sender, EventArgs e)
+        private void ApplyLutConfirmButtonClick(object sender, EventArgs e)
         {
             if (lutComboBox.SelectedItem != null)
             {

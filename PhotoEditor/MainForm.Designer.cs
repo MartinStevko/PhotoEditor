@@ -149,7 +149,7 @@
             this.helpMenuButton.TabIndex = 4;
             this.helpMenuButton.Text = "Help";
             this.helpMenuButton.UseVisualStyleBackColor = true;
-            this.helpMenuButton.Click += new System.EventHandler(this.button9_Click);
+            this.helpMenuButton.Click += new System.EventHandler(this.HelpMenuButtonClick);
             // 
             // editMenuButton
             // 
@@ -167,7 +167,7 @@
             this.editMenuButton.TabIndex = 3;
             this.editMenuButton.Text = "Edit";
             this.editMenuButton.UseVisualStyleBackColor = true;
-            this.editMenuButton.Click += new System.EventHandler(this.button8_Click);
+            this.editMenuButton.Click += new System.EventHandler(this.EditMenuButtonClick);
             // 
             // fileMenuButton
             // 
@@ -185,7 +185,7 @@
             this.fileMenuButton.TabIndex = 2;
             this.fileMenuButton.Text = "File";
             this.fileMenuButton.UseVisualStyleBackColor = true;
-            this.fileMenuButton.Click += new System.EventHandler(this.button7_Click);
+            this.fileMenuButton.Click += new System.EventHandler(this.FileMenuButtonClick);
             // 
             // minimizeButton
             // 
@@ -203,7 +203,7 @@
             this.minimizeButton.TabIndex = 1;
             this.minimizeToolTip.SetToolTip(this.minimizeButton, "Minimize");
             this.minimizeButton.UseVisualStyleBackColor = true;
-            this.minimizeButton.Click += new System.EventHandler(this.button2_Click);
+            this.minimizeButton.Click += new System.EventHandler(this.MinimizeButtonClick);
             // 
             // closeButton
             // 
@@ -222,7 +222,7 @@
             this.closeButton.TabIndex = 0;
             this.closeToolTip.SetToolTip(this.closeButton, "Close");
             this.closeButton.UseVisualStyleBackColor = true;
-            this.closeButton.Click += new System.EventHandler(this.button1_Click);
+            this.closeButton.Click += new System.EventHandler(this.CloseButtonClick);
             // 
             // closeToolTip
             // 
@@ -258,7 +258,7 @@
             this.resetPreviewButton.Size = new System.Drawing.Size(200, 98);
             this.resetPreviewButton.TabIndex = 2;
             this.resetPreviewButton.UseVisualStyleBackColor = false;
-            this.resetPreviewButton.Click += new System.EventHandler(this.button3_Click);
+            this.resetPreviewButton.Click += new System.EventHandler(this.AllPreviewClick);
             // 
             // redPreviewButton
             // 
@@ -279,7 +279,7 @@
             this.redPreviewButton.Size = new System.Drawing.Size(200, 98);
             this.redPreviewButton.TabIndex = 4;
             this.redPreviewButton.UseVisualStyleBackColor = false;
-            this.redPreviewButton.Click += new System.EventHandler(this.button4_Click);
+            this.redPreviewButton.Click += new System.EventHandler(this.RedPreviewClick);
             // 
             // greenPreviewButton
             // 
@@ -300,7 +300,7 @@
             this.greenPreviewButton.Size = new System.Drawing.Size(200, 98);
             this.greenPreviewButton.TabIndex = 5;
             this.greenPreviewButton.UseVisualStyleBackColor = false;
-            this.greenPreviewButton.Click += new System.EventHandler(this.button5_Click);
+            this.greenPreviewButton.Click += new System.EventHandler(this.GreenPreviewClick);
             // 
             // bluePreviewButton
             // 
@@ -321,7 +321,7 @@
             this.bluePreviewButton.Size = new System.Drawing.Size(200, 98);
             this.bluePreviewButton.TabIndex = 6;
             this.bluePreviewButton.UseVisualStyleBackColor = false;
-            this.bluePreviewButton.Click += new System.EventHandler(this.button6_Click);
+            this.bluePreviewButton.Click += new System.EventHandler(this.BluePreviewClick);
             // 
             // toolboxPanel
             // 
@@ -367,7 +367,7 @@
             this.verticalFlipButton.TabIndex = 20;
             this.verticalFlipButton.Text = "Flip vertical";
             this.verticalFlipButton.UseVisualStyleBackColor = true;
-            this.verticalFlipButton.Click += new System.EventHandler(this.button27_Click);
+            this.verticalFlipButton.Click += new System.EventHandler(this.VerticalFlipButtonClick);
             // 
             // horizontalFlipButton
             // 
@@ -382,7 +382,7 @@
             this.horizontalFlipButton.TabIndex = 19;
             this.horizontalFlipButton.Text = "Flip horizontal";
             this.horizontalFlipButton.UseVisualStyleBackColor = true;
-            this.horizontalFlipButton.Click += new System.EventHandler(this.button26_Click);
+            this.horizontalFlipButton.Click += new System.EventHandler(this.HorizontalFlipButtonClick);
             // 
             // graystyleButton
             // 
@@ -397,7 +397,7 @@
             this.graystyleButton.TabIndex = 18;
             this.graystyleButton.Text = "Graystyle filter";
             this.graystyleButton.UseVisualStyleBackColor = true;
-            this.graystyleButton.Click += new System.EventHandler(this.button25_Click);
+            this.graystyleButton.Click += new System.EventHandler(this.GrayStyleButtonClick);
             // 
             // colorButton
             // 
@@ -412,7 +412,7 @@
             this.colorButton.TabIndex = 14;
             this.colorButton.Text = "Change";
             this.colorButton.UseVisualStyleBackColor = true;
-            this.colorButton.Click += new System.EventHandler(this.button24_Click);
+            this.colorButton.Click += new System.EventHandler(this.SwapColorButtonClick);
             // 
             // invertColorButton
             // 
@@ -427,7 +427,7 @@
             this.invertColorButton.TabIndex = 9;
             this.invertColorButton.Text = "Invert color";
             this.invertColorButton.UseVisualStyleBackColor = true;
-            this.invertColorButton.Click += new System.EventHandler(this.button23_Click);
+            this.invertColorButton.Click += new System.EventHandler(this.InvertColorButtonClick);
             // 
             // brightnessLabel
             // 
@@ -463,7 +463,7 @@
             this.clarityTrackBar.TabIndex = 17;
             this.clarityTrackBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.clarityTrackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseAllPopUps);
-            this.clarityTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar3_MouseUp);
+            this.clarityTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.ClarityTrackBarMouseUp);
             // 
             // brightnessTrackBar
             // 
@@ -479,7 +479,7 @@
             this.brightnessTrackBar.TabIndex = 16;
             this.brightnessTrackBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.brightnessTrackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseAllPopUps);
-            this.brightnessTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar2_MouseUp);
+            this.brightnessTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BrightnessTrackBarMouseUp);
             // 
             // saturationTrackBar
             // 
@@ -495,7 +495,7 @@
             this.saturationTrackBar.TabIndex = 15;
             this.saturationTrackBar.TickStyle = System.Windows.Forms.TickStyle.None;
             this.saturationTrackBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseAllPopUps);
-            this.saturationTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
+            this.saturationTrackBar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.SaturationTrackBarMouseUp);
             // 
             // secondColorComboBox
             // 
@@ -570,7 +570,7 @@
             this.clarityNumericUpDown.Size = new System.Drawing.Size(80, 26);
             this.clarityNumericUpDown.TabIndex = 8;
             this.clarityNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.clarityNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
+            this.clarityNumericUpDown.ValueChanged += new System.EventHandler(this.ClarityUpDownValueChanged);
             this.clarityNumericUpDown.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // brightnessNumericUpDown
@@ -590,7 +590,7 @@
             this.brightnessNumericUpDown.Size = new System.Drawing.Size(80, 26);
             this.brightnessNumericUpDown.TabIndex = 5;
             this.brightnessNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.brightnessNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            this.brightnessNumericUpDown.ValueChanged += new System.EventHandler(this.BrightnessUpDownValueChanged);
             this.brightnessNumericUpDown.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // saturationNumericUpDown
@@ -610,7 +610,7 @@
             this.saturationNumericUpDown.Size = new System.Drawing.Size(80, 26);
             this.saturationNumericUpDown.TabIndex = 2;
             this.saturationNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.saturationNumericUpDown.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.saturationNumericUpDown.ValueChanged += new System.EventHandler(this.SaturationUpDownValueChanged);
             this.saturationNumericUpDown.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // saturationLabel
@@ -653,7 +653,7 @@
             this.saveAsButton.Text = "Save as...";
             this.saveAsButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.saveAsButton.UseVisualStyleBackColor = true;
-            this.saveAsButton.Click += new System.EventHandler(this.button12_Click);
+            this.saveAsButton.Click += new System.EventHandler(this.SaveAsButtonClick);
             // 
             // saveButton
             // 
@@ -670,7 +670,7 @@
             this.saveButton.Text = "Save";
             this.saveButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.saveButton.UseVisualStyleBackColor = true;
-            this.saveButton.Click += new System.EventHandler(this.button11_Click);
+            this.saveButton.Click += new System.EventHandler(this.SaveButtonClick);
             // 
             // openFileButton
             // 
@@ -686,7 +686,7 @@
             this.openFileButton.Text = "Open new";
             this.openFileButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.openFileButton.UseVisualStyleBackColor = true;
-            this.openFileButton.Click += new System.EventHandler(this.button10_Click);
+            this.openFileButton.Click += new System.EventHandler(this.OpenMenuButtonClick);
             // 
             // editPanel
             // 
@@ -718,7 +718,7 @@
             this.applyLutButton.Text = "Apply LUT file";
             this.applyLutButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.applyLutButton.UseVisualStyleBackColor = true;
-            this.applyLutButton.Click += new System.EventHandler(this.button14_Click);
+            this.applyLutButton.Click += new System.EventHandler(this.ApplyLutButtonClick);
             // 
             // exportLutButton
             // 
@@ -735,7 +735,7 @@
             this.exportLutButton.Text = "Export LUT";
             this.exportLutButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.exportLutButton.UseVisualStyleBackColor = true;
-            this.exportLutButton.Click += new System.EventHandler(this.button15_Click);
+            this.exportLutButton.Click += new System.EventHandler(this.ExportLutButtonClick);
             // 
             // redoButton
             // 
@@ -752,7 +752,7 @@
             this.redoButton.Text = "Redo";
             this.redoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.redoButton.UseVisualStyleBackColor = true;
-            this.redoButton.Click += new System.EventHandler(this.button16_Click);
+            this.redoButton.Click += new System.EventHandler(this.RedoButtonClick);
             // 
             // undoButton
             // 
@@ -769,7 +769,7 @@
             this.undoButton.Text = "Undo";
             this.undoButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.undoButton.UseVisualStyleBackColor = true;
-            this.undoButton.Click += new System.EventHandler(this.button17_Click);
+            this.undoButton.Click += new System.EventHandler(this.UndoButtonClick);
             // 
             // helpPanel
             // 
@@ -799,7 +799,7 @@
             this.reportIssueButton.Text = "Report issue";
             this.reportIssueButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.reportIssueButton.UseVisualStyleBackColor = true;
-            this.reportIssueButton.Click += new System.EventHandler(this.button19_Click);
+            this.reportIssueButton.Click += new System.EventHandler(this.IssueButtonClick);
             // 
             // documentationButton
             // 
@@ -815,7 +815,7 @@
             this.documentationButton.Text = "Documentation";
             this.documentationButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.documentationButton.UseVisualStyleBackColor = true;
-            this.documentationButton.Click += new System.EventHandler(this.button20_Click);
+            this.documentationButton.Click += new System.EventHandler(this.DocumentationButtonClick);
             // 
             // manualButton
             // 
@@ -831,7 +831,7 @@
             this.manualButton.Text = "User manual";
             this.manualButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.manualButton.UseVisualStyleBackColor = true;
-            this.manualButton.Click += new System.EventHandler(this.button21_Click);
+            this.manualButton.Click += new System.EventHandler(this.ManualButtonClick);
             // 
             // mainPictureBox
             // 
@@ -847,7 +847,7 @@
             this.mainPictureBox.TabIndex = 10;
             this.mainPictureBox.TabStop = false;
             this.mainPictureBox.Click += new System.EventHandler(this.CloseAllPopUps);
-            this.mainPictureBox.DoubleClick += new System.EventHandler(this.button10_Click);
+            this.mainPictureBox.DoubleClick += new System.EventHandler(this.OpenMenuButtonClick);
             // 
             // openConfirmationPanel
             // 
@@ -874,7 +874,7 @@
             this.openCancelButton.TabIndex = 3;
             this.openCancelButton.Text = "No, take me back";
             this.openCancelButton.UseVisualStyleBackColor = true;
-            this.openCancelButton.Click += new System.EventHandler(this.button18_Click);
+            this.openCancelButton.Click += new System.EventHandler(this.OpenCancelMenuButtonClick);
             // 
             // openConfirmButton
             // 
@@ -889,7 +889,7 @@
             this.openConfirmButton.TabIndex = 2;
             this.openConfirmButton.Text = "Yes, I am sure";
             this.openConfirmButton.UseVisualStyleBackColor = true;
-            this.openConfirmButton.Click += new System.EventHandler(this.button22_Click);
+            this.openConfirmButton.Click += new System.EventHandler(this.OpenConfirmMenuButtonClick);
             // 
             // openFileLabel
             // 
@@ -927,7 +927,7 @@
             this.applyConfirmButton.TabIndex = 4;
             this.applyConfirmButton.Text = "Apply";
             this.applyConfirmButton.UseVisualStyleBackColor = true;
-            this.applyConfirmButton.Click += new System.EventHandler(this.button28_Click);
+            this.applyConfirmButton.Click += new System.EventHandler(this.ApplyLutConfirmButtonClick);
             // 
             // lutComboBox
             // 
@@ -967,7 +967,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "PhotoEditor";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.MainFormLoad);
             this.Click += new System.EventHandler(this.CloseAllPopUps);
             this.navigationPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).EndInit();

@@ -53,7 +53,7 @@ namespace PhotoEditor
         /// <summary>
         /// Loads form and calculate size and location of responsive objects
         /// </summary>
-        private void Form1_Load(object sender, EventArgs e)
+        private void MainFormLoad(object sender, EventArgs e)
         {
             Left = Top = 0;
             Width = Screen.PrimaryScreen.WorkingArea.Width;
@@ -129,7 +129,7 @@ namespace PhotoEditor
         /// <summary>
         /// Close button click event handler
         /// </summary>
-        private void button1_Click(object sender, EventArgs e)
+        private void CloseButtonClick(object sender, EventArgs e)
         {
             log.Add("Leaving application");
             Application.Exit();
@@ -138,7 +138,7 @@ namespace PhotoEditor
         /// <summary>
         /// Minimize button click event handler
         /// </summary>
-        private void button2_Click(object sender, EventArgs e)
+        private void MinimizeButtonClick(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
             CloseAllPopUps(sender, e);

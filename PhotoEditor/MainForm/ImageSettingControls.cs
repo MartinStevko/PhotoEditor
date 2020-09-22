@@ -16,7 +16,7 @@ namespace PhotoEditor
         /// <summary>
         /// Synchronizes appropriate track bar value on numeric up/down value change
         /// </summary>
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void SaturationUpDownValueChanged(object sender, EventArgs e)
         {
             if (!saturationChanging)
             {
@@ -28,7 +28,7 @@ namespace PhotoEditor
         /// <summary>
         /// Synchronizes appropriate numeric up/down value on track bar value change
         /// </summary>
-        private void trackBar1_MouseUp(object sender, MouseEventArgs e)
+        private void SaturationTrackBarMouseUp(object sender, MouseEventArgs e)
         {
             if (!saturationChanging)
             {
@@ -43,7 +43,7 @@ namespace PhotoEditor
         /// <summary>
         /// Synchronizes appropriate track bar value on numeric up/down value change
         /// </summary>
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        private void BrightnessUpDownValueChanged(object sender, EventArgs e)
         {
             if (!brightnessChanging)
             {
@@ -55,7 +55,7 @@ namespace PhotoEditor
         /// <summary>
         /// Synchronizes appropriate numeric up/down value on track bar value change
         /// </summary>
-        private void trackBar2_MouseUp(object sender, MouseEventArgs e)
+        private void BrightnessTrackBarMouseUp(object sender, MouseEventArgs e)
         {
             if (!brightnessChanging)
             {
@@ -70,7 +70,7 @@ namespace PhotoEditor
         /// <summary>
         /// Synchronizes appropriate track bar value on numeric up/down value change
         /// </summary>
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        private void ClarityUpDownValueChanged(object sender, EventArgs e)
         {
             if (!clarityChanging)
             {
@@ -82,7 +82,7 @@ namespace PhotoEditor
         /// <summary>
         /// Synchronizes appropriate numeric up/down value on track bar value change
         /// </summary>
-        private void trackBar3_MouseUp(object sender, MouseEventArgs e)
+        private void ClarityTrackBarMouseUp(object sender, MouseEventArgs e)
         {
             if (!clarityChanging)
             {
@@ -129,7 +129,7 @@ namespace PhotoEditor
         /// <summary>
         /// Invert color
         /// </summary>
-        private void button23_Click(object sender, EventArgs e)
+        private void InvertColorButtonClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
             ImageTask task = new ColorInvert(ImageModification.InvertColor, imageSet);
@@ -141,7 +141,7 @@ namespace PhotoEditor
         /// <summary>
         /// Change two colors
         /// </summary>
-        private void button24_Click(object sender, EventArgs e)
+        private void SwapColorButtonClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
             if ((firstColorComboBox.SelectedItem != null) && (secondColorComboBox.SelectedItem != null))
@@ -161,7 +161,7 @@ namespace PhotoEditor
         /// <summary>
         /// Apply gray style
         /// </summary>
-        private void button25_Click(object sender, EventArgs e)
+        private void GrayStyleButtonClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
             ImageTask task = new ApplyGreyStyle(ImageModification.ApplyGreyStyle, imageSet);
@@ -173,7 +173,7 @@ namespace PhotoEditor
         /// <summary>
         /// Flip image over axe X
         /// </summary>
-        private void button26_Click(object sender, EventArgs e)
+        private void HorizontalFlipButtonClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
             ImageTask task = new FlipHorizontal(ImageModification.FlipHorizontally, imageSet);
@@ -185,7 +185,7 @@ namespace PhotoEditor
         /// <summary>
         /// Flip image over axe Y
         /// </summary>
-        private void button27_Click(object sender, EventArgs e)
+        private void VerticalFlipButtonClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
             ImageTask task = new FlipVertical(ImageModification.FlipVertically, imageSet);
