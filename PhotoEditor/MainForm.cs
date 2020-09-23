@@ -36,6 +36,11 @@ namespace PhotoEditor
         /// </summary>
         public static Log log = new Log();
 
+        /// <summary>
+        /// Controller if tasks are executed
+        /// </summary>
+        public bool tasksRunning;
+
         #endregion
 
         #region Form initialization
@@ -48,6 +53,7 @@ namespace PhotoEditor
             InitializeComponent();
             imageSet = new ImageSet();
             log = new Log();
+            tasksRunning = true;
     }
 
         /// <summary>
@@ -154,6 +160,7 @@ namespace PhotoEditor
             helpPanel.Visible = false;
             openConfirmationPanel.Visible = false;
             lutPanel.Visible = false;
+            changesPanel.Visible = false;
         }
 
         #endregion

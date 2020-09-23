@@ -67,6 +67,7 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.openFileButton = new System.Windows.Forms.Button();
             this.editPanel = new System.Windows.Forms.Panel();
+            this.changeListButton = new System.Windows.Forms.Button();
             this.applyLutButton = new System.Windows.Forms.Button();
             this.exportLutButton = new System.Windows.Forms.Button();
             this.redoButton = new System.Windows.Forms.Button();
@@ -83,6 +84,8 @@
             this.lutPanel = new System.Windows.Forms.Panel();
             this.applyConfirmButton = new System.Windows.Forms.Button();
             this.lutComboBox = new System.Windows.Forms.ComboBox();
+            this.changesPanel = new System.Windows.Forms.Panel();
+            this.changeListBox = new System.Windows.Forms.ListBox();
             this.navigationPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconPictureBox)).BeginInit();
             this.toolboxPanel.SuspendLayout();
@@ -98,6 +101,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.mainPictureBox)).BeginInit();
             this.openConfirmationPanel.SuspendLayout();
             this.lutPanel.SuspendLayout();
+            this.changesPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // navigationPanel
@@ -692,6 +696,7 @@
             // 
             this.editPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.editPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.editPanel.Controls.Add(this.changeListButton);
             this.editPanel.Controls.Add(this.applyLutButton);
             this.editPanel.Controls.Add(this.exportLutButton);
             this.editPanel.Controls.Add(this.redoButton);
@@ -699,9 +704,25 @@
             this.editPanel.Location = new System.Drawing.Point(107, 37);
             this.editPanel.Margin = new System.Windows.Forms.Padding(4);
             this.editPanel.Name = "editPanel";
-            this.editPanel.Size = new System.Drawing.Size(133, 197);
+            this.editPanel.Size = new System.Drawing.Size(133, 245);
             this.editPanel.TabIndex = 8;
             this.editPanel.Visible = false;
+            // 
+            // changeListButton
+            // 
+            this.changeListButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.changeListButton.FlatAppearance.BorderSize = 0;
+            this.changeListButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.changeListButton.Location = new System.Drawing.Point(0, 98);
+            this.changeListButton.Margin = new System.Windows.Forms.Padding(0);
+            this.changeListButton.Name = "changeListButton";
+            this.changeListButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
+            this.changeListButton.Size = new System.Drawing.Size(133, 49);
+            this.changeListButton.TabIndex = 4;
+            this.changeListButton.Text = "Change list";
+            this.changeListButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.changeListButton.UseVisualStyleBackColor = true;
+            this.changeListButton.Click += new System.EventHandler(this.ChangeListButtonClick);
             // 
             // applyLutButton
             // 
@@ -726,7 +747,7 @@
             this.exportLutButton.Enabled = false;
             this.exportLutButton.FlatAppearance.BorderSize = 0;
             this.exportLutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exportLutButton.Location = new System.Drawing.Point(0, 98);
+            this.exportLutButton.Location = new System.Drawing.Point(0, 196);
             this.exportLutButton.Margin = new System.Windows.Forms.Padding(0);
             this.exportLutButton.Name = "exportLutButton";
             this.exportLutButton.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
@@ -941,6 +962,28 @@
             this.lutComboBox.Size = new System.Drawing.Size(178, 28);
             this.lutComboBox.TabIndex = 1;
             // 
+            // changesPanel
+            // 
+            this.changesPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.changesPanel.Controls.Add(this.changeListBox);
+            this.changesPanel.Location = new System.Drawing.Point(240, 135);
+            this.changesPanel.Name = "changesPanel";
+            this.changesPanel.Size = new System.Drawing.Size(300, 150);
+            this.changesPanel.TabIndex = 13;
+            this.changesPanel.Visible = false;
+            // 
+            // changeListBox
+            // 
+            this.changeListBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
+            this.changeListBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.changeListBox.ForeColor = System.Drawing.Color.White;
+            this.changeListBox.FormattingEnabled = true;
+            this.changeListBox.ItemHeight = 16;
+            this.changeListBox.Location = new System.Drawing.Point(10, 10);
+            this.changeListBox.Name = "changeListBox";
+            this.changeListBox.Size = new System.Drawing.Size(280, 128);
+            this.changeListBox.TabIndex = 1;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -948,6 +991,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.changesPanel);
             this.Controls.Add(this.lutPanel);
             this.Controls.Add(this.openConfirmationPanel);
             this.Controls.Add(this.helpPanel);
@@ -986,6 +1030,7 @@
             this.openConfirmationPanel.ResumeLayout(false);
             this.openConfirmationPanel.PerformLayout();
             this.lutPanel.ResumeLayout(false);
+            this.changesPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1045,6 +1090,9 @@
         private System.Windows.Forms.Panel lutPanel;
         private System.Windows.Forms.ComboBox lutComboBox;
         private System.Windows.Forms.Button applyConfirmButton;
+        private System.Windows.Forms.Button changeListButton;
+        private System.Windows.Forms.Panel changesPanel;
+        private System.Windows.Forms.ListBox changeListBox;
     }
 }
 

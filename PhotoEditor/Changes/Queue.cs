@@ -1,4 +1,6 @@
-﻿namespace PhotoEditor
+﻿using System.Collections.Generic;
+
+namespace PhotoEditor
 {
     /// <summary>
     /// Queue of restore points implementation
@@ -93,6 +95,44 @@
             }
 
             return false;
+        }
+
+        public string[] ToStringList()
+        {
+            List<string> list = new List<string>();
+            if (IsEmpty())
+            {
+                list.Add("No changes made yet...");
+            } 
+            else
+            {
+                int i = free;
+                if (i == 0)
+                {
+                    i = length - 1;
+                }
+                else
+                {
+                    --i;
+                }
+                while (data[i] != null)
+                {
+                    list.Add(data[i].ToString());
+                    if (i == 0)
+                    {
+                        i = length - 1;
+                    }
+                    else
+                    {
+                        --i;
+                    }
+                    if (i == free)
+                    {
+                        break;
+                    }
+                }
+            }
+            return list.ToArray();
         }
     }
 }

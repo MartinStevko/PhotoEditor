@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace PhotoEditor
@@ -153,13 +154,14 @@ namespace PhotoEditor
         }
 
         /// <summary>
-        /// Infinite function which calls itself each time it is done
         /// Processes all tasks in main (not waiting) linked list and 
         /// creates restore point to undo queue
+        /// Waits in the while loop while another task should be executed 
+        /// or while loop is terminated by main form signal
         /// </summary>
         private void Process()
         {
-            while (true)
+            while (form.tasksRunning)
             {
                 if (head != null)
                 {

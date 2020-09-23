@@ -26,7 +26,7 @@ namespace PhotoEditor
         /// </summary>
         private void UndoButtonClick(object sender, EventArgs e)
         {
-            editPanel.Visible = false;
+            CloseAllPopUps(sender, e);
 
             if (taskControl.tasks.Any())
             {
@@ -60,7 +60,7 @@ namespace PhotoEditor
         /// </summary>
         private void RedoButtonClick(object sender, EventArgs e)
         {
-            editPanel.Visible = false;
+            CloseAllPopUps(sender, e);
 
             if (taskControl.removed.Any())
             {
@@ -118,13 +118,23 @@ namespace PhotoEditor
         }
 
         /// <summary>
+        /// Shows preview of changes made
+        /// </summary>
+        private void ChangeListButtonClick(object sender, EventArgs e)
+        {
+            changeListBox.Items.Clear();
+            changeListBox.Items.AddRange(taskControl.undoQueue.ToStringList());
+            changesPanel.Visible = changesPanel.Visible == false;
+        }
+
+        /// <summary>
         /// Edit -> Export LUT menu button - exports LUT file from changes made onto currently opened image
         /// </summary>
         private void ExportLutButtonClick(object sender, EventArgs e)
         {
             Thread thr = new Thread(ExportLUT);
             thr.Start();
-            editPanel.Visible = false;
+            CloseAllPopUps(sender, e);
         }
 
         /// <summary>
