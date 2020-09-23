@@ -16,25 +16,25 @@ namespace PhotoEditor
         /// <summary>
         /// Synchronizes appropriate track bar value on numeric up/down value change
         /// </summary>
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void SaturationUpDownValueChanged(object sender, EventArgs e)
         {
             if (!saturationChanging)
             {
-                int value = (int)numericUpDown1.Value;
-                trackBar1.Value = value;
+                int value = (int)saturationNumericUpDown.Value;
+                saturationTrackBar.Value = value;
             }
         }
 
         /// <summary>
         /// Synchronizes appropriate numeric up/down value on track bar value change
         /// </summary>
-        private void trackBar1_MouseUp(object sender, MouseEventArgs e)
+        private void SaturationTrackBarMouseUp(object sender, MouseEventArgs e)
         {
             if (!saturationChanging)
             {
                 saturationChanging = true;
-                int value = trackBar1.Value;
-                numericUpDown1.Value = value;
+                int value = saturationTrackBar.Value;
+                saturationNumericUpDown.Value = value;
                 OnSyncValues(ImageModification.Saturation, value);
                 saturationChanging = false;
             }
@@ -43,25 +43,25 @@ namespace PhotoEditor
         /// <summary>
         /// Synchronizes appropriate track bar value on numeric up/down value change
         /// </summary>
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        private void BrightnessUpDownValueChanged(object sender, EventArgs e)
         {
             if (!brightnessChanging)
             {
-                int value = (int)numericUpDown2.Value;
-                trackBar2.Value = value;
+                int value = (int)brightnessNumericUpDown.Value;
+                brightnessTrackBar.Value = value;
             }
         }
 
         /// <summary>
         /// Synchronizes appropriate numeric up/down value on track bar value change
         /// </summary>
-        private void trackBar2_MouseUp(object sender, MouseEventArgs e)
+        private void BrightnessTrackBarMouseUp(object sender, MouseEventArgs e)
         {
             if (!brightnessChanging)
             {
                 brightnessChanging = true;
-                int value = trackBar2.Value;
-                numericUpDown2.Value = value;
+                int value = brightnessTrackBar.Value;
+                brightnessNumericUpDown.Value = value;
                 OnSyncValues(ImageModification.Brightness, value);
                 brightnessChanging = false;
             }
@@ -70,25 +70,25 @@ namespace PhotoEditor
         /// <summary>
         /// Synchronizes appropriate track bar value on numeric up/down value change
         /// </summary>
-        private void numericUpDown3_ValueChanged(object sender, EventArgs e)
+        private void ClarityUpDownValueChanged(object sender, EventArgs e)
         {
             if (!clarityChanging)
             {
-                int value = (int)numericUpDown3.Value;
-                trackBar3.Value = value;
+                int value = (int)clarityNumericUpDown.Value;
+                clarityTrackBar.Value = value;
             }
         }
 
         /// <summary>
         /// Synchronizes appropriate numeric up/down value on track bar value change
         /// </summary>
-        private void trackBar3_MouseUp(object sender, MouseEventArgs e)
+        private void ClarityTrackBarMouseUp(object sender, MouseEventArgs e)
         {
             if (!clarityChanging)
             {
                 clarityChanging = true;
-                int value = trackBar3.Value;
-                numericUpDown3.Value = value;
+                int value = clarityTrackBar.Value;
+                clarityNumericUpDown.Value = value;
                 OnSyncValues(ImageModification.Clarity, value);
                 clarityChanging = false;
             }
@@ -129,7 +129,7 @@ namespace PhotoEditor
         /// <summary>
         /// Invert color
         /// </summary>
-        private void button23_Click(object sender, EventArgs e)
+        private void InvertColorButtonClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
             ImageTask task = new ColorInvert(ImageModification.InvertColor, imageSet);
@@ -141,27 +141,27 @@ namespace PhotoEditor
         /// <summary>
         /// Change two colors
         /// </summary>
-        private void button24_Click(object sender, EventArgs e)
+        private void SwapColorButtonClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
-            if ((comboBox1.SelectedItem != null) && (comboBox2.SelectedItem != null))
+            if ((firstColorComboBox.SelectedItem != null) && (secondColorComboBox.SelectedItem != null))
             {
                 ImageTask task = new ColorChange(
                     ImageModification.ColorRotate,
                     imageSet,
-                    comboBox1.SelectedItem.ToString(),
-                    comboBox2.SelectedItem.ToString()
+                    firstColorComboBox.SelectedItem.ToString(),
+                    secondColorComboBox.SelectedItem.ToString()
                 );
                 taskControl.Add(task);
                 taskControl.CheckAndProcess();
-                log.Add("Image colors swaped (" + comboBox1.SelectedItem.ToString() + ", " + comboBox2.SelectedItem.ToString() + ")");
+                log.Add("Image colors swaped (" + firstColorComboBox.SelectedItem.ToString() + ", " + secondColorComboBox.SelectedItem.ToString() + ")");
             }
         }
 
         /// <summary>
         /// Apply gray style
         /// </summary>
-        private void button25_Click(object sender, EventArgs e)
+        private void GrayStyleButtonClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
             ImageTask task = new ApplyGreyStyle(ImageModification.ApplyGreyStyle, imageSet);
@@ -173,7 +173,7 @@ namespace PhotoEditor
         /// <summary>
         /// Flip image over axe X
         /// </summary>
-        private void button26_Click(object sender, EventArgs e)
+        private void HorizontalFlipButtonClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
             ImageTask task = new FlipHorizontal(ImageModification.FlipHorizontally, imageSet);
@@ -185,7 +185,7 @@ namespace PhotoEditor
         /// <summary>
         /// Flip image over axe Y
         /// </summary>
-        private void button27_Click(object sender, EventArgs e)
+        private void VerticalFlipButtonClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
             ImageTask task = new FlipVertical(ImageModification.FlipVertically, imageSet);

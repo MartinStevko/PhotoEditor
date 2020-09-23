@@ -11,16 +11,28 @@ namespace PhotoEditor
     /// </summary>
     public enum ImageMode
     {
+        /// <summary>
+        /// Shows all colors
+        /// </summary>
         Full,
+        /// <summary>
+        /// Shows only red spectra
+        /// </summary>
         Red,
+        /// <summary>
+        /// Shows only green spectra
+        /// </summary>
         Green,
+        /// <summary>
+        /// Shows only blue spectra
+        /// </summary>
         Blue
     }
 
     /// <summary>
     /// Main engine for application
     /// </summary>
-    public class ImageSet
+    public class ImageSet : IDisposable
     {
         #region Image set variables
 
@@ -202,7 +214,7 @@ namespace PhotoEditor
                 Parallel.For(0, heightInPixels, y =>
                 {
                     byte* currentLine = ptrFirstPixel + (y * tData.Stride);
-                    for (int x = 0; x < widthInBytes; x = x + bytesPerPixel)
+                    for (int x = 0; x < widthInBytes; x += bytesPerPixel)
                     {
                         (byte red, byte green, byte blue) = mixer(currentLine[x + 2], currentLine[x + 1], currentLine[x]);
 
@@ -239,7 +251,7 @@ namespace PhotoEditor
                 Parallel.For(0, heightInPixels, y =>
                 {
                     byte* currentLine = ptrFirstPixel + (y * tData.Stride);
-                    for (int x = 0; x < widthInBytes; x = x + bytesPerPixel)
+                    for (int x = 0; x < widthInBytes; x += bytesPerPixel)
                     {
                         (byte red, byte green, byte blue) = mixer(currentLine[x + 2], currentLine[x + 1], currentLine[x]);
 
@@ -330,7 +342,7 @@ namespace PhotoEditor
                 Parallel.For(0, heightInPixels, y =>
                 {
                     byte* currentLine = ptrFirstPixel + (y * bitmapData.Stride);
-                    for (int x = 0; x < widthInBytes; x = x + bytesPerPixel)
+                    for (int x = 0; x < widthInBytes; x += bytesPerPixel)
                     {
                         (byte red, byte green, byte blue) = mixer(currentLine[x + 2], currentLine[x + 1], currentLine[x]);
 
@@ -361,7 +373,7 @@ namespace PhotoEditor
                 Parallel.For(0, heightInPixels, y =>
                 {
                     byte* currentLine = ptrFirstPixel + (y * bitmapData.Stride);
-                    for (int x = 0; x < widthInBytes; x = x + bytesPerPixel)
+                    for (int x = 0; x < widthInBytes; x += bytesPerPixel)
                     {
                         (byte red, byte green, byte blue) = mixer(currentLine[x + 2], currentLine[x + 1], currentLine[x]);
 

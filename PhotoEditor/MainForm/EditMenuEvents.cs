@@ -14,19 +14,19 @@ namespace PhotoEditor
         /// <summary>
         /// Show app menu under 'Edit' - Undo, Redo, Export LUT, Settings
         /// </summary>
-        private void button8_Click(object sender, EventArgs e)
+        private void EditMenuButtonClick(object sender, EventArgs e)
         {
-            bool state = !panel4.Visible;
+            bool state = !editPanel.Visible;
             CloseAllPopUps(sender, e);
-            panel4.Visible = state;
+            editPanel.Visible = state;
         }
 
         /// <summary>
         /// Edit -> Undo menu button - undo last action
         /// </summary>
-        private void button17_Click(object sender, EventArgs e)
+        private void UndoButtonClick(object sender, EventArgs e)
         {
-            panel4.Visible = false;
+            CloseAllPopUps(sender, e);
 
             if (taskControl.tasks.Any())
             {
@@ -58,9 +58,9 @@ namespace PhotoEditor
         /// <summary>
         /// Edit -> Redo menu button - redo last action if it was undone
         /// </summary>
-        private void button16_Click(object sender, EventArgs e)
+        private void RedoButtonClick(object sender, EventArgs e)
         {
-            panel4.Visible = false;
+            CloseAllPopUps(sender, e);
 
             if (taskControl.removed.Any())
             {
@@ -97,34 +97,44 @@ namespace PhotoEditor
         {
             if (taskControl.undoQueue.IsEmpty())
             {
-                button17.Enabled = false;
-                button17.Refresh();
+                undoButton.Enabled = false;
+                undoButton.Refresh();
             }
             else
             {
-                button17.Enabled = true;
-                button17.Refresh();
+                undoButton.Enabled = true;
+                undoButton.Refresh();
             }
             if (taskControl.redoQueue.IsEmpty())
             {
-                button16.Enabled = false;
-                button16.Refresh();
+                redoButton.Enabled = false;
+                redoButton.Refresh();
             }
             else
             {
-                button16.Enabled = true;
-                button16.Refresh();
+                redoButton.Enabled = true;
+                redoButton.Refresh();
             }
+        }
+
+        /// <summary>
+        /// Shows preview of changes made
+        /// </summary>
+        private void ChangeListButtonClick(object sender, EventArgs e)
+        {
+            changeListBox.Items.Clear();
+            changeListBox.Items.AddRange(taskControl.undoQueue.ToStringList());
+            changesPanel.Visible = changesPanel.Visible == false;
         }
 
         /// <summary>
         /// Edit -> Export LUT menu button - exports LUT file from changes made onto currently opened image
         /// </summary>
-        private void button15_Click(object sender, EventArgs e)
+        private void ExportLutButtonClick(object sender, EventArgs e)
         {
             Thread thr = new Thread(ExportLUT);
             thr.Start();
-            panel4.Visible = false;
+            CloseAllPopUps(sender, e);
         }
 
         /// <summary>
@@ -140,22 +150,22 @@ namespace PhotoEditor
         /// <summary>
         /// Edit -> Apply LUT file menu button - prompts LUT file choice
         /// </summary>
-        private void button14_Click(object sender, EventArgs e)
+        private void ApplyLutButtonClick(object sender, EventArgs e)
         {
-            panel7.Visible = panel7.Visible == false;
+            lutPanel.Visible = lutPanel.Visible == false;
         }
 
         /// <summary>
         /// Edit -> Apply LUT file -> Apply menu button - applies choosen LUT file
         /// </summary>
-        private void button28_Click(object sender, EventArgs e)
+        private void ApplyLutConfirmButtonClick(object sender, EventArgs e)
         {
-            if (comboBox3.SelectedItem != null)
+            if (lutComboBox.SelectedItem != null)
             {
                 ImageTask task = new ApplyLUT(
                     ImageModification.ApplyLUT,
                     imageSet,
-                    comboBox3.SelectedItem.ToString()
+                    lutComboBox.SelectedItem.ToString()
                 );
                 taskControl.Add(task);
                 taskControl.CheckAndProcess();

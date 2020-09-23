@@ -70,5 +70,48 @@ namespace PhotoEditor
             this.brightness = brightness;
             this.clarity = clarity;
         }
+
+        /// <summary>
+        /// Converts restore point to string description of task type
+        /// </summary>
+        /// <returns>String description</returns>
+        public override string ToString()
+        {
+            string s;
+            switch (taskType)
+            {
+                case ImageModification.ApplyGreyStyle:
+                    s = "Graystyle applied";
+                    break;
+                case ImageModification.ApplyLUT:
+                    s = "LUT file applied";
+                    break;
+                case ImageModification.Brightness:
+                    s = "Brightness edit - new value: " + brightness.ToString();
+                    break;
+                case ImageModification.Clarity:
+                    s = "Clarity edit - new value: " + clarity.ToString();
+                    break;
+                case ImageModification.Saturation:
+                    s = "Saturation edit - new value: " + saturation.ToString();
+                    break;
+                case ImageModification.ColorRotate:
+                    s = "Color rotated";
+                    break;
+                case ImageModification.FlipHorizontally:
+                    s = "Flipped horizontaly";
+                    break;
+                case ImageModification.FlipVertically:
+                    s = "Flipped verticaly";
+                    break;
+                case ImageModification.InvertColor:
+                    s = "Color inverted";
+                    break;
+                default:
+                    s = "Unknown task type";
+                    break;
+            }
+            return s;
+        }
     }
 }

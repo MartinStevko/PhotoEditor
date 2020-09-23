@@ -13,24 +13,24 @@ namespace PhotoEditor
         {
             if (imageSet != null)
             {
-                button3.BackColor = toolGrey;
-                button4.BackColor = toolGrey;
-                button5.BackColor = toolGrey;
-                button6.BackColor = toolGrey;
+                resetPreviewButton.BackColor = toolGrey;
+                redPreviewButton.BackColor = toolGrey;
+                greenPreviewButton.BackColor = toolGrey;
+                bluePreviewButton.BackColor = toolGrey;
 
                 switch (imageSet.imageMode)
                 {
                     case ImageMode.Full:
-                        button3.BackColor = pictureGrey;
+                        resetPreviewButton.BackColor = pictureGrey;
                         break;
                     case ImageMode.Red:
-                        button4.BackColor = pictureGrey;
+                        redPreviewButton.BackColor = pictureGrey;
                         break;
                     case ImageMode.Green:
-                        button5.BackColor = pictureGrey;
+                        greenPreviewButton.BackColor = pictureGrey;
                         break;
                     case ImageMode.Blue:
-                        button6.BackColor = pictureGrey;
+                        bluePreviewButton.BackColor = pictureGrey;
                         break;
                 }
 
@@ -46,16 +46,16 @@ namespace PhotoEditor
             switch (imageSet.imageMode)
             {
                 case ImageMode.Red:
-                    pictureBox2.Image = imageSet.ShowWithFilter(ColorFilters.RedFilter);
+                    mainPictureBox.Image = imageSet.ShowWithFilter(ColorFilters.RedFilter);
                     break;
                 case ImageMode.Green:
-                    pictureBox2.Image = imageSet.ShowWithFilter(ColorFilters.GreenFilter);
+                    mainPictureBox.Image = imageSet.ShowWithFilter(ColorFilters.GreenFilter);
                     break;
                 case ImageMode.Blue:
-                    pictureBox2.Image = imageSet.ShowWithFilter(ColorFilters.BlueFilter);
+                    mainPictureBox.Image = imageSet.ShowWithFilter(ColorFilters.BlueFilter);
                     break;
                 default:
-                    pictureBox2.Image = imageSet.image;
+                    mainPictureBox.Image = imageSet.image;
                     break;
             }
             ActionHandlersActive();
@@ -70,10 +70,10 @@ namespace PhotoEditor
             {
                 RedrawMainImage();
 
-                button3.BackgroundImage = imageSet.thumb;
-                button4.BackgroundImage = imageSet.thumbRed;
-                button5.BackgroundImage = imageSet.thumbGreen;
-                button6.BackgroundImage = imageSet.thumbBlue;
+                resetPreviewButton.BackgroundImage = imageSet.thumb;
+                redPreviewButton.BackgroundImage = imageSet.thumbRed;
+                greenPreviewButton.BackgroundImage = imageSet.thumbGreen;
+                bluePreviewButton.BackgroundImage = imageSet.thumbBlue;
             }
             catch (InvalidOperationException)
             {
@@ -103,9 +103,9 @@ namespace PhotoEditor
             saturationChanging = true;
             brightnessChanging = true;
             clarityChanging = true;
-            trackBar1.Value = restorePoint.saturation;
-            trackBar2.Value = restorePoint.brightness;
-            trackBar3.Value = restorePoint.clarity;
+            saturationTrackBar.Value = restorePoint.saturation;
+            brightnessTrackBar.Value = restorePoint.brightness;
+            clarityTrackBar.Value = restorePoint.clarity;
             saturationChanging = false;
             brightnessChanging = false;
             clarityChanging = false;
@@ -118,7 +118,7 @@ namespace PhotoEditor
         /// <summary>
         /// Maximize miniature with all colors
         /// </summary>
-        private void button3_Click(object sender, EventArgs e)
+        private void AllPreviewClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
             imageSet.imageMode = ImageMode.Full;
@@ -128,7 +128,7 @@ namespace PhotoEditor
         /// <summary>
         /// Maximize miniature with red color
         /// </summary>
-        private void button4_Click(object sender, EventArgs e)
+        private void RedPreviewClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
             imageSet.imageMode = ImageMode.Red;
@@ -138,7 +138,7 @@ namespace PhotoEditor
         /// <summary>
         /// Maximize miniature with green color
         /// </summary>
-        private void button5_Click(object sender, EventArgs e)
+        private void GreenPreviewClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
             imageSet.imageMode = ImageMode.Green;
@@ -148,7 +148,7 @@ namespace PhotoEditor
         /// <summary>
         /// Maximize miniature with blue color
         /// </summary>
-        private void button6_Click(object sender, EventArgs e)
+        private void BluePreviewClick(object sender, EventArgs e)
         {
             CloseAllPopUps(sender, e);
             imageSet.imageMode = ImageMode.Blue;
