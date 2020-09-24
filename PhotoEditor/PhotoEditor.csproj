@@ -70,7 +70,7 @@
     <Compile Include="Pipeline.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="ColorFilters.cs" />
-    <Compile Include="ImageTasks.cs" />
+    <Compile Include="Tasks\ImageTasks.cs" />
     <Compile Include="LUTHandler.cs" />
     <Compile Include="Processes.cs" />
     <Compile Include="Math.cs" />
