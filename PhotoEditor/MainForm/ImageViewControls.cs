@@ -58,6 +58,7 @@ namespace PhotoEditor
                     pictureBox2.Image = imageSet.image;
                     break;
             }
+            ActionHandlersActive();
         }
 
         /// <summary>

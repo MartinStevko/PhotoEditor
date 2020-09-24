@@ -94,7 +94,9 @@ namespace PhotoEditor
         /// </summary>
         private void ActionHandlersActive()
         {
-            if (taskControl.undoQueue.IsEmpty())
+            button16.Enabled = true;
+            button17.Enabled = true;
+            /*if (taskControl.undoQueue.IsEmpty())
             {
                 button17.Enabled = false;
                 button17.Refresh();
@@ -113,7 +115,7 @@ namespace PhotoEditor
             {
                 button16.Enabled = true;
                 button16.Refresh();
-            }
+            }*/
         }
 
         /// <summary>
