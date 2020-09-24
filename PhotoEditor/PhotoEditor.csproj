@@ -68,6 +68,10 @@
     <Compile Include="Changes\Queue.cs" />
     <Compile Include="Changes\RestorePoint.cs" />
     <Compile Include="Tasks\ColorTask.cs" />
+    <Compile Include="Tasks\ColorTask\ColorEdit.cs" />
+    <Compile Include="Tasks\ColorTask\ColorEdit\BrightnessEdit.cs" />
+    <Compile Include="Tasks\ColorTask\ColorEdit\ClarityEdit.cs" />
+    <Compile Include="Tasks\ColorTask\ColorEdit\SaturationEdit.cs" />
     <Compile Include="Tasks\FlipTask.cs" />
     <Compile Include="Tasks\LayoutTask\FlipHorizontal.cs" />
     <Compile Include="Tasks\LayoutTask\FlipVertical.cs" />
