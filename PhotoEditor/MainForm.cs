@@ -162,6 +162,34 @@ namespace PhotoEditor
             WindowState = FormWindowState.Minimized;
         }
 
+        /// <summary>
+        /// Closes all menu panels (main menu and its popups)
+        /// </summary>
+        private void CloseAllPopUps()
+        {
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+            panel7.Visible = false;
+        }
+
+        /// <summary>
+        /// Closes all menu panels (main menu and its popups)
+        /// </summary>
+        private void CloseAllPopUps(object sender, EventArgs e)
+        {
+            CloseAllPopUps();
+        }
+
+        /// <summary>
+        /// Closes all menu panels (main menu and its popups)
+        /// </summary>
+        private void CloseAllPopUps(object sender, MouseEventArgs e)
+        {
+            CloseAllPopUps();
+        }
+
         #endregion
 
         #region File menu events

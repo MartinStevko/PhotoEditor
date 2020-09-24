@@ -63,7 +63,6 @@
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
@@ -103,7 +102,7 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.panel1.Controls.Add(this.pictureBox1);
@@ -117,10 +116,11 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1067, 37);
             this.panel1.TabIndex = 2;
+            this.panel1.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
@@ -131,10 +131,11 @@
             this.pictureBox1.Size = new System.Drawing.Size(40, 37);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // button9
             // 
-            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.button9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.button9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button9.FlatAppearance.BorderSize = 0;
@@ -152,7 +153,7 @@
             // 
             // button8
             // 
-            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.button8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.button8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button8.FlatAppearance.BorderSize = 0;
@@ -170,7 +171,7 @@
             // 
             // button7
             // 
-            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.button7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
             | System.Windows.Forms.AnchorStyles.Left)));
             this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.button7.FlatAppearance.BorderSize = 0;
@@ -240,12 +241,13 @@
             // 
             // button3
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Enabled = false;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -260,12 +262,13 @@
             // 
             // button4
             // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button4.Enabled = false;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -280,12 +283,13 @@
             // 
             // button5
             // 
-            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button5.Enabled = false;
             this.button5.FlatAppearance.BorderSize = 0;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -300,12 +304,13 @@
             // 
             // button6
             // 
-            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.button6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button6.Enabled = false;
             this.button6.FlatAppearance.BorderSize = 0;
             this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -320,8 +325,8 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.panel2.Controls.Add(this.button27);
@@ -347,6 +352,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(267, 517);
             this.panel2.TabIndex = 3;
+            this.panel2.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // button27
             // 
@@ -445,7 +451,7 @@
             // 
             // trackBar3
             // 
-            this.trackBar3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.trackBar3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar3.Enabled = false;
             this.trackBar3.LargeChange = 3;
@@ -456,11 +462,12 @@
             this.trackBar3.Size = new System.Drawing.Size(120, 56);
             this.trackBar3.TabIndex = 17;
             this.trackBar3.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseAllPopUps);
             this.trackBar3.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar3_MouseUp);
             // 
             // trackBar2
             // 
-            this.trackBar2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.trackBar2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar2.Enabled = false;
             this.trackBar2.LargeChange = 3;
@@ -471,11 +478,12 @@
             this.trackBar2.Size = new System.Drawing.Size(120, 56);
             this.trackBar2.TabIndex = 16;
             this.trackBar2.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseAllPopUps);
             this.trackBar2.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar2_MouseUp);
             // 
             // trackBar1
             // 
-            this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.trackBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.trackBar1.Enabled = false;
             this.trackBar1.LargeChange = 3;
@@ -486,6 +494,7 @@
             this.trackBar1.Size = new System.Drawing.Size(120, 56);
             this.trackBar1.TabIndex = 15;
             this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.trackBar1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CloseAllPopUps);
             this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
             // 
             // comboBox2
@@ -503,6 +512,7 @@
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(100, 28);
             this.comboBox2.TabIndex = 13;
+            this.comboBox2.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // label6
             // 
@@ -513,6 +523,7 @@
             this.label6.Size = new System.Drawing.Size(29, 20);
             this.label6.TabIndex = 12;
             this.label6.Text = "for";
+            this.label6.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // comboBox1
             // 
@@ -529,6 +540,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(100, 28);
             this.comboBox1.TabIndex = 11;
+            this.comboBox1.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // label5
             // 
@@ -539,6 +551,7 @@
             this.label5.Size = new System.Drawing.Size(117, 20);
             this.label5.TabIndex = 10;
             this.label5.Text = "Change colors";
+            this.label5.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // numericUpDown3
             // 
@@ -558,6 +571,7 @@
             this.numericUpDown3.TabIndex = 8;
             this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown3.ValueChanged += new System.EventHandler(this.numericUpDown3_ValueChanged);
+            this.numericUpDown3.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // numericUpDown2
             // 
@@ -577,6 +591,7 @@
             this.numericUpDown2.TabIndex = 5;
             this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            this.numericUpDown2.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // numericUpDown1
             // 
@@ -596,6 +611,7 @@
             this.numericUpDown1.TabIndex = 2;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
+            this.numericUpDown1.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // label2
             // 
@@ -606,37 +622,21 @@
             this.label2.Size = new System.Drawing.Size(85, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Saturation";
+            this.label2.Click += new System.EventHandler(this.CloseAllPopUps);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(36)))), ((int)(((byte)(36)))));
             this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.panel3.Controls.Add(this.button13);
             this.panel3.Controls.Add(this.button12);
             this.panel3.Controls.Add(this.button11);
             this.panel3.Controls.Add(this.button10);
             this.panel3.Location = new System.Drawing.Point(40, 37);
             this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(133, 197);
+            this.panel3.Size = new System.Drawing.Size(133, 147);
             this.panel3.TabIndex = 7;
             this.panel3.Visible = false;
-            // 
-            // button13
-            // 
-            this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.button13.FlatAppearance.BorderSize = 0;
-            this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button13.Location = new System.Drawing.Point(0, 147);
-            this.button13.Margin = new System.Windows.Forms.Padding(0);
-            this.button13.Name = "button13";
-            this.button13.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
-            this.button13.Size = new System.Drawing.Size(133, 49);
-            this.button13.TabIndex = 3;
-            this.button13.Text = "Import LUT";
-            this.button13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // button12
             // 
@@ -740,6 +740,7 @@
             // button16
             // 
             this.button16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button16.Enabled = false;
             this.button16.FlatAppearance.BorderSize = 0;
             this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button16.Location = new System.Drawing.Point(0, 49);
@@ -756,6 +757,7 @@
             // button17
             // 
             this.button17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.button17.Enabled = false;
             this.button17.FlatAppearance.BorderSize = 0;
             this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button17.Location = new System.Drawing.Point(0, 0);
@@ -833,8 +835,8 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.pictureBox2.Location = new System.Drawing.Point(13, 49);
@@ -844,6 +846,7 @@
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox2.TabIndex = 10;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.CloseAllPopUps);
             this.pictureBox2.DoubleClick += new System.EventHandler(this.button10_Click);
             // 
             // panel6
@@ -907,7 +910,7 @@
             this.panel7.Controls.Add(this.comboBox3);
             this.panel7.Location = new System.Drawing.Point(240, 185);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(300, 50);
+            this.panel7.Size = new System.Drawing.Size(300, 49);
             this.panel7.TabIndex = 12;
             this.panel7.Visible = false;
             // 
@@ -965,6 +968,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "PhotoEditor";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Click += new System.EventHandler(this.CloseAllPopUps);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
@@ -1003,7 +1007,6 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
@@ -1044,4 +1047,3 @@
         private System.Windows.Forms.Button button28;
     }
 }
-
