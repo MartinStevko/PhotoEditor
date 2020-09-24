@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace PhotoEditor
 {
+    /// <summary>
+    /// Main form - image load controls
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
@@ -16,11 +19,15 @@ namespace PhotoEditor
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 ResetSettings();
+                if (imageSet != null)
+                {
+                    imageSet.Dispose();
+                }
                 string filename = dialog.FileName;
                 Thread thr = new Thread(LoadNewImage);
                 thr.Start(filename);
+                log.Add("Image opened");
             }
-            log.Add("Image opened");
         }
 
         /// <summary>
