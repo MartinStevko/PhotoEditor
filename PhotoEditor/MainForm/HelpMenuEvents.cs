@@ -14,7 +14,7 @@ namespace PhotoEditor
         private void HelpMenuButtonClick(object sender, EventArgs e)
         {
             bool state = !helpPanel.Visible;
-            CloseAllPopUps(sender, e);
+            CloseAllPopUps();
             helpPanel.Visible = state;
         }
 

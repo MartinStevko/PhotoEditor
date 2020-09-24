@@ -982,7 +982,7 @@
             this.changeListBox.Location = new System.Drawing.Point(10, 10);
             this.changeListBox.Name = "changeListBox";
             this.changeListBox.Size = new System.Drawing.Size(280, 128);
-            this.changeListBox.TabIndex = 1;
+            this.changeListBox.TabIndex = 0;
             // 
             // MainForm
             // 

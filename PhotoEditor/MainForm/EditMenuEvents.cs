@@ -17,7 +17,7 @@ namespace PhotoEditor
         private void EditMenuButtonClick(object sender, EventArgs e)
         {
             bool state = !editPanel.Visible;
-            CloseAllPopUps(sender, e);
+            CloseAllPopUps();
             editPanel.Visible = state;
         }
 
@@ -26,7 +26,7 @@ namespace PhotoEditor
         /// </summary>
         private void UndoButtonClick(object sender, EventArgs e)
         {
-            CloseAllPopUps(sender, e);
+            CloseAllPopUps();
 
             if (taskControl.tasks.Any())
             {
@@ -60,7 +60,7 @@ namespace PhotoEditor
         /// </summary>
         private void RedoButtonClick(object sender, EventArgs e)
         {
-            CloseAllPopUps(sender, e);
+            CloseAllPopUps();
 
             if (taskControl.removed.Any())
             {
@@ -134,7 +134,7 @@ namespace PhotoEditor
         {
             Thread thr = new Thread(ExportLUT);
             thr.Start();
-            CloseAllPopUps(sender, e);
+            CloseAllPopUps();
         }
 
         /// <summary>
@@ -171,7 +171,7 @@ namespace PhotoEditor
                 taskControl.CheckAndProcess();
                 log.Add("LUT file applied");
             }
-            CloseAllPopUps(sender, e);
+            CloseAllPopUps();
         }
     }
 }

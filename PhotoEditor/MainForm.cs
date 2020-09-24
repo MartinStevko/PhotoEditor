@@ -147,13 +147,13 @@ namespace PhotoEditor
         private void MinimizeButtonClick(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
-            CloseAllPopUps(sender, e);
+            CloseAllPopUps();
         }
 
         /// <summary>
         /// Closes all menu panels (main menu and its popups)
         /// </summary>
-        private void CloseAllPopUps(object sender, EventArgs e)
+        private void CloseAllPopUps()
         {
             filePanel.Visible = false;
             editPanel.Visible = false;
@@ -161,6 +161,22 @@ namespace PhotoEditor
             openConfirmationPanel.Visible = false;
             lutPanel.Visible = false;
             changesPanel.Visible = false;
+        }
+
+        /// <summary>
+        /// Closes all menu panels (main menu and its popups)
+        /// </summary>
+        private void CloseAllPopUps(object sender, EventArgs e)
+        {
+            CloseAllPopUps();
+        }
+
+        /// <summary>
+        /// Closes all menu panels (main menu and its popups)
+        /// </summary>
+        private void CloseAllPopUps(object sender, MouseEventArgs e)
+        {
+            CloseAllPopUps();
         }
 
         #endregion
