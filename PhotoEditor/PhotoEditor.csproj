@@ -67,6 +67,9 @@
   <ItemGroup>
     <Compile Include="Changes\Queue.cs" />
     <Compile Include="Changes\RestorePoint.cs" />
+    <Compile Include="MainForm\HelpMenuEvents.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Tasks\ColorTask.cs" />
     <Compile Include="Tasks\ColorTask\ApplyLUT.cs" />
     <Compile Include="Tasks\ColorTask\ColorChange.cs" />
