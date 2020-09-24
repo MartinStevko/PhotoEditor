@@ -69,8 +69,8 @@
     <Compile Include="Changes\RestorePoint.cs" />
     <Compile Include="Tasks\ColorTask.cs" />
     <Compile Include="Tasks\FlipTask.cs" />
-    <Compile Include="Tasks\LayoutTasks\FlipHorizontal.cs" />
-    <Compile Include="Tasks\LayoutTasks\FlipVertical.cs" />
+    <Compile Include="Tasks\LayoutTask\FlipHorizontal.cs" />
+    <Compile Include="Tasks\LayoutTask\FlipVertical.cs" />
     <Compile Include="Tasks\Pipeline.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="ColorFilters.cs" />
