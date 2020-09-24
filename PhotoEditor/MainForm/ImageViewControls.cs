@@ -116,6 +116,7 @@ namespace PhotoEditor
         /// </summary>
         private void button3_Click(object sender, EventArgs e)
         {
+            CloseAllPopUps(sender, e);
             imageSet.imageMode = ImageMode.Full;
             ChangePreview();
         }
@@ -125,6 +126,7 @@ namespace PhotoEditor
         /// </summary>
         private void button4_Click(object sender, EventArgs e)
         {
+            CloseAllPopUps(sender, e);
             imageSet.imageMode = ImageMode.Red;
             ChangePreview();
         }
@@ -134,6 +136,7 @@ namespace PhotoEditor
         /// </summary>
         private void button5_Click(object sender, EventArgs e)
         {
+            CloseAllPopUps(sender, e);
             imageSet.imageMode = ImageMode.Green;
             ChangePreview();
         }
@@ -143,6 +146,7 @@ namespace PhotoEditor
         /// </summary>
         private void button6_Click(object sender, EventArgs e)
         {
+            CloseAllPopUps(sender, e);
             imageSet.imageMode = ImageMode.Blue;
             ChangePreview();
         }
