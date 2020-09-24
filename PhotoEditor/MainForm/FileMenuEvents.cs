@@ -14,7 +14,7 @@ namespace PhotoEditor
         private void FileMenuButtonClick(object sender, EventArgs e)
         {
             bool state = !filePanel.Visible;
-            CloseAllPopUps(sender, e);
+            CloseAllPopUps();
             filePanel.Visible = state;
         }
 
@@ -39,7 +39,7 @@ namespace PhotoEditor
         /// </summary>
         private void OpenConfirmMenuButtonClick(object sender, EventArgs e)
         {
-            CloseAllPopUps(sender, e);
+            CloseAllPopUps();
             OpenNewImage();
         }
 
@@ -48,7 +48,7 @@ namespace PhotoEditor
         /// </summary>
         private void OpenCancelMenuButtonClick(object sender, EventArgs e)
         {
-            CloseAllPopUps(sender, e);
+            CloseAllPopUps();
         }
 
         /// <summary>
