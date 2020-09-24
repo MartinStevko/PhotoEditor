@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace PhotoEditor
 {
+    /// <summary>
+    /// Main form - help menu events
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
@@ -10,9 +13,9 @@ namespace PhotoEditor
         /// </summary>
         private void button9_Click(object sender, EventArgs e)
         {
-            panel3.Visible = false;
-            panel4.Visible = false;
-            panel5.Visible = !panel5.Visible;
+            bool state = !panel5.Visible;
+            CloseAllPopUps(sender, e);
+            panel5.Visible = state;
         }
 
         /// <summary>
