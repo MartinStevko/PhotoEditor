@@ -58,7 +58,6 @@ namespace PhotoEditor
                     mainPictureBox.Image = imageSet.image;
                     break;
             }
-            ActionHandlersActive();
         }
 
         /// <summary>

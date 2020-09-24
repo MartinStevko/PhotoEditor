@@ -18,7 +18,11 @@ namespace PhotoEditor
         {
             bool state = !editPanel.Visible;
             CloseAllPopUps();
-            editPanel.Visible = state;
+            if (state)
+            {
+                ActionHandlersActive();
+                editPanel.Visible = state;
+            }
         }
 
         /// <summary>
@@ -95,26 +99,10 @@ namespace PhotoEditor
         /// </summary>
         private void ActionHandlersActive()
         {
-            if (taskControl.undoQueue.IsEmpty())
-            {
-                undoButton.Enabled = false;
-                undoButton.Refresh();
-            }
-            else
-            {
-                undoButton.Enabled = true;
-                undoButton.Refresh();
-            }
-            if (taskControl.redoQueue.IsEmpty())
-            {
-                redoButton.Enabled = false;
-                redoButton.Refresh();
-            }
-            else
-            {
-                redoButton.Enabled = true;
-                redoButton.Refresh();
-            }
+            undoButton.Enabled = !taskControl.undoQueue.IsEmpty();
+            undoButton.Refresh();
+            redoButton.Enabled = !taskControl.redoQueue.IsEmpty();
+            redoButton.Refresh();
         }
 
         /// <summary>
