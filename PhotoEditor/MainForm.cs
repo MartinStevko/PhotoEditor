@@ -35,12 +35,7 @@ namespace PhotoEditor
         /// <summary>
         /// PhotoEditor logger
         /// </summary>
-        private Log log;
-
-        /// <summary>
-        /// Random generator
-        /// </summary>
-        private static Random random;
+        public static Log log = new Log();
 
         #endregion
 
@@ -54,7 +49,6 @@ namespace PhotoEditor
             InitializeComponent();
             imageSet = new ImageSet();
             log = new Log();
-            random = new Random();
     }
 
         /// <summary>
