@@ -79,6 +79,9 @@
     <Compile Include="MainForm\ImageLoadControl.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MainForm\ImageSettingControls.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainForm\ImageViewControls.cs">
       <SubType>Form</SubType>
     </Compile>
