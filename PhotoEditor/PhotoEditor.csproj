@@ -286,5 +286,10 @@
   <ItemGroup>
     <None Include="Resources\iconOriginal.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Changes\" />
+    <Folder Include="MainForm\" />
+    <Folder Include="Tasks\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
