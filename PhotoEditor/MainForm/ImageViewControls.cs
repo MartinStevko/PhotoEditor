@@ -11,28 +11,31 @@ namespace PhotoEditor
         /// </summary>
         private void ChangePreview()
         {
-            button3.BackColor = toolGrey;
-            button4.BackColor = toolGrey;
-            button5.BackColor = toolGrey;
-            button6.BackColor = toolGrey;
-
-            switch (imageSet.imageMode)
+            if (imageSet != null)
             {
-                case ImageMode.Full:
-                    button3.BackColor = pictureGrey;
-                    break;
-                case ImageMode.Red:
-                    button4.BackColor = pictureGrey;
-                    break;
-                case ImageMode.Green:
-                    button5.BackColor = pictureGrey;
-                    break;
-                case ImageMode.Blue:
-                    button6.BackColor = pictureGrey;
-                    break;
-            }
+                button3.BackColor = toolGrey;
+                button4.BackColor = toolGrey;
+                button5.BackColor = toolGrey;
+                button6.BackColor = toolGrey;
 
-            RedrawMainImage();
+                switch (imageSet.imageMode)
+                {
+                    case ImageMode.Full:
+                        button3.BackColor = pictureGrey;
+                        break;
+                    case ImageMode.Red:
+                        button4.BackColor = pictureGrey;
+                        break;
+                    case ImageMode.Green:
+                        button5.BackColor = pictureGrey;
+                        break;
+                    case ImageMode.Blue:
+                        button6.BackColor = pictureGrey;
+                        break;
+                }
+
+                RedrawMainImage();
+            }
         }
 
         /// <summary>
