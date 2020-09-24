@@ -105,5 +105,45 @@ namespace PhotoEditor
 
             RedrawImageSet();
         }
+
+        #region Preview selection
+
+        /// <summary>
+        /// Maximize miniature with all colors
+        /// </summary>
+        private void button3_Click(object sender, EventArgs e)
+        {
+            imageSet.imageMode = ImageMode.Full;
+            ChangePreview();
+        }
+
+        /// <summary>
+        /// Maximize miniature with red color
+        /// </summary>
+        private void button4_Click(object sender, EventArgs e)
+        {
+            imageSet.imageMode = ImageMode.Red;
+            ChangePreview();
+        }
+
+        /// <summary>
+        /// Maximize miniature with green color
+        /// </summary>
+        private void button5_Click(object sender, EventArgs e)
+        {
+            imageSet.imageMode = ImageMode.Green;
+            ChangePreview();
+        }
+
+        /// <summary>
+        /// Maximize miniature with blue color
+        /// </summary>
+        private void button6_Click(object sender, EventArgs e)
+        {
+            imageSet.imageMode = ImageMode.Blue;
+            ChangePreview();
+        }
+
+        #endregion
     }
 }
