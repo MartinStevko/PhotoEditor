@@ -73,6 +73,9 @@
     <Compile Include="MainForm\HelpMenuEvents.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="MainForm\ImageViewControls.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Tasks\ColorTask.cs" />
     <Compile Include="Tasks\ColorTask\ApplyLUT.cs" />
     <Compile Include="Tasks\ColorTask\ColorChange.cs" />
