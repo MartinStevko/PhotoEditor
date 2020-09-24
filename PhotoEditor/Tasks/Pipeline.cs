@@ -41,17 +41,25 @@ namespace PhotoEditor
         public Tuple<byte, byte, byte> Run(byte r, byte g, byte b)
         {
             Tuple<byte, byte, byte> response = null;
-            foreach (ColorMixer job in jobs)
+            if (jobs.Count > 0)
             {
-                if (response == null)
+                foreach (ColorMixer job in jobs)
                 {
-                    response = job(r, g, b);
-                } 
-                else
-                {
-                    response = job(response.Item1, response.Item2, response.Item3);
+                    if (response == null)
+                    {
+                        response = job(r, g, b);
+                    }
+                    else
+                    {
+                        response = job(response.Item1, response.Item2, response.Item3);
+                    }
                 }
             }
+            else
+            {
+                response = new Tuple<byte, byte, byte>(r, g, b);
+            }
+
             return response;
         }
     }
