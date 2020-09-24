@@ -130,6 +130,11 @@ namespace PhotoEditor
             button14.Enabled = true;
             button15.Enabled = true;
             button28.Enabled = true;
+
+            button3.Enabled = true;
+            button4.Enabled = true;
+            button5.Enabled = true;
+            button6.Enabled = true;
         }
 
         #endregion
@@ -151,18 +156,7 @@ namespace PhotoEditor
         private void button2_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
-        }
-
-        /// <summary>
-        /// Closes all menu panels (main menu and its popups)
-        /// </summary>
-        private void CloseAllPopUps()
-        {
-            panel3.Visible = false;
-            panel4.Visible = false;
-            panel5.Visible = false;
-            panel6.Visible = false;
-            panel7.Visible = false;
+            CloseAllPopUps(sender, e);
         }
 
         /// <summary>
@@ -170,15 +164,11 @@ namespace PhotoEditor
         /// </summary>
         private void CloseAllPopUps(object sender, EventArgs e)
         {
-            CloseAllPopUps();
-        }
-
-        /// <summary>
-        /// Closes all menu panels (main menu and its popups)
-        /// </summary>
-        private void CloseAllPopUps(object sender, MouseEventArgs e)
-        {
-            CloseAllPopUps();
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+            panel7.Visible = false;
         }
 
         #endregion
