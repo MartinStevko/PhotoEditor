@@ -3,6 +3,9 @@ using System.Windows.Forms;
 
 namespace PhotoEditor
 {
+    /// <summary>
+    /// Main form - file menu events
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
@@ -10,9 +13,9 @@ namespace PhotoEditor
         /// </summary>
         private void button7_Click(object sender, EventArgs e)
         {
-            panel4.Visible = false;
-            panel5.Visible = false;
-            panel3.Visible = !panel3.Visible;
+            bool state = !panel3.Visible;
+            CloseAllPopUps(sender, e);
+            panel3.Visible = state;
         }
 
         /// <summary>
@@ -36,8 +39,7 @@ namespace PhotoEditor
         /// </summary>
         private void button22_Click(object sender, EventArgs e)
         {
-            panel6.Visible = false;
-            panel3.Visible = false;
+            CloseAllPopUps(sender, e);
             OpenNewImage();
         }
 
@@ -46,8 +48,7 @@ namespace PhotoEditor
         /// </summary>
         private void button18_Click(object sender, EventArgs e)
         {
-            panel6.Visible = false;
-            panel3.Visible = false;
+            CloseAllPopUps(sender, e);
         }
 
         /// <summary>
@@ -74,15 +75,6 @@ namespace PhotoEditor
                 pictureBox2.Image.Save(dialog.FileName);
             }
             log.Add("File saved as " + dialog.FileName);
-        }
-
-        /// <summary>
-        /// File -> Import LUT menu button - imports .CUBE file as look-up table
-        /// </summary>
-        private void button13_Click(object sender, EventArgs e)
-        {
-            // TODO: Import LUT
-            panel3.Visible = false;
         }
     }
 }
