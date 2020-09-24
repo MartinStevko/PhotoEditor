@@ -65,7 +65,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Changes.cs" />
+    <Compile Include="Changes\Queue.cs" />
+    <Compile Include="Changes\RestorePoint.cs" />
     <Compile Include="Pipeline.cs" />
     <Compile Include="Logger.cs" />
     <Compile Include="ColorFilters.cs" />
@@ -286,10 +287,6 @@
   <ItemGroup>
     <None Include="Resources\iconOriginal.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Changes\" />
-    <Folder Include="MainForm\" />
-    <Folder Include="Tasks\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
