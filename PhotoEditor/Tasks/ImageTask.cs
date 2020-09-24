@@ -7,14 +7,41 @@ namespace PhotoEditor
     /// </summary>
     public enum ImageModification
     {
+        /// <summary>
+        /// Level of image saturation changed
+        /// </summary>
         Saturation,
+        /// <summary>
+        /// Level of image brightness changed
+        /// </summary>
         Brightness,
+        /// <summary>
+        /// Level of image clarity changed
+        /// </summary>
         Clarity,
+        /// <summary>
+        /// Image color inverted
+        /// </summary>
         InvertColor,
+        /// <summary>
+        /// Image flipped by axis x
+        /// </summary>
         FlipHorizontally,
+        /// <summary>
+        /// Image flipped by axis y
+        /// </summary>
         FlipVertically,
+        /// <summary>
+        /// Swap two or more image colors from RGB
+        /// </summary>
         ColorRotate,
+        /// <summary>
+        /// Grey style applied
+        /// </summary>
         ApplyGreyStyle,
+        /// <summary>
+        /// Look-up table applied
+        /// </summary>
         ApplyLUT
     }
 
