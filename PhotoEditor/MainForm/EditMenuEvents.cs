@@ -5,6 +5,9 @@ using System.Windows.Forms;
 
 namespace PhotoEditor
 {
+    /// <summary>
+    /// Main form - edit menu events
+    /// </summary>
     public partial class MainForm : Form
     {
         /// <summary>
@@ -12,9 +15,9 @@ namespace PhotoEditor
         /// </summary>
         private void button8_Click(object sender, EventArgs e)
         {
-            panel3.Visible = false;
-            panel5.Visible = false;
-            panel4.Visible = !panel4.Visible;
+            bool state = !panel4.Visible;
+            CloseAllPopUps(sender, e);
+            panel4.Visible = state;
         }
 
         /// <summary>
@@ -94,18 +97,22 @@ namespace PhotoEditor
             if (taskControl.undoQueue.IsEmpty())
             {
                 button17.Enabled = false;
+                button17.Refresh();
             }
             else
             {
                 button17.Enabled = true;
+                button17.Refresh();
             }
             if (taskControl.redoQueue.IsEmpty())
             {
                 button16.Enabled = false;
+                button16.Refresh();
             }
             else
             {
                 button16.Enabled = true;
+                button16.Refresh();
             }
         }
 
@@ -124,8 +131,7 @@ namespace PhotoEditor
         /// </summary>
         private void ExportLUT()
         {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            string filename = new string(Enumerable.Repeat(chars, 5).Select(s => s[random.Next(s.Length)]).ToArray());
+            string filename = Guid.NewGuid().ToString();
             LookUpTable.Write(filename + ".CUBE", taskControl.tasks);
             log.Add("LUT file exported");
         }
@@ -154,8 +160,7 @@ namespace PhotoEditor
                 taskControl.CheckAndProcess();
                 log.Add("LUT file applied");
             }
-            panel7.Visible = false;
-            panel4.Visible = false;
+            CloseAllPopUps(sender, e);
         }
     }
 }
